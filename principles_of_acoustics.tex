@@ -1,0 +1,1154 @@
+\documentclass[9pt,mathserif]{beamer}
+
+\usepackage{cstzjx}
+\usepackage{cstzjx_beamer}
+
+% \includeonlylecture{viscosity,nonlinear,tensor}
+
+% \includeonlylecture{intro}
+% \includeonlylecture{idealfluid}
+% \includeonlylecture{duct}
+% \includeonlylecture{radiation}
+% \includeonlylecture{nonlinear}
+% \includeonlylecture{complex}
+% \includeonlylecture{tensor}
+
+
+% \usepackage[symbol]{footmisc}
+% \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+
+% \usetheme{Warsaw}
+\usetheme{Madrid}
+
+\usefonttheme{serif}
+% \usefonttheme{professionalfonts}
+% \usepackage{arev}
+% \setbeamertemplate{footline}{%
+   % \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber}}}}
+\useoutertheme{default}
+% \useoutertheme{infolines}
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+	\usebeamerfont{author in head/foot}\insertshortauthor (\insertshortinstitute)
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+	\usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  % \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+	% \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+	% \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  % \end{beamercolorbox}}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+	\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} Page
+	\insertframenumber{} \hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+
+\titlegraphic{\includegraphics[width=1.6cm]{img/njulogoaipurple.eps}\hspace*{.75cm}~%
+   \includegraphics[width=1.6cm]{img/logoia.jpg}
+}
+
+
+\let\emph\relax % there's no \RedeclareTextFontCommand
+% \DeclareTextFontCommand{\emph}{\bfseries\em}
+% \DeclareTextFontCommand{\emph}{\bfseries}
+\DeclareTextFontCommand{\emph}{\bfseries\sffamily}
+
+\author{Jiaxin Zhong}
+\institute[NJU]{Nanjing University, China}
+\date{\today}
+
+
+\AtBeginLecture{
+	\begin{frame}
+		\titlepage
+	\end{frame}
+}
+
+
+% \g@addbefore@macro\beamer@atbeginlecture{
+	% \begin{frame}[plain]
+		% \LectureTitlePage
+	% \end{frame}
+	% \lecturemode
+	% \newtheoremstyle{my@style@rmk}{3pt}{3pt}{\upshape}{}{\bfseries}{}{.5em}{}
+	% \newtheoremstyle{my@style@def}{3pt}{3pt}{\upshape}{}{\bfseries}{}{.5em}{}
+	% \newtheoremstyle{my@style@thm}{3pt}{3pt}{\upshape}{}{\bfseries}{}{.5em}{}
+% }
+% \newcommand{\LectureTitlePage}{%
+    % \setcounter{framenumber}{0}
+    % \global\def\inserttitle{{Lecture \insertlecturenumber: \insertlecture}}
+    % \global\def\insertshorttitle{{Lecture \insertlecturenumber: \insertlecture}}
+    % \global\def\insertdate{\lecturedate}
+    % \global\def\insertshortdate{\lecturedate}
+  % \titlepage
+% }
+
+% \newcommand{\lecturemode}{%
+    % \ifbeamer@inlecture
+    % \else
+      % \expandafter\mode\expandafter<\expandafter n\expandafter o\expandafter n\expandafter e\expandafter >\fi
+% }
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\titlestring}{The Principles of Acoustics}
+\part{\titlestring}
+\title{\titlestring}
+\lecture{Introduction}{intro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{References}
+\begin{frame}{References}
+	\begin{outline}
+		\1 \emph{Textbook A}: 《声学原理》---{\kaishu 程建春}著
+		\1 \emph{Textbook B}: 《声学基础》第二版---{\kaishu 杜功焕}等著
+		\1 \emph{Lecture Notes} --- \textsc{Jiaxin Zhong}
+		\1 《声学基础》课程课件---{\kaishu 王新龙}著
+		\1 《理论声学》课程课件---{\kaishu 王新龙}著
+		\1 网易博客博文: http://xlwangnu.blog.163.com/ --- {\kaishu 王新龙}著
+		\1 《数学物理方法》第二版---{\kaishu 吴崇试}等著
+		\1 \textit{Fundamentals of Acoustics} - 4ed --- \textsc{Lawrence E. Kinsler}, etc.
+		\1 \textit{Mathematical Methods in the Physical Sciences} - 3ed --- \textsc{Mary L. Boas}, etc.
+	\end{outline}
+\end{frame}
+
+\setcounter{framenumber}{0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\titlestring}{Sound Waves in Ideal Fluids}
+\part{\titlestring}
+\title{\titlestring}
+\lecture{\titlestring}{idealfluid}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Introduction}
+	\begin{block}{Acoustic waves}
+		\emph{Acoustic waves} constitute one kind of \emph{pressure fluctuation} that can exist in a \emph{compressible fluid}.
+		\begin{itemize}
+			\item mechanical waves
+			\item media: \emph{elastic continuum}, e.g. gases, liquids, solids
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Ideal Fluid: lossless, no dissipitive effects}
+		\begin{itemize}
+			\item \emph{inviscid}: No \emph{viscous force}
+			\item No \emph{heat conduction}
+		\end{itemize}
+	\end{block}
+
+	\begin{exampleblock}{Continuum Hypothesis}
+		\begin{itemize}
+			\item \emph{fluid particles}(\emph{elements})
+				\begin{itemize}
+					\item infinitesimal volume of the fluid large enough to contain millions of molecules $\to$ contious medium
+					\item small enough $\to$ all acoustic variables are uniform throughout
+				\end{itemize}
+		\end{itemize}
+	\end{exampleblock}
+
+\end{frame}
+
+
+\begin{frame}{Two Descrption Methods}
+	
+	\begin{block}{Lagrangian Method}
+		\begin{outline}
+			\1 Follow \emph{the individual fluid particle} located at $\vb{R}_0 = (a,b,c)$ at time $t=t_0$.
+			\1 The location of \textbf{this} particle $\vb{R}=(X,Y,Z)$ at time $t$ is:
+			\begin{align*}
+				\begin{cases}
+					X=X(a,b,c,t)\\
+					Y=Y(a,b,c,t)\\
+					Z=Z(a,b,c,t)
+				\end{cases}
+			\end{align*}
+		\end{outline}
+	\end{block}
+
+	\begin{block}{Eulerian Method}
+		\begin{outline}
+			\1 Don't care about the specific fluid particles.
+			\1 The \emph{field representation} is used. 
+			\1 The \emph{physical quantities} $f$ at the location $\vb{r}=(x,y,z)$ at time $t$: $f(x,y,z,t)$.
+				\2 3 \emph{state variables}: pressure ($p$), density ($\rho$), and temperature ($T$)
+				\2 3 \emph{velocity components}: $\vb{v}=(v_x,v_y,v_z)$
+			\1 \emph{6 (differential)}\footnote{Why \emph{differential equations}? How about \emph{integral equations?}} \emph{equations} are needed to solve the above 6 physical quantites
+				\2 5 equations: \emph{conservation theorems}
+				\2 1 equation: \emph{state equation}
+		\end{outline}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Lagrangian Method}
+	\begin{outline}
+		\1 \emph{particle displacement}: $\Delta \vb{R} \equiv \vb{R}-\vb{R}_0=\bm{\xi} = (\xi,\eta,\zeta)$
+			\2 the location of the particle:
+			\begin{align*}
+				\begin{cases}
+				X = a+\xi(a,b,c,t)\\
+				Y = b+\eta(a,b,c,t)\\
+				Z = c+\zeta(a,b,c,t)
+				\end{cases}
+			\end{align*}
+		\1 the \emph{volume} of the fluid particle: $\Delta V(a,b,c,t)$
+			\2 $\Delta V_0 \equiv \Delta V(a,b,c,t_0) = \dd{a}\dd{b}\dd{c}$
+			\2 $\Delta V \equiv  \Delta V(a,b,c,t) = \dd{X}\dd{Y}\dd{Z}$
+			$$
+			\dd{X}\dd{Y}\dd{Z} = |\tikz[baseline]{\node[fill=green!20,anchor=base]{$J$}}|\dd{a}\dd{b}\dd{c}
+			$$
+			$$
+				\qty(\mqty[\dd{X}\\ \dd{Y} \\ \dd{Z}] = 
+				\tikz[baseline]{\node[fill=green!20,anchor=base]{$\displaystyle \mqty[\pdv*{X}{a}&\pdv*{X}{b}&\pdv*{X}{c}\\ \pdv*{Y}{a} & \pdv*{Y}{b} & \pdv*{Y}{c}\\ \pdv*{Z}{a} & \pdv*{Z}{b} &\pdv*{Z}{c} ]$}}  \mqty[\dd{a}\\ \dd b \\ \dd c])
+			$$
+			\2 \emph{Jacobbian determinant} ($X_a\equiv \pdv*{X}{a}, \xi_a\equiv \pdv*{\xi}{a}$): $$|J|=\mdet{X_a&X_b&X_c\\Y_a&Y_b&Y_c\\Z_a&Z_b&Z_c} = \mdet{1+\xi_a&\xi_b&\xi_c\\ \eta_a&1+\eta_b&\eta_c\\ \zeta_a& \zeta_b& 1+\zeta_c}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Lagrangian Method}
+	\begin{outline}
+		\1 \emph{equilibrium density}: $\rho_0\equiv \rho(a,b,c,t_0)$
+		\1 \emph{instantaneous density}: $\rho\equiv \rho(X,Y,Z,t)$
+		\1 \emph{conservation of mass}: $\rho\dd{X}\dd{Y}\dd{Z} = \rho_0 \dd{a}\dd{b}\dd{c}$
+	\end{outline}
+
+		\begin{exampleblock}{The Equation of Continuity}
+			$$
+				\rho |J| = \rho_0
+			$$
+			where $|J|$ is defined in:
+			\begin{outline}
+				\1 3D: $|J|=\mdet{X_a&X_b&X_c\\Y_a&Y_b&Y_c\\Z_a&Z_b&Z_c} = \mdet{1+\xi_a&\xi_b&\xi_c\\ \eta_a&1+\eta_b&\eta_c\\ \zeta_a& \zeta_b& 1+\zeta_c}$
+				\1 2D: $|J|=\mdet{X_a&X_b\\Y_a&Y_b} = \mdet{1+\xi_a&\xi_b\\ \eta_a&1+\eta_b}$
+				\1 1D: $|J|=X_a = 1+\xi_a$
+			\end{outline}
+
+		\end{exampleblock}
+
+\end{frame}
+
+
+\begin{frame}{Eulerian Method}{The Equation of Continuity}
+	\begin{outline}
+		\1 \emph{mass flux} is the rate of mass flow per unit area: $\vb{j}\utm = \rho \vb{v}$
+		\1 The \emph{velocity} at $\vb{r}$ and time $t$: $\vb{v} = \vb{v}(\vb{r},t) = (v_x,v_y,v_z), v = ||\vb{v}||$
+		\1 The \emph{volume} of a bulk of fluid: $V$, \emph{surface} of $V$: $\vb{S} = S\vb{n}$
+		\1 The \emph{principle of mass conservation}:
+		$$\dv{}{t}\iiint_V \rho \dd{V} = -\oiint_S \vb{j}\utm\cdot \dd{\vb{S} }$$
+		\1 The Gauss theorem: $$\oiint_S \vb{f} \cdot \dd{\vb{S} } = \iiint_V \div{\vb{f} }\dd{V}$$
+	\end{outline}
+
+	\begin{exampleblock}{Exact Continuity Equation}
+		$$
+			\pdv{\rho}{t} +\div{\vb{j}\utm}=0
+		$$
+	\end{exampleblock}
+
+	\begin{alertblock}{Import Remark}
+		\centering
+		Remember that \emph{ALL} the physical quantities are the function of $\vb{r}$ and $t$ \emph{IN DEFUALT}.
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}{Eulerian Method}{Homework}
+	\begin{outline}[enumerate]
+			\1 Suppose there exists a net \emph{volume velocity} output of $q$ units per unit volume per unit time (the unit is s$^{-1}$, i.e. per second), please show that the exact continuity equation is:
+			$$
+				\pdv{\rho}{t} +\div{\vb{j}\utm}=\rho q
+			$$
+	\end{outline}
+
+\end{frame}
+
+\begin{frame}{Eulerian Method}
+	\begin{outline}
+		\1 The \emph{velocity field} at loction $\vb{r}$ and time $t$: $\vb{v}(x,y,z,t)$
+		\1 The particle at $\vb{r}$ at time $t$ travels to $\vb{r}+\Delta\vb{r}$ at time $t+\Delta t$, and the veloctiy of this particle is: $\vb{v}(\vb{r}+\Delta\vb{r},t+\Delta t)$
+		\1 The \emph{acceleration} of this particle: $$\vb{a} \equiv \dv{\vb{v} }{t}$$
+		\1 The Taylor expansion:
+		\begin{align*}
+			\vb{v}(\vb{r}+&\Delta{\vb{r} }, t+\Delta t) = \vb{v}(x,y,z,t) + \pdv{\vb{v}(x,y,z,t)}{t} \dd{t} 
+			+ \pdv{\vb{v}(x,y,z,t)}{x}v_x\dd{t} \\ &+\pdv{\vb{v}(x,y,z,t)}{y}v_y\dd{t}+ \pdv{\vb{v}(x,y,z,t)}{z}v_z\dd{t}, \quad\qty(v_x\dd{t} = \dv{x}{t}\dd{t} = \dd{x})
+		\end{align*}
+		\begin{align*}
+			% \imp \dv{\vb{v} }{t} = \pdv{\vb{v} }{t} + v_x\pdv{\vb{v} }{x} + v_y\pdv{\vb{v} }{y} + v_z\pdv{\vb{v} }{z} =\qty(\pdv{}{t} + \vb{v}\cdot \grad) \vb{v}
+			\imp \tikz[baseline]{\node[fill=red!20,anchor=base]{$\displaystyle \dv{\vb{v} }{t} $} }
+			= \pdv{\vb{v} }{t} + v_x\pdv{\vb{v} }{x} + v_y\pdv{\vb{v} }{y} + v_z\pdv{\vb{v} }{z} 
+			=\tikz[baseline]{\node[fill=red!20,anchor=base]{$\displaystyle \qty(\pdv{}{t} + \vb{v}\cdot \grad) \vb{v}$}}
+		\end{align*}
+	\end{outline}
+\end{frame}
+
+\begin{frame}{xx}
+	\begin{outline}
+		\1 A particle travels from $\vb{r}=(x,y,z)$ at time $t$ to $\vb{r}+\Delta \vb{r} = (x+\Delta x,y+\Delta y, z+\Delta z)$ at time $t+\Delta t$. According to Taylor expansion, we have 
+		\begin{align*}
+			&\vb{v} (x+\Delta x,y+\Delta y,z+\Delta z,t+\Delta t) = \vb{v}(x,y,z,t)\\
+			&\qquad \qquad +\left.\pdv{\vb{v}}{t}\right|_{(x,y,z,t)}\Delta t + \left.\pdv{\vb{v}}{x}\right|_{(x,y,z,t)}\Delta x +\left.\pdv{\vb{v}}{y}\right|_{(x,y,z,t)}\Delta y +\left.\pdv{\vb{v}}{z}\right|_{(x,y,z,z)}\Delta z 
+		\end{align*}
+		\begin{flalign*}
+			\imp &&&\frac{\vb{v} (x+\Delta x,y+\Delta y,z+\Delta z,t+\Delta t) - \vb{v}(x,y,z,t)}{\Delta t} &&\\
+			&&={}& \left.\pdv{\vb{v}}{t}\right|_{(x,y,z,t)} \frac{\Delta t}{\Delta t} + \left.\pdv{\vb{v}}{x}\right|_{(x,y,z,t)} \frac{\Delta x}{\Delta t} +\left.\pdv{\vb{v}}{y}\right|_{(x,y,z,t)} \frac{\Delta y}{\Delta t} +\left.\pdv{\vb{v}}{z}\right|_{(x,y,z,t)} \frac{\Delta z}{\Delta t} &&\\
+		\end{flalign*}
+		\begin{flalign*}
+			\imp && \left. \dv{\vb{v}}{t} \right|_{(x,y,z,t)} &= \left.\pdv{\vb{v}}{t}\right|_{(x,y,z,t)} + \left.\pdv{\vb{v}}{x}\right|_{(x,y,z,t)} v_x(x,y,z,t) &&\\
+			&&&\quad +\left.\pdv{\vb{v}}{y}\right|_{(x,y,z,t)} v_y (x,y,z,t) +\left.\pdv{\vb{v}}{z}\right|_{(x,y,z,t)} v_z(x,y,z,t) &&
+		\end{flalign*}
+	\end{outline}
+\end{frame}
+
+\begin{frame}
+	\begin{outline}
+	\begin{flalign*}
+		\imp && \left. \dv{\vb{v}}{t} \right|_{(x,y,z,t)} &= \left.\pdv{\vb{v}}{t}\right|_{(x,y,z,t)} + \left. \qty[(v_x,v_y,v_z)\vdot \qty(\pdv{x},\pdv{y},\pdv{z})] \vb{v}\right|_{(x,y,z,t)} &&\\
+		\imp && \left. \dv{\vb{v}}{t} \right|_{(x,y,z,t)} &= \left.\pdv{\vb{v}}{t}\right|_{(x,y,z,t)} + \left.(\vb{v}\vdot \grad) \vb{v}\right|_{(x,y,z,t)} &&\\
+		\text{where}&& \vb{v} (x,y,z,t) &= (v_x (x,y,z,t), v_y(x,y,z,t), v_z(x,y,z,t))&&
+	\end{flalign*}
+\end{outline}
+\end{frame}
+
+\begin{frame}{Eulerian Method}{Eulerian Equation}
+	\begin{outline}
+		\1 The \emph{volume} of a bulk of fluid: $\Delta V$
+		\1 The \emph{surface} of $\Delta V$: $\Delta\vb{S} = \Delta S\vb{n}$
+		\1 The \emph{total pressure} when $\Delta V\to 0$:
+		$$
+			-\oiint_{\Delta S} P\dd{\vb{S} } = -\iiint_{\Delta V} \grad{P} \dd{V}
+			\xrightarrow{\Delta V\to 0} -\grad{P}\Delta V
+		$$
+		\1 Newton's seconda law
+		$$
+		\qty(\rho\Delta V)\dv{\vb{v} }{t}=-\grad{P} \Delta V
+		$$
+	\end{outline}
+
+	\begin{exampleblock}{Eulerian Equation}
+		$$\rho\dv{\vb{v} }{t} = -\grad{P}$$
+		or
+		$$ \pdv{\vb{v} }{t} + \vb{v}\cdot \grad \vb{v} = -\frac1\rho \grad{P}$$
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Eulerian Method}{Homework}
+	\begin{outline}[enumerate]
+			\1 Suppose there exists a \emph{body force density} $\rho\vb{g}$ (which has the physical dimensions of force per unit mass), please show that the Eulerian equation is:
+			$$\rho\dv{\vb{v} }{t} = -\grad{P}+\rho \vb{g}$$
+	\end{outline}
+
+	\begin{defi}[Body Force]
+		\begin{outline}
+			\1 A \emph{body force} is a force that acts throught the volume of a body.
+				\2 $\checkmark$: gravity, electric forces, magnetic forces, Centrifugal force
+				\2 $\times$: shear forces, normal forces
+			\1 The \emph{body force density}, $\rho \vb{g}$ is defined so that the volume integral of it gives the \emph{body force}:
+					$$\vb{G}_\text{body} = \iiint_V \rho \vb{g}(\vb{r}) \dd{V}$$
+				\2 where $\vb{g}$ is the \emph{external body force density field} acting on the system
+		\end{outline}
+	\end{defi}
+\end{frame}
+
+\begin{frame}{Equation of State}
+
+	\begin{block}{Equation of State}
+		For fluid media, the equation of state must relate \emph{3 physical quantities} descrbing the thermodynamic behavior of the fuid: such as $\{\rho, P, T\}$, $\{\rho,P,s\}$ or $\{\rho, P, V\}$.
+		$$f(\rho,P,T)=0, \quad f(\rho,P,s)=0 \qor f(\rho,P,V)=0$$
+		where $s$ is the \emph{entropy per mass} of the fluid.
+	\end{block}
+
+	\begin{exampleblock}{Equation of State for a Perfect Gas}
+		$$P=\rho \mathcal{R} T\utK$$
+		where $T\utK$ in kelvins (K) is the \emph{absolute temperature}, and $\mathcal{R}$ is the \emph{specific gas constant} and depends on the \emph{universal gas constant} and the \emph{molecular weight}. 
+
+		For air, $\mathcal{R} \approx 287\si{J\cdot kg^{-1} K^{-1}}$.
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Equation of State}
+
+	\begin{outline}
+		\1 The acoustic processes are nearly \emph{isentropic} (\emph{adiabatic and reversible})
+		\1 The \emph{entropy} of the fluid remains nearly constant: $\displaystyle \dv{s(P,\rho)}{t}=0 \imp P=P(\rho)$
+		\1 Definition of \emph{sound speed}: $\displaystyle c^2\equiv \pdv{P}{\rho}=c^2(\rho,s)$
+			\2 $\displaystyle c^2_s = \dv{P}{\rho} = c^2_s(\rho)$
+		\1 Definition of \emph{compressibility} and \emph{bulk modulus}:
+		$$\beta_s =\frac{1}{\kappa_s} \equiv -\frac1V\qty(\pdv{V}{P})_s=\frac{1}{\rho}\qty(\pdv{\rho}{P})_s = \frac{1}{\rho c^2_s}$$
+
+	\end{outline}
+
+
+\end{frame}
+
+\begin{frame}{Equation of State}
+
+	\begin{exampleblock}{General Fluids Adiabat}
+		% $$P = P_0 + \frac{1}{1!} \rho_0\qty(\pdv{P}{\rho})_{s,0} \delta + \frac{1}{2!} \rho_0^2 \qty(\pdv[2]{P}{\rho})_{s,0} \delta^2+\cdots$$
+		\begin{align*}
+			P &= P(\rho) = P(\delta) = P_0 + \sum_{n=1}^\infty \frac{1}{n!} \rho_0^n \qty(\pdv[n]{P}{\rho} )_{s,0} \delta^n\\
+			&=P_0 + \frac{1}{1!} A\rho_0 \delta + \frac{1}{2!} \rho_0^2 B \delta^2+\frac{1}{3!}\rho_0^3 C \delta^3+\cdots
+		\end{align*}
+		where $\delta = (\rho-\rho_0)/\rho_0$, $A=\qty(\pdv{P}{\rho})_{s,0}$, $B=\qty(\pdv[2]{P}{\rho})_{s,0}$, $C=\qty(\pdv[3]{P}{\rho})_{s,0}$.
+	\end{exampleblock}
+
+	\begin{exampleblock}{Perfect Gas Adiabat}
+		\begin{align*}
+			P&=P_0 \qty(\frac{\rho}{\rho_0})^\gamma\\
+			&=P_0 + \frac{1}{1!}\rho_0 \gamma\delta + \frac{1}{2!}\rho_0^2\gamma (\gamma-1)\delta^2 + \cdots
+		\end{align*}
+		where $\gamma$ is the \emph{ratio of specific heats} (or \emph{ratio of heat capacities}).
+		For air, $\gamma\approx 1.40$.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Disturbance Quantities}
+	\begin{outline}
+		\1 Under mechanical disturbances, the quantities are changed as: $$P_0\to P, \quad T_0\to T,\quad  \rho_0 \to \rho$$
+			\2 \emph{pressure disturbance}: $p=\Delta{P} (=\dd{P}) = P-P_0$
+			\2 \emph{density disturbance}: $\rho' = \Delta\rho (=\dd{\rho})= \rho-\rho_0 $
+			\2 \emph{temperature disturbance}: $\tau=\Delta T (=\dd{T})=T-T_0$
+			\2 \emph{velocity disturbance}: $\vb{v}'=\Delta \vb{v} (=\dd{\vb{v} }) = \vb{v} - \vb{v}_0$
+				\3 $\vb{v}'=\vb{v}$ if $\vb{v}_0=0$
+		\1 \emph{(scalar) pressure field}: $p(\vb{r},t)$
+		\1 \emph{(vector) velocity field}: $\vb{v}(\vb{r},t)$
+		\1 \emph{(scalar) velocity potential field}: $\vb{v} = -\grad{\Phi}$ or $\vb{v}=\grad{\Phi}$
+			\2 the particle velocity must be \emph{irrotational}, i.e. $\curl{\vb{v} }=0$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Sound Pressure with Its Units}
+	\begin{block}{Sound (Acoustic) Pressure}
+		$$p \equiv P-P_0$$
+	\end{block}
+
+	\begin{outline}
+		\1 \emph{effective sound pressure} (only for periodical or quasi-periodical acoustic waves: $$p\ute(x) = \sqrt{\frac1T\int_0^T p^2(\vb{r},t)\dd{t} }$$
+		\1 Units for sound pressure
+			\2 $1 \si{Pa} = 1 \si{N/m^2} = 10 \si{Dyne/cm^2} $
+			\2 $1 \si{bar} = 100 \si{kPa} = 10^5 \si{Pa}$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Assumptions for Linear Wave Equation}
+	\begin{outline}
+		\1 Assumptions for the fluids to be investigated:
+			\2 \emph{staionery}: $\vb{v}_0 = 0$
+			\2 \emph{homogeneity of initial conditions}: $P_0(\vb{r}) = $ const., $\rho_0(\vb{r}) = $ const.
+			\2 \emph{lossless}: adiabat, i.e. $s(t)= $ const.
+		\1 Linear assumptions: $$p\ll P_0, |\bm{\xi}| \ll \lambda, \rho' \ll \rho_0,|\vb{v}| \ll c_0$$
+		\2 $c_s^2 \approx c_0^2 = \qty(\displaystyle \dv{P}{\rho})_{s,0}$
+			\2 $\kappa_s \approx \kappa_{s,0} = \rho_0c_0^2, \beta_s\approx \beta_{s,0} =\dfrac{1}{\rho_0c_0^2}$
+			
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Linearization Due to Small Variations}
+	\begin{outline}
+		\1 \emph{exact continuity equation} $\to$ \emph{linear continuity equation}:
+		$$\pdv{\rho}{t} + \div(\rho \vb{v} ) = 0 \to \pdv{\rho'}{t} + \rho_0 \div{\vb{v} } \approx 0$$
+		\1 \emph{Eulerian equation} $\to$ linear:
+		$$\rho \dv{\vb{v} }{t} = -\grad{P} \to \rho_0 \pdv{\vb{v} }{t} \approx -\grad{p}$$
+		\1 \emph{equation of state} $\to$ linear:
+		$$P = P_0 + \frac{1}{1!} \rho_0\qty(\pdv{P}{\rho})_{s,0} \delta + \frac{1}{2!} \rho_0^2 \qty(\pdv[2]{P}{\rho})_{s,0} \delta^2+\cdots$$
+		$$\to p\approx\rho' c_0^2 $$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Linearization Due to Small Variations}
+	\begin{outline}
+		\1 Eliminate $\rho'$,\footnote{Why $\rho'$? Because the variation of the density is hard to detect in practice.} we have 
+		$$
+		\begin{cases}
+			\displaystyle \beta_{s,0} \pdv{p}{t} \approx -\div \vb{v}\\
+			\displaystyle \pdv{\vb{v} }{t} \approx -\frac{1}{\rho_0}\grad p
+		\end{cases}
+		,\quad \qty(\beta_{s,0}=\frac{1}{\kappa_{s,0}}=\frac{1}{\rho_0c_0^2})
+		$$
+		\1 Eliminate $\vb{v}$,\footnote{Why $\vb{v}$? Because the velocity is a vector, which is harder to handle than a scalar like sound pressure $p$.} we have
+	\end{outline}
+
+	\begin{alertblock}{Linear Wave Equation (for Sound Pressure)}
+		$$\qty(\laplacian- \frac{1}{c_0^2}\pdv[2]{}{t})p \approx 0$$
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}{Useful Equations}
+	\begin{exampleblock}{Calculate $\vb{v}$ by $p$}
+		$$\vb{v}=-\frac{1}{\rho_0}\int\grad p\dd{t}$$
+		Proof: by Eulerian euqation directly.
+	\end{exampleblock}
+
+	\begin{exampleblock}{Linear Wave Equation (for Velocity)}
+		$$\qty(\laplacian-\frac{1}{c_0^2}\pdv[2]{}{t} )\vb{v} \approx 0$$
+		Proof: Eliminate $p$ with $\grad(\div{\vb{v}})=\curl{\curl{\vb{v}}}+\laplacian\vb{v}=\laplacian\vb{v}$.
+	\end{exampleblock}
+
+	\begin{exampleblock}{Linear Wave Equation (for Velocity Potential)}
+		$$\qty(\laplacian - \frac{1}{c_0^2}\pdv[2]{}{t}){\Phi} \approx 0,\quad \qty(p\approx \rho_0 \pdv{\Phi}{t})$$
+		where $\vb{v} = -\grad\Phi$.
+	\end{exampleblock}
+
+
+
+\end{frame}
+
+\begin{frame}{*Nondimensionalization}
+	\begin{defi}[Nondimensionalized Variables]
+		$$
+		\tau = \omega t, \quad \xi = kx,\quad  \nu = \frac{v}{c_0},\quad  q = \frac{p}{\kappa_{s,0}},\quad  \delta = \frac{\rho'}{\rho_0},\quad  \chi^2+1 = \qty(\frac{c}{c_0})^2 \footnote{Why don't we define this as $\chi^2=\qty(\frac{c-c_0}{c_0})^2$? Because $c$ is always no less than $c_0$.}
+		$$
+	\end{defi}
+\end{frame}
+
+\begin{frame}{Linear Wave Equation}{Homework}
+
+	\begin{outline}[enumerate]
+		\1 Suppose there exist $q$ and $\vb{g}$, show that 
+			\begin{alertblock}{Linear Inhomogenous Wave Equation (for Sound Pressure)}
+				$$\qty(\laplacian- \frac{1}{c_0^2}\pdv[2]{}{t})p \approx \rho_0\qty(\div \vb{g} -\pdv{q}{t})$$
+			\end{alertblock}
+
+		\1 Suppose the $\vb{g}$ has \emph{potential}, i.e. $\vb{g}=-\grad \Psi$, show that 
+		\begin{exampleblock}{Linear Wave Equation (for Velocity Potential)}
+			$$\qty(\laplacian- \frac{1}{c_0^2}\pdv[2]{}{t})\Phi \approx -q -\frac{1}{c_0^2}\pdv{\Psi}{t}$$
+		\end{exampleblock}
+		\1 Textbook B: 4-4
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Linear Wave Equation}{Homework}
+
+	\begin{enumerate}
+		\setcounter{enumi}{3}
+		\item Suppose the potential is defined as: $$\vb{v} = \grad\Phi,\quad \vb{g}=\grad\Psi.$$
+		Show that 	
+		\begin{flalign*}
+			&&p\approx -\rho_0&\qty(\pdv{\Phi}{t}-\Psi)&\\
+			\text{and} &&  \left(\laplacian - \frac{1}{c_0^2}\pdv[2]{}{t}\right)&\Phi \approx q -\frac{1}{c_0^2}\pdv{\Psi}{t}&
+		\end{flalign*}
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{A Special Wave Equation}
+	\begin{block}{Description}
+		\begin{outline}
+			\1 1. the \emph{shape of the wave front} remains the same
+			\1 2. the \emph{direction of propagating of the wave} remains the same
+		\end{outline}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{img/idealfluid/fix_front_shape.pdf}
+		\end{figure}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}{A Special Wave Equation}
+	\begin{outline}
+		\1 \emph{continuity equation:}
+		$$\rho \dv{v}{t} = -\pdv{P}{r} \quad \rightarrow \quad \rho_0 \pdv{v}{t} \approx -\pdv{p}{r}$$
+		\1 \emph{Eulerian equation:}
+		$$\pdv{t} (\rho S \dd{r}) = (\rho vS)_r - (\rho v S)_{r+\dd{r}} = -\pdv{(\rho vS)}{r} \dd{r} 
+		\quad \rightarrow \quad S\pdv{\rho}{t} \approx -\rho_0 \pdv{(vS)}{r}$$
+		\1 \emph{equation of state:}
+		$$P = P(\rho) \quad \rightarrow\quad  p \approx c_0^2 \rho'$$
+		\1 \emph{linear wave equation:}
+		$$\qty[\pdv[2]{p}{r}+\pdv{p}{r} \dv{(\ln S)}{r} ]- \frac{1}{c_0^2} \pdv[2]{p}{t}\approx 0$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Planar Wave}
+	\begin{outline}
+		\1 1D wave equation
+		$$\qty(\pdv[2]{x} - \frac{1}{c_0^2} \pdv[2]{t}) p =0$$
+		$$\pdv{p}{\xi}{\eta} = 0, \qty(\xi = c_0t-x, \eta=c_0t+x)$$
+		$$\imp p = f(\xi)+g(\eta) = f(c_0t-x) +g(c_0t+x)$$
+		\1 \emph{propagating wave} in $x$ direction: \colorbox{red!20}{$p=p(c_0t-x)$}
+		\1 (3D wave equation) propagating wave in \emph{unit vector} $\vb{n} = (n_x,n_y,n_z)$ direction 
+			$$p=p(c_0t-\vb{n}\vdot \vb{r})$$
+		\1 \emph{wave front}: a curved surface where the physical quantites are the same
+			$$\zeta = c_0t \mp \vb{n}\vdot \vb{r} = \text{const.}$$
+			$$\dd \zeta = 0 \imp c_0 = \pdv{t} (\vb{n} \vdot \vb{r})$$
+		\1 velocity 
+		$$\vb{v} = -\frac{1}{\rho_0} \int \grad p \dd{t} =\frac{p}{\rho_0c_0}\vb{n}, \quad \qty(\grad p(\zeta) = \vb{n} \dv{p}{\zeta}, \int p(\zeta) \dd{t} = \frac{1}{c_0} \int p(\zeta)\dd{\zeta})$$
+		\end{outline}
+\end{frame}
+
+\begin{frame}{Harmonic Plane Wave}
+	\begin{outline}
+		\1 the \emph{angular frequency}: $\omega$
+		$$p(\vb{r},t) = p(\vb{r})\me^{\mj \omega t}$$
+	\end{outline}
+	\begin{alertblock}{Linear Harmonic Plane Wave (Helmholtze) Equation}
+		$$\qty(\laplacian +k^2) p(\vb{r}) = 0$$
+		the \emph{wave number}: $k = \omega/c_0$
+	\end{alertblock}
+	\begin{outline}
+		\1 1D wave equation
+		$$ \qty(\dv[2]{x}+k^2)p(x) = 0, \imp p(x) =p\uta \me^{\mj kx}\qor p\uta\me^{-\mj kx}$$
+		\1 propagating wave with frequency $\omega$
+		$$p(x,t) = p\uta \me^{\mj (\omega t\mp kx)}$$
+		$$p(\vb{r},t) = p\uta \me^{\mj (\omega t\mp \vb{k}\vdot\vb{r})}, \qty(\vb{k} = k \vb{n})$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Sound Energy}
+	\begin{outline}
+		\1 consider the fluid particle $\Delta V$
+		\1 \emph{kinetic energy}: $$\Delta E\utk=\frac12 \rho_0 v^2\Delta V_0 , \quad \qty(v = |\vb{v}|)$$
+		\1 \emph{potential energy}: the work done by sound pressure $p$
+		$$\Delta E\utp = -\int_{\Delta V_0}^{\Delta V} p \dd(\Delta V)\approx \Delta V_0 \beta_{s,0} \int_0^p p\dd{p} = \frac12 \beta_{s,0} p^2 \Delta V_0$$
+		$$\qty(\frac{\dd(\Delta V)}{\Delta V_0}   \approx - \frac{\dd{\rho'}}{\rho_0} \xrightarrow{p=c_0^2\rho'} \dd(\Delta V) \approx -\Delta V_0 \beta_{s,0}\dd{p})$$
+		\1 \emph{total energy}: $$\Delta E = \Delta E\utk+\Delta E\utp = \frac12 \qty(\rho_0 v^2+\beta_{s,0}p^2)\Delta V_0$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Oblique Incidence}{reflection and transmission coefficients}
+	\begin{outline}
+		\1 the boundary conditions s.t. Snell's law:
+		$$ 
+		\begin{cases}
+			p_\text{ia}+p_\text{ra}=p_\text{ta}\\
+			\displaystyle \frac{p_\text{ia} - p\utra}{z_\text{n1}} = \frac{p\utta}{z_\text{n2}}
+		\end{cases}	
+		\imp 
+		\begin{cases}
+			1+r\utp=t\utp\\
+			\displaystyle \frac{1-r\utp}{z_\text{n1}} = \frac{t\utp}{z_\text{n2}}
+		\end{cases}	
+		,
+		\qty(
+		\begin{matrix}
+			z_\text{n1}\equiv z\utni=-z\utnr\\
+			z_\text{n2}\equiv z\utnt
+		\end{matrix}	
+		)
+		$$
+		\1 the ratio of density: $m\equiv \rho_2/\rho_1$, refractive index: $n=k_2/k_1=c_1/c_2$
+		\1 reflection and transmission coeff.:
+		$$
+		r\utp\equiv\frac{p\utra}{p\utia} = \frac{z_\text{n2}-z_\text{n1}}{z_\text{n2}-z_\text{n1}} = \frac{R_2\cos\theta\uti-R_1\cos\theta\utt}{R_2\cos\theta\uti+R_1\cos\theta\utt}=\frac{m\cos\theta\uti-\sqrt{n^2-\sin^2\theta\uti}}{m\cos\theta\uti+\sqrt{n^2-\sin^2\theta\uti}}
+		$$
+		$$
+		t\utp\equiv\frac{p\utta}{p\utia} = \frac{2z_\text{n2}}{z_\text{n2}-z_\text{n1}} = \frac{2R_2\cos\theta\uti}{R_2\cos\theta\uti+R_1\cos\theta\utt}=\frac{2m\cos\theta\uti}{m\cos\theta\uti+\sqrt{n^2-\sin^2\theta\uti}}
+		$$
+	\end{outline}
+\end{frame}
+
+\setcounter{framenumber}{0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\titlestring}{Sound Waves in Ducts Filled with Fluids}
+\title{\titlestring}
+\part{\titlestring}
+\lecture{\titlestring}{duct}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\renewcommand{\titlestring}{Radiation of Sound}
+\part{\titlestring}
+\title{\titlestring}
+\lecture{\titlestring}{radiation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Green Functions with Infinitely Large Rigid Boundary}
+	$$
+		G(\vb{r};\vb{r}_0) = g(|\vb{r}-\vb{r}_0|) + g(|\vb{r}-\vb{r}'_0|), \quad 
+		\begin{cases}
+			\vb{r}_0 = (x_0,y_0,z_0)\\
+			\vb{r}'_0 = (x_0,y_0,-z_0)
+		\end{cases}
+	$$
+\end{frame}
+
+\begin{frame}{Radiation from a Baffled Circular Plane Piston}
+	\begin{outline}
+		\1 only the sound field on the surface $xOz$ is needed to compute for symmetry
+		\1 location of the field point $P$: $\vb{r}=r(\sin\theta,0,\cos\theta)$
+		\1 volume velocity of an element on the piston: $\dd{Q_0}$
+		\1 location of a point on the piston $\dd{Q}_0$: $\vb{r}_0 = \rho(\cos\phi,\sin\phi,0)$
+		\1 distance between $P$ and $\dd{Q}_0$: $h=|\vb{r}-\vb{r}_0|\approx r-\rho\sin\theta \cos\phi, (r\gg a)$
+		$$\Phi(\vb{r}) = \iint_{S_\text{pis}} 2g(\vb{r};\vb{r}_0) u\uta (\vb{r}_0) \dd{S_0} \xlongequal{u\uta =\text{const}} u\uta\iint_{S_\text{pis}} \frac{\me^{-\mj kh}}{2\uppi h}\dd{S_0}$$
+	\end{outline}
+
+\end{frame}
+
+\begin{frame}{Radiation from a Baffled Circular Plane Piston}
+	\begin{exampleblock}{Sound Field at Far Field (Radiation from a Baffled Circular Plane Piston) }
+		$$\Phi(\vb{r},t)\approx 2Q(t)g(r)D(\theta) $$
+		\begin{flalign*}
+			\text{where}&& Q(t) = Q\uta\me^{\mj \omega t},\quad  Q\uta = u\uta\qty( \uppi a^2),\quad g(r) \equiv \frac{\me^{-\mj kr}}{4\uppi r},\quad D(\theta) \equiv \frac{2\upJ_1(ka\sin\theta)}{ka\sin\theta}  & &
+		\end{flalign*}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Radiation from a Baffled Circular Plane Piston}{Radiation Directivity (Pattern)}
+	\begin{outline}
+		\1 the property of Bessel functions: $\qty[\dfrac{2\upJ_1(x)}{x}]_{x=0} = 1$
+	\end{outline}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\renewcommand{\titlestring}{Viscous Absorption of Sound}
+\part{\titlestring}
+\title{\titlestring}
+\lecture{\titlestring}{viscosity}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+	\begin{figure}
+		\centering
+		\animategraphics[loop,controls,width=0.5\linewidth]{20}{gif/viscosities-}{0}{65}
+		\footnote{Available at: https://www.wikiwand.com/en/Viscosity}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{defi}[Viscosity]
+		\begin{outline}
+			\1 Definition 1. \emph{the first and second viscosity}
+			$
+				\mu_1, \mu_2
+			$
+			\1 Definition 2. \emph{the shear viscosity} $\eta$, and \emph{the bulk viscosity} $\zeta$
+			\1 the relations:
+			$$
+				\begin{cases}
+					\mu_1 = \eta\\
+					\mu_2 = \zeta-\frac23 \eta
+				\end{cases},
+				\quad
+				\begin{cases}
+					\eta = \mu_1\\
+					\zeta=\frac23 \mu_1+\mu_2
+				\end{cases}
+			$$
+		\end{outline}
+	\end{defi}
+\end{frame}
+
+\begin{frame}
+	\begin{exampleblock}{Conservation of Momentum}
+		\begin{outline}
+		$$
+			\dv{}{t}\iiint_V \rho v_i \dd{V} = \iiint_V \rho g_i \dd{V} - \oiint_S \rho v_i v_k \dd{S_k} + \oiint_S T_{ik} \dd{S_k}
+		$$
+		\1 \emph{Cartesian momentum density component}: $\rho v_i$
+		\1 \emph{force density (force per volume)}: $\rho g_i$
+		\1 \emph{stress tensor}: $T_{ik}$
+		\end{outline}
+	\end{exampleblock}
+
+	\begin{outline}
+		\1 by Gauss theorem: 
+			$$\pdv{ }{t} \qty(\rho v_i) = \rho g_i - \pdv{}{x_k}\qty(\rho v_iv_k) + \pdv{}{x_k}\qty(T_{ik})$$
+	\end{outline}
+
+	\begin{alertblock}{Conservation of Momentum Equation}
+		\begin{outline}
+			\1 by using the Continuity Equation, we have 
+			$$
+			\rho \dv{v_i}{t} \equiv \rho \pdv{v_i}{t} +\rho v_{i,k} v_k = \rho g_i + \pdv{}{x_k}\qty(T_{ik})
+			$$
+		\end{outline}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Strain and Stress}
+		\begin{outline}
+			\1 \emph{strain rate tensor} (\emph{deformation velocity tensor})
+				$$
+					d_{ij} \equiv \frac12(v_{i,j}+v_{j,i})
+				$$
+			\1 \emph{stress tensor}
+			$$
+				T_{ij} = \mu_1 \Theta \delta_{ij} + 2\mu_2 d_{ij}, \quad \qty(\Theta \equiv d_{kk}=\div \vb{v})
+			$$
+		\end{outline}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}{Navier-Stokes Equation}
+	
+	\begin{alertblock}{General Navier-Stokes Equation}
+		$$
+		\rho \dv{\vb{v}}{t} = \rho \vb{g} - \grad P +\mu_1 \laplacian \vb{v} + (\mu_1+\mu_2)\grad\div\vb{v}
+		$$
+		$$
+		\rho \dv{\vb{v}}{t} = \rho \vb{g} - \grad P +\eta \laplacian \vb{v} + (\zeta+\frac\eta3)\grad\div\vb{v}
+		$$
+		$$
+		\qty(\rho \dv{v_i}{t} = \rho g_i-\pdv{P}{x_i} + \mu_1 \pdv[2]{v_i}{x_k}{x_k} + (\mu_1+\mu_2) \pdv[2]{v_k}{x_i}{x_k})
+		$$
+		% $$
+			% \rho \dv{v_i}{t} = \rho g_i-\pdv{P}{x_i} + \eta \pdv[2]{v_i}{x_k}{x_k} + (\zeta+\frac\eta3) \pdv[2]{v_k}{x_i}{x_k}
+		% $$
+	\end{alertblock}
+
+	\begin{alertblock}{Classical Navier-Stokes Equation}
+		\begin{outline}
+			\1 with the relation: $\mu_2+\frac23 \mu_1=0$
+			$$
+				\rho \dv{\vb{v}}{t} = \rho \vb{g} - \grad P +\mu_1\laplacian \vb{v} + \frac{\mu_1}{3}\grad\div\vb{v}
+			$$
+			\1 with the relation: $\zeta = 0$
+			$$
+				\rho \dv{\vb{v}}{t} = \rho \vb{g} - \grad P +\eta \laplacian \vb{v} + \frac\eta3\grad\div\vb{v}
+			$$
+		\end{outline}
+	\end{alertblock}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\renewcommand{\titlestring}{Nonlinear Acoustics}
+\part{\titlestring}
+\title{\titlestring}
+\lecture{\titlestring}{nonlinear}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+	\begin{thm}[Gauss Theorem in Tensor Fields]
+		$$\iiint_V  \pdv{\vb{F}_i}{x_i}\dd{V} = \oiint_S \vb{F}_i \dd{S_i} \qty(= \oiint_S \vb{F}_i n_i \dd{S})$$
+	\end{thm}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\renewcommand{\titlestring}{Appendix: Complex Numbers with Their Computations}
+\part{\titlestring}
+\title{\titlestring}
+\lecture{\titlestring}{complex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Notations}
+	\begin{block}{Convention Notations}
+		\renewcommand{\arraystretch}{1.5}  % control the height of each row
+		\begin{table}[tp]
+		  \centering
+		  \begin{threeparttable}
+			  \begin{tabular}{cccc}
+				\toprule
+			Type & Notation\cr
+			% \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+			% &Precision&Recall&F1-Measure&Precision&Recall&F1-Measure\cr
+			\midrule
+			complex number & $X, Y,Z$\cr
+			real number & $x=\Re(X),y=\Re(Y),z=\Re(Z)$\cr
+			real number & $a,b,c,d$\cr
+			exponential & $Z_1 =\rho_1 \me^{\mj\phi_1}, Z_2 =\rho_2 \me^{\mj \phi_2}$\cr
+			\bottomrule
+			\end{tabular}
+			\end{threeparttable}
+		\end{table}
+	\end{block}
+	\begin{outline}
+		\1 relations
+		$$z = \frac12 (Z+Z^*) = \Re(Z)$$
+	\end{outline}
+\end{frame}
+
+
+\begin{frame}{Operations}
+	\begin{outline}
+		\1 \emph{addition}
+			$$z = ax\pm by \imp Z = aX\pm bY$$
+		\1 \emph{multiplication}
+			$$z = xy \imp Z = X\Re(Y) = \Re(X) Y$$
+			\begin{flalign*}
+				\text{Proof}&& z &= \Re(X) \times \Re(Y) &&\\
+				&& &=\frac12 (X+X^*) \times \frac12 (Y+Y^*)&&\\
+				&& &=\frac12 \Re (XY+X^*Y)&&\\
+				&& \thus Z &=\frac12 (XY+XY^*)&&\\
+				&& &=\Re(X)Y = \Re(X)Y^*&&\\
+				&& &=X\Re(Y) = X^*\Re(Y)&&
+			\end{flalign*}
+		\1 \emph{integral and derivative}
+		$$\begin{cases} \displaystyle \int \Re[X(t)]\dd t &= \Re \qty(\int X(t) \dd{t}) \\
+			\displaystyle \dv{t} \Re [X(t)]&=\Re \qty[\dv{t} X(t)]\end{cases}
+		\imp \begin{cases} \displaystyle a\dv[2]{x}{t} +b \dv{x}{t} +cx +d\int x\dd{t} & = 0\\
+			\displaystyle a\dv[2]{X}{t} +b \dv{X}{t} +cX +d\int X\dd{t} & = 0\end{cases}
+	$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Exercises}
+	\begin{outline}
+		\1 Show that
+		$$
+		Z_1+Z_2 = \sqrt{\rho_1^2 +\rho_2^2 +2\rho_1\rho_2 \cos(\phi_1-\phi_2)} \me^{\mj \phi}, \tan \phi = \frac{\rho_1\sin\phi_1+\rho_2\sin\phi_2}{\rho_1\cos\phi_1+\rho_2\cos\phi_2}
+		$$
+		\1 Show that
+		$$
+			\me^{-\mj \phi} + \me^{\mj \phi} = 2\cos \phi,\quad
+			\me^{-\mj \phi} - \me^{\mj \phi} = -2\mj\sin \phi
+			$$
+		\1 Show that 
+		$$
+			1+\me^{\mj \phi} = \me^{\mj \frac\phi2} 2\cos \frac\phi2,\quad
+			1-\me^{\mj \phi} = \me^{\mj \frac\phi2} \times(-2\mj )\sin \frac\phi2
+			$$
+		\1 Show that
+		$$
+		\sum_{n=1}^N \me^{\mj n \phi} = \me^{\mj \frac{N+1}{2} \phi} \frac{\sin\qty(\frac{n-1}{2}\phi)}{\sin \qty(\frac12 \phi)}
+		$$
+			$$
+			\sum_{n=1}^N \cos n \phi = \cos\qty(\frac{N+1}{2} \phi) \frac{\sin\qty(\frac{n-1}{2}\phi)}{\sin \qty(\frac12 \phi)}
+			,\sum_{n=1}^N \sin n \phi = \sin\qty(\frac{N+1}{2} \phi) \frac{\sin\qty(\frac{n-1}{2}\phi)}{\sin \qty(\frac12 \phi)}
+			$$
+		\1 Show that 
+		$$
+			\frac{1+Z_1}{1-Z_1} = Z_2 \imp Z_1 = \frac{Z_2-1}{Z_2+1}
+		$$
+	\end{outline}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\renewcommand{\titlestring}{Appendix: Tensors and Einstein Summation Convention}
+\part{\titlestring}
+\title{\titlestring}
+\lecture{\titlestring}{tensor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Notations}
+	\begin{block}{Convention Notations}
+		\renewcommand{\arraystretch}{1.5}  % control the height of each row
+		\begin{table}[tp]
+		  \centering
+		  % \fontsize{6.5}{8}\selectfont
+		  \begin{threeparttable}
+			  % \caption{Demographic Prediction performance comparison by three evaluation metrics.}
+			  % \label{tab:performance_comparison}
+			  \begin{tabular}{cccc}
+				\toprule
+			% \multirow{2}{*}{Method}&
+			% \multicolumn{3}{c}{ G}&\multicolumn{3}{c}{ G}\cr
+			Type & Rank & Vector Notation & Index Notation\cr
+			% \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+			% &Precision&Recall&F1-Measure&Precision&Recall&F1-Measure\cr
+			\midrule
+			scalar & 0 & $\alpha,\beta, \Phi$ & $\alpha, \beta, \Phi$\cr
+			vector & 1 & $\vb{u}, \vb{v}, \vb{w}$& $u_i,v_i,w_i$\cr
+			tensor & 2 & $\vb{A}, \vb{B}, \vb{C}$ & $A_{ij}, B_{ij}, C_{ij}$\cr
+			tensor & 3 & $\vb{T}$ & $T_{ijk} $\cr
+			\bottomrule
+			\end{tabular}
+			\end{threeparttable}
+		\end{table}
+	\end{block}
+
+	\begin{defi}[Tensors]
+		
+		Tensor (2-order) $\vb{A}$ is defined by two vectors $\vb{u}, \vb{v}$ as
+		$$
+			\vb{A} = \vb{u}\vb{v} = \sum_{j=1}^3\sum_{i=1}^3 u_iv_j\vb{e}_i \vb{e}_j \equiv \sum_{j=1}^3\sum_{i=1}^3 A_{ij} \vb{e}_i\vb{e}_j
+		$$
+	\end{defi}
+\end{frame}
+
+\begin{frame}{Free Indices}
+	% \renewcommand{outlineii}{enumerate}
+	\begin{outline}[enumerate]
+		\1 appear \emph{only once} within each additive term in an expression. $i$ is a \emph{free index}: 
+			$$a_i = \oldeps_{ikl}b_kc_l +D_{ik}e_k$$
+		\1 imply 3 \emph{ditinct equations}.
+			$$a_i = b_i+c_i \imp \begin{cases}a_1=b_1+c_1\\a_2=b_2+c_2\\a_3=b_3+c_3\end{cases}$$
+		\1 The same letter must be used for the free index in \emph{every} additive term.
+		\1 The number of free indices can be larger than 1, and equals the \emph{rank} of the term.
+		\1 The first free index in a term corresponds to the \emph{row}, and the second corresponds to the \emph{column}
+		$$u_i = \mqty[\xmat*{u}{3}{1}], \quad A_{ij}=\mqty[\xmat*{A}{3}{3}]$$
+
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Dummy Indices}
+	\begin{outline}[enumerate]
+		\1 appear \emph{twice} within an additive term of an expression. $j$ and $k$ are both \emph{dummy indices}:
+			$$a_i = \oldeps_{ikl}b_kc_l +D_{ik}e_k$$
+		\1 imply a \emph{summation} over the range of the index:
+			$$a_{kk}\equiv a_{11}+a_{22}+a_{33}$$
+			$$a_i = \sum_{l=1}^3\sum_{=1}^3 \oldeps_{ikl}b_kc_l +\sum_{k=1}^3 D_{ik}e_k$$
+		\1 \emph{local} to an individual additive term. Thus, it can be renamed, just like the $x$ or $t$ in integrals:
+			$$\int_0^1 f(x)\dd{x}=\int_0^1 f(t)\dd{t}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Special Functions}
+	\begin{defi}[Kronecker Delta]
+		A rank-2 symmetric tensor defined as follows:
+		% $$
+			% \delta_{ij} = \begin{cases}1 \qif i=j\\ 0 \qif i\neq j\end{cases}
+		% $$
+		% \begin{flalign*}
+			% &&\delta_{ij} &= \begin{cases}1 \qif i=j\\ 0 \qif i\neq j\end{cases}&&\\
+			% \text{or}, &&\delta_{ij} &= \mqty[\imat{3}]&&
+		% \end{flalign*}
+		$$
+			\delta_{ij} = \begin{cases}1 \qif i=j\\ 0 \qif i\neq j\end{cases}
+			\qor \delta_{ij} = \mqty[\imat{3}]
+		$$
+	\end{defi}
+	
+	\begin{defi}[Alternating Unit Tensor or Levi-Cavita Symbol]
+		A rank-3 \emph{antisymmetric} tensor
+		$$
+			\oldeps_{ijk} = \begin{cases}1 & \qif ijk=123,231,312\\ 0 &\qif (i-j)(j-k)(k-i)=0\\-1 & \qif ijk=132,213,321\end{cases}
+		$$
+	\end{defi}
+	
+	\begin{alertblock}{Important Indentity}
+		$$\oldeps_{ikl} \oldeps_{imn} = \delta_{km}\delta_{ln}-\delta_{kn}\delta_{lm}$$
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}{Commutation and Association in Vector and Index Notation}
+	\begin{outline}
+		\1 In general, \emph{vector notation} DO NOT have commutative or associative properties
+		$$\vb{u}\cp \vb{v} \neq \vb{v}\cp \vb{u}$$
+		\1 All of the terms in index notation are scalars, and only \emph{multiplication/division and addition/subtraction operations} ($+, -, \times, \olddiv $) are defined.
+		\1 commutative and associative properties hold in index notation:
+		$$a_ib_j=b_ja_i, \quad (a_ib_j)c_k = a_i(b_jc_k)$$
+		\1 In general, \emph{calculus operators} ($\int, \dd, \partial$) are not commutative
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Vector Operations using Index Notation}
+	\begin{outline}
+		\1 multiplication of a vctor by a scalar
+		$$\alpha \vb{u} = \vb{v}\imp \alpha u_i = v_i$$
+		\1 scalar product of two vectors (a.k.a. dot or inner product)
+		$$\vb{u}\vdot\vb{v} = \alpha \imp u_kv_k = \alpha$$
+		\1 scalar product of two tensors (a.k.a. dot or inner product)
+		$$\vb{A} :\vb{B}=\alpha \imp A_{kl}B_{lk} =\alpha$$
+		\1 tensor product of two vectors (a.k.a dyadic product)
+		$$\vb{u}\vb{v}=\vb{A}\imp u_iv_j =A_{ij}$$
+		\1 tensor product of two tensors
+		$$\vb{A}\vdot \vb{B} = \vb{C}\imp A_{ik}B_{kj} = C_{ij}$$
+			\2 NOTE this is NOT an inner product
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Vector Operations using Index Notation}
+	\begin{outline}
+		\1 vector product of a tensor and a vector
+		$$\vb{u}\vdot \vb{A}=\vb{v} \imp u_kA_{ki}=v_i$$
+		$$\vb{A}\vdot \vb{u} = \vb{v} \imp A_{ik}u_k = v_i$$
+			\2 NOTE $\vb{u}\vdot\vb{A}\neq \vb{A}\vdot\vb{u}$
+		\1 cross product of two vectors
+		$$\vb{u}\cp \vb{v} = \vb{w}\imp \oldeps_{ikl}u_kv_l = w_i$$
+		\1 contraction or trace of a tensor
+		$$\Tr \vb{A} = \alpha \imp A_{kk} = \alpha$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Calculus Operations using Index Notation}
+	\begin{outline}
+		\1 NOTE the spatial Cartesian coordinates are renamed as follows
+			$$(x,y,z)\to (x_1,x_2,x_3)$$
+		\1 temporal derivative of a scalar field $\Phi(x_1,x_2,x_3,t)$
+			$$\pdv{\Phi}{t}\equiv \partial_0\Phi \qor \partial_t\Phi$$
+		\1 gradient of a scalar field $\Phi(x_1,x_2,x_3,t)$
+			$$\pdv{\Phi}{x_i} \equiv \partial_i \Phi$$
+		\1 gradient of a vector field $\vb{u}(x_1,x_2,x_3,t)$
+		$$\grad \vb{u} = \pdv{u_j}{x_i}\equiv \partial_iu_j = \mqty[\partial_1u_1&\partial_1u_2&\partial_1u_3\\ \partial_2u_1&\partial_2u_2&\partial_2u_3\\ \partial_3u_1&\partial_3u_2&\partial_3u_3  ]$$
+			\2 the first index is the row index
+			\2 the gradient \emph{increases by one the rank} of the expression on which it operates
+	\end{outline}
+\end{frame}
+
+
+\begin{frame}{Calculus Operations using Index Notation}
+	\begin{outline}
+		\1 divergence of a vector field $\vb{u}(x_1,x_2,x_3,t)$
+		$$\div \vb{u} = \partial_ku_k = \alpha$$
+			\2 the divergence \emph{decreases by one the rank} of the expression on which it operates
+			\2 it is not possible to take the divergence of a scalar
+		\1 curl of a vector field $\vb{u}(x_1,x_2,x_3,t)$
+		$$\curl \vb{u} = \oldeps_{ikl}\partial_ku_l = v_i$$
+			\2 the curl \emph{does not change the rank} of the expression on which it operates
+			\2 it is not possible to take the curl of a scalar
+		\1 Laplacian of a vector field $\vb{u}(x_1,x_2,x_3,t)$
+		$$\laplacian \vb{u}\equiv \div(\grad \vb{u}) = \partial_k \partial_k u_i = v_i$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Calculus Operations using Index Notation}{Exercises}
+	\begin{outline}[enumerate]
+		% \1 Show that 
+			% $$\partial_k(u_iv_j) = u_i\partial_k v_j + v_j \partial_k u_i$$
+		\1 Show that 
+			$$\div \vb{u}\neq \vb{u}\vdot \grad$$
+		\1 Show that
+			$$\vb{u} \times (\vb{v} \times \vb{w}) = (\vb{u}\vdot \vb{w}) \vb{v} - (\vb{u}\vdot \vb{v}) \vb{w}$$
+		\1 Show that
+			$$\vb{u} \times \vb{v} \times \vb{w} = (\vb{u}\vdot \vb{w}) \vb{v} - (\vb{w}\vdot \vb{v}) \vb{u}$$
+		\1 Show that 
+			$$\curl (\grad \Phi) = \vb{0}$$
+		\1 Show that 
+			$$\curl(\curl \vb{u}) = \grad(\div \vb{u}) -\laplacian \vb{u}$$
+		\1 Show that
+			$$\vb{u}\vdot (\vb{v}\cp \vb{w}) = \vb{v} \vdot(\vb{w}\cp \vb{u}) = \vb{w}\vdot (\vb{u}\cp \vb{v})$$
+		\1 Show that 
+		$$
+			\div(\vb{u}\vb{v}) = \qty(\vb{u}\cdot \grad) \vb{v} + \qty(\div   \vb{u})\vb{v}
+		$$
+
+
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Decomposition of a Tensor into Symmetric and Antisymmertric Parts}
+	\begin{defi}[Symmetric and Antisymmetric Tensors]
+		\begin{outline}
+			\1 a tensor is \emph{symmetric} if it is equal to its transpose
+			$$A_{ij}=A_{ji}$$
+			\1 a tensor is \emph{antisymmetric} if it is equal to the negative of its transpose
+			$$A_{ij}=-A_{ij}$$
+		\end{outline}
+	\end{defi}
+	\begin{thm}[Decomposition of a Tensor into Symmetric and Antisymmetric Parts]
+		\begin{outline}
+			\1 any arbitray tensor $\vb{A}$ may be composed into sum of a symmetric tensor and an antisymmetric tensor
+			$$A_{ij} = A_{(ij)} + A_{[ij]}$$
+			\begin{flalign*}
+				\text{where} && A_{(ij)} = \frac12 (A_{ij}+A_{ji}), \quad A_{[ij]}=\frac12 (A_{ij}-A_{ji})&&
+			\end{flalign*}
+		\end{outline}
+	\end{thm}
+
+\end{frame}
+
+\begin{frame}{Decomposition of a Tensor into Symmetric and Antisymmertric Parts}
+	\begin{outline}
+		\1 the antisymmetric component can be calculated as
+		$$A_{[ij]} = \frac12 \oldeps_{ijk}\oldeps_{klm}A_{lm}$$
+		\1 the scalar product of any symmetric and antisymmetric tensor is zeros
+		$$\vb{A} : \vb{B} = \vb{B} :\vb{A} = 0 \qif A_{ij} = A_{ji} \qand B_{ij}=-B_{ji}$$
+		% \1 general form
+		% $$
+	\end{outline}
+\end{frame}
+
+
+
+
+\end{document}
