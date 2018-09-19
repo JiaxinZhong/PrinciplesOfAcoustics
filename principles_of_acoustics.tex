@@ -2,6 +2,7 @@
 
 \usepackage{cstzjx}
 \usepackage{cstzjx_beamer}
+\usepackage{scislide}
 
 % \includeonlylecture{viscosity,nonlinear,tensor}
 
@@ -587,7 +588,7 @@
 		\1 the \emph{angular frequency}: $\omega$
 		$$p(\vb{r},t) = p(\vb{r})\me^{\mj \omega t}$$
 	\end{outline}
-	\begin{alertblock}{Linear Harmonic Plane Wave (Helmholtze) Equation}
+	\begin{alertblock}{Linear Harmonic Plane Wave (Helmholtz) Equation}
 		$$\qty(\laplacian +k^2) p(\vb{r}) = 0$$
 		the \emph{wave number}: $k = \omega/c_0$
 	\end{alertblock}
@@ -595,19 +596,111 @@
 		\1 1D wave equation
 		$$ \qty(\dv[2]{x}+k^2)p(x) = 0, \imp p(x) =p\uta \me^{\mj kx}\qor p\uta\me^{-\mj kx}$$
 		\1 propagating wave with frequency $\omega$
-		$$p(x,t) = p\uta \me^{\mj (\omega t\mp kx)}$$
-		$$p(\vb{r},t) = p\uta \me^{\mj (\omega t\mp \vb{k}\vdot\vb{r})}, \qty(\vb{k} = k \vb{n})$$
+		$$p_\pm(x,t) = p\uta \me^{\mj (\omega t\mp kx)}$$
+		$$p(\vb{r},t) = p\uta \me^{\mj (\omega t- \vb{k}\vdot\vb{r})}
+		\qc \qty(\vb{k} = k \vb{n})$$
+		\1 particle velocity
+		$$v(\vb{r},t) = \vb{n} v\st{a}\me^{\mj (\omega t- \vb{k}
+		\vdot\vb{r})}\qc \qty(v\st{a} = \frac{p\st{a}}{\rho_0c_0})$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Sound Speed -- the propagating speed of sound waves}
+		$$
+		c \equiv \sqrt{\dv{P}{\rho}}=\sqrt{\frac{\kappa_s}{\rho}} =
+		\sqrt{\frac{1}{\rho\beta_s}}\qc c_0 = c|_{\rho=\rho_0}
+		$$
+	\begin{outline}
+		\1 \emph{incompressible fluids/solids}: $\kappa_s\to \infty\qc \beta_s \to
+		0\qc c_0 \to 0$
+		\1 \emph{rarefied gas}: $\kappa_s \to 0\qc \beta_s\to \infty\qc
+		c_0\to 0$
+		\1 \emph{Adiabatic and Ideal Gas}:
+		$$P\rho^{-\gamma} = \text{const.} \qor PV^{\gamma} = \text{const.}
+		\qc (\gamma\st{air} = 1.4)$$
+		$$c = \sqrt{\frac{\gamma P }{\rho}}\qc c_0 = \sqrt{\frac{\gamma P_0}
+		{\rho_0}}$$
+		\1 \emph{Clapeyron Euation for Ideal Gas}: 
+		$$PV = \frac{M}{\mu}RT\qc = P = \frac{\rho}{\mu}RT$$
+		$$c_0 = \sqrt{\frac{\gamma}{\mu}RT_0} = c_0|_{T\st{C}=0\celsius}
+		\sqrt{1+\frac{T\st{C}}{273}}\approx 331.6 + 0.6T\st{C}\qc(T\st{C}
+		=T-273)$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Sound Speed -- the propagating speed of sound waves}
+	\begin{outline}
+		\1 \emph{Clapeyron Euation for Ideal Gas}: 
+		$$PV = \frac{M}{\mu}RT\qc = P = \frac{\rho}{\mu}RT$$
+		\2 $P$: the \emph{pressure} of the gas
+		\2 $V$: the \emph{volumne} of the gas
+		\2 $M$: the \emph{total mass} of the gas (in kilograms)
+		\2 $\mu$: the \emph{molar mass} of the gas (in kilograms per mole)
+		\2 $R$: the ideal, or universal, \emph{gas constant}, equal
+		to the product of the Boltzmann constant and the Avogadro constant
+		\2 $T$: the \emph{absolute temperature} of the gass (in Kelvins)
+		\2 $\rho$: the \emph{density} of the gass
+	\1 Calculate $c_0$ by $T\st{C}$, the \emph{temperature} in Celsius
+	$$\tikz[baseline]{\node[fill=red!20,anchor=base]{$c_0$}} =
+	\sqrt{\frac{\gamma}{\mu}RT_0} = c_0|_{T\st{C}=0\celsius}
+		\sqrt{1+\frac{T\st{C}}{273}}
+		\tikz[baseline]{\node[fill=red!20,anchor=base]
+			{$\approx 331.6 + 0.6T\st{C}$}}\qc(T\st{C}
+		=T-273)$$
+	\1 Check for linear assumption in air: $p\st{a} = \SI{0.1}{Pa}\qc 
+	T\st{C} = 20 \celsius\qc \rho_0= \SI{1.21}{kg/m^3}$
+	$$c_0 \approx \SI{343.6}{m/s}\qc v\st{a} = \frac{p\st{a}}{\rho_0c_0}
+	\approx  \num{2.4xe-4}\si{m/s} \ll c_0$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Acoustic impedance, specific acoustic impedance, and 
+	characteristic impendace}
+	\begin{outline}
+		\1 \emph{Acoustic Impedance}: $Z\st{a} = \dfrac{p}{U}$
+			\2 lumped parameter system
+		\1 \emph{Specific Acoustic Impedance}: $Z\st{s} = \dfrac{p}{v}$
+			\2 distributed parameter system
+			\2 real part: \emph{specific acoustic resistance}
+			\2 imaginary part: \emph{specific acoustic reactance}
+		\1 plane wave
+			\2 positve direction: $Z\st{s} = \rho_0 c_0$
+			\2 negative direction: $ Z\st{s} = -\rho_0c_0$
+		\1 \emph{characteristic (specific acoustic) impedance}
+			$$z_0 = \rho_0 c_0$$
+			\2 represents the acoustic properties of the media
 	\end{outline}
 \end{frame}
 
 \begin{frame}{Sound Energy}
 	\begin{outline}
-		\1 consider the fluid particle $\Delta V$
-		\1 \emph{kinetic energy}: $$\Delta E\utk=\frac12 \rho_0 v^2\Delta V_0 , \quad \qty(v = |\vb{v}|)$$
+		\1 consider the fluid particle $\Delta V = \Delta V(\vb{r},t)$
+			\2 $t = 0\imp \Delta V_0 = \Delta V(\vb{r},0)\qc P_0\qc \rho_0$
+			\1 \emph{kinetic energy}: $$\Delta E\st{k}=\frac12 (\rho_0 
+			\Delta V_0)v^2\qc \qty(v = |\vb{v}|)$$
 		\1 \emph{potential energy}: the work done by sound pressure $p$
 		$$\Delta E\utp = -\int_{\Delta V_0}^{\Delta V} p \dd(\Delta V)\approx \Delta V_0 \beta_{s,0} \int_0^p p\dd{p} = \frac12 \beta_{s,0} p^2 \Delta V_0$$
 		$$\qty(\frac{\dd(\Delta V)}{\Delta V_0}   \approx - \frac{\dd{\rho'}}{\rho_0} \xrightarrow{p=c_0^2\rho'} \dd(\Delta V) \approx -\Delta V_0 \beta_{s,0}\dd{p})$$
 		\1 \emph{total energy}: $$\Delta E = \Delta E\utk+\Delta E\utp = \frac12 \qty(\rho_0 v^2+\beta_{s,0}p^2)\Delta V_0$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Sound Energy Density}
+	\begin{outline}
+		\1 the sound energy per volume (in Pascals)
+		$$\eps = \frac{\Delta E}{\Delta V_0}=\frac{\Delta E\st{k}}{
+			\Delta E\st{p}}{\Delta V_0} = \frac12 \qty(\rho_0 v^2+
+			\beta_{s,0}p^2)
+		$$
+		\1 plane wave: $\Delta E\st{k} = \Delta E\st{p}$
+		$$v = \frac{p}{\rho_0c_0} \to \eps = \beta_{s,0}p^2 = 
+		\frac{p^2}{\rho_cc_0^2}$$
+		\1 \emph{average} of the sound energy density for plane harmonic
+		waves
+		$$\bar{\eps} = \frac{\overline{p^2}}{\rho_0c_0^2} = \frac{p\st{a}^2}
+		{2\rho_0c_0^2} = \frac{p\st{e}^2}{\rho_0c_0^2}\qc
+		\qty(\overline{p^2}=\frac12 \qty|p|^2 = p\st{e}^2 = \frac12 p\st{a}^2)
+		$$
 	\end{outline}
 \end{frame}
 
