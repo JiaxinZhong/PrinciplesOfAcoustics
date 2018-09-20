@@ -1,7 +1,6 @@
 \documentclass[9pt,mathserif]{beamer}
 
-\usepackage{cstzjx}
-\usepackage{cstzjx_beamer}
+\usepackage{scigeneral}
 \usepackage{scislide}
 
 % \includeonlylecture{viscosity,nonlinear,tensor}
@@ -240,17 +239,19 @@
 
 \begin{frame}{Eulerian Method}{The Equation of Continuity}
 	\begin{outline}
-		\1 \emph{mass flux} is the rate of mass flow per unit area: $\vb{j}\utm = \rho \vb{v}$
+		\1 \emph{mass flux} is the rate of mass flow per unit area: 
+		$\vb{j}\st{m} = \rho \vb{v}$
 		\1 The \emph{velocity} at $\vb{r}$ and time $t$: $\vb{v} = \vb{v}(\vb{r},t) = (v_x,v_y,v_z), v = ||\vb{v}||$
 		\1 The \emph{volume} of a bulk of fluid: $V$, \emph{surface} of $V$: $\vb{S} = S\vb{n}$
 		\1 The \emph{principle of mass conservation}:
-		$$\dv{}{t}\iiint_V \rho \dd{V} = -\oiint_S \vb{j}\utm\cdot \dd{\vb{S} }$$
+		$$\dv{}{t}\iiint_V \rho \dd{V} = -\oiint_S \vb{j}
+		\st{m}\cdot \dd{\vb{S} }$$
 		\1 The Gauss theorem: $$\oiint_S \vb{f} \cdot \dd{\vb{S} } = \iiint_V \div{\vb{f} }\dd{V}$$
 	\end{outline}
 
 	\begin{exampleblock}{Exact Continuity Equation}
 		$$
-			\pdv{\rho}{t} +\div{\vb{j}\utm}=0
+		\pdv{\rho}{t} +\div{\vb{j}\st{m}}=0
 		$$
 	\end{exampleblock}
 
@@ -264,7 +265,7 @@
 	\begin{outline}[enumerate]
 			\1 Suppose there exists a net \emph{volume velocity} output of $q$ units per unit volume per unit time (the unit is s$^{-1}$, i.e. per second), please show that the exact continuity equation is:
 			$$
-				\pdv{\rho}{t} +\div{\vb{j}\utm}=\rho q
+			\pdv{\rho}{t} +\div{\vb{j}\st{m}}=\rho q
 			$$
 	\end{outline}
 
@@ -366,8 +367,8 @@
 	\end{block}
 
 	\begin{exampleblock}{Equation of State for a Perfect Gas}
-		$$P=\rho \mathcal{R} T\utK$$
-		where $T\utK$ in kelvins (K) is the \emph{absolute temperature}, and $\mathcal{R}$ is the \emph{specific gas constant} and depends on the \emph{universal gas constant} and the \emph{molecular weight}. 
+		$$P=\rho \mathcal{R} T\st{K}$$
+		where $T\st{K}$ in kelvins (K) is the \emph{absolute temperature}, and $\mathcal{R}$ is the \emph{specific gas constant} and depends on the \emph{universal gas constant} and the \emph{molecular weight}. 
 
 		For air, $\mathcal{R} \approx 287\si{J\cdot kg^{-1} K^{-1}}$.
 	\end{exampleblock}
@@ -431,7 +432,8 @@
 	\end{block}
 
 	\begin{outline}
-		\1 \emph{effective sound pressure} (only for periodical or quasi-periodical acoustic waves: $$p\ute(x) = \sqrt{\frac1T\int_0^T p^2(\vb{r},t)\dd{t} }$$
+		\1 \emph{effective sound pressure} (only for periodical or 
+		quasi-periodical acoustic waves: $$p\st{e}(x) = \sqrt{\frac1T\int_0^T p^2(\vb{r},t)\dd{t} }$$
 		\1 Units for sound pressure
 			\2 $1 \si{Pa} = 1 \si{N/m^2} = 10 \si{Dyne/cm^2} $
 			\2 $1 \si{bar} = 100 \si{kPa} = 10^5 \si{Pa}$
@@ -605,10 +607,11 @@
 	\end{alertblock}
 	\begin{outline}
 		\1 1D wave equation
-		$$ \qty(\dv[2]{x}+k^2)p(x) = 0, \imp p(x) =p\uta \me^{\mj kx}\qor p\uta\me^{-\mj kx}$$
+		$$ \qty(\dv[2]{x}+k^2)p(x) = 0, \imp p(x) =p\st{a} \me^{\mj kx}\qor
+		p\st{a}\me^{-\mj kx}$$
 		\1 propagating wave with frequency $\omega$
-		$$p_\pm(x,t) = p\uta \me^{\mj (\omega t\mp kx)}$$
-		$$p(\vb{r},t) = p\uta \me^{\mj (\omega t- \vb{k}\vdot\vb{r})}
+		$$p_\pm(x,t) = p\st{a} \me^{\mj (\omega t\mp kx)}$$
+		$$p(\vb{r},t) = p\st{a} \me^{\mj (\omega t- \vb{k}\vdot\vb{r})}
 		\qc \qty(\vb{k} = k \vb{n})$$
 		\1 particle velocity
 		$$v(\vb{r},t) = \vb{n} v\st{a}\me^{\mj (\omega t- \vb{k}
@@ -690,9 +693,9 @@
 			\1 \emph{kinetic energy}: $$\Delta E\st{k}=\frac12 (\rho_0 
 			\Delta V_0)v^2\qc \qty(v = |\vb{v}|)$$
 		\1 \emph{potential energy}: the work done by sound pressure $p$
-		$$\Delta E\utp = -\int_{\Delta V_0}^{\Delta V} p \dd(\Delta V)\approx \Delta V_0 \beta_{s,0} \int_0^p p\dd{p} = \frac12 \beta_{s,0} p^2 \Delta V_0$$
+		$$\Delta E\st{p} = -\int_{\Delta V_0}^{\Delta V} p \dd(\Delta V)\approx \Delta V_0 \beta_{s,0} \int_0^p p\dd{p} = \frac12 \beta_{s,0} p^2 \Delta V_0$$
 		$$\qty(\frac{\dd(\Delta V)}{\Delta V_0}   \approx - \frac{\dd{\rho'}}{\rho_0} \xrightarrow{p=c_0^2\rho'} \dd(\Delta V) \approx -\Delta V_0 \beta_{s,0}\dd{p})$$
-		\1 \emph{total energy}: $$\Delta E = \Delta E\utk+\Delta E\utp = \frac12 \qty(\rho_0 v^2+\beta_{s,0}p^2)\Delta V_0$$
+		\1 \emph{total energy}: $$\Delta E = \Delta E\st{k}+\Delta E\st{p} = \frac12 \qty(\rho_0 v^2+\beta_{s,0}p^2)\Delta V_0$$
 	\end{outline}
 \end{frame}
 
@@ -721,28 +724,35 @@
 		$$ 
 		\begin{cases}
 			p_\text{ia}+p_\text{ra}=p_\text{ta}\\
-			\displaystyle \frac{p_\text{ia} - p\utra}{z_\text{n1}} = \frac{p\utta}{z_\text{n2}}
+			\displaystyle \frac{p_\text{ia} - p\st{r}a}{z_\text{n1}} = 
+			\frac{p\st{t}a}{z_\text{n2}}
 		\end{cases}	
 		\imp 
 		\begin{cases}
-			1+r\utp=t\utp\\
-			\displaystyle \frac{1-r\utp}{z_\text{n1}} = \frac{t\utp}{z_\text{n2}}
+			1+r\st{p}=t\st{p}\\
+			\displaystyle \frac{1-r\st{p}}{z_\text{n1}} = \frac{t\st{p}}{z_\text{n2}}
 		\end{cases}	
 		,
 		\qty(
 		\begin{matrix}
-			z_\text{n1}\equiv z\utni=-z\utnr\\
-			z_\text{n2}\equiv z\utnt
+			z_\text{n1}\equiv z\st{n}i=-z\st{n}r\\
+			z_\text{n2}\equiv z\st{n}t
 		\end{matrix}	
 		)
 		$$
 		\1 the ratio of density: $m\equiv \rho_2/\rho_1$, refractive index: $n=k_2/k_1=c_1/c_2$
 		\1 reflection and transmission coeff.:
 		$$
-		r\utp\equiv\frac{p\utra}{p\utia} = \frac{z_\text{n2}-z_\text{n1}}{z_\text{n2}-z_\text{n1}} = \frac{R_2\cos\theta\uti-R_1\cos\theta\utt}{R_2\cos\theta\uti+R_1\cos\theta\utt}=\frac{m\cos\theta\uti-\sqrt{n^2-\sin^2\theta\uti}}{m\cos\theta\uti+\sqrt{n^2-\sin^2\theta\uti}}
+		r\st{p}\equiv\frac{p\st{r}a}{p\st{i}a} = \frac{z_\text{n2}-z_\text{n1}}{z_\text{n2}-z_\text{n1}} = \frac{R_2\cos\theta\st{i}-R_1\cos\theta\st{t}}{R_2\cos\theta\st{i}+R_1\cos\theta\st{t}}=\frac{m\cos\theta\st{i}-
+		\sqrt{n^2-\sin^2\theta\st{i}}}{m\cos\theta\st{i}
+		+\sqrt{n^2-\sin^2\theta\st{i}}}
 		$$
 		$$
-		t\utp\equiv\frac{p\utta}{p\utia} = \frac{2z_\text{n2}}{z_\text{n2}-z_\text{n1}} = \frac{2R_2\cos\theta\uti}{R_2\cos\theta\uti+R_1\cos\theta\utt}=\frac{2m\cos\theta\uti}{m\cos\theta\uti+\sqrt{n^2-\sin^2\theta\uti}}
+		t\st{p}\equiv\frac{p\st{t}a}{p\st{i}a} = 
+		\frac{2z_\text{n2}}{z_\text{n2}-z_\text{n1}} = 
+		\frac{2R_2\cos\theta\st{i}}{R_2\cos\theta\st{i}+
+		R_1\cos\theta\st{t}}=\frac{2m\cos\theta\st{i}}{m\cos\theta\st{i}+
+		\sqrt{n^2-\sin^2\theta\st{i}}}
 		$$
 	\end{outline}
 \end{frame}
@@ -784,7 +794,8 @@
 		\1 volume velocity of an element on the piston: $\dd{Q_0}$
 		\1 location of a point on the piston $\dd{Q}_0$: $\vb{r}_0 = \rho(\cos\phi,\sin\phi,0)$
 		\1 distance between $P$ and $\dd{Q}_0$: $h=|\vb{r}-\vb{r}_0|\approx r-\rho\sin\theta \cos\phi, (r\gg a)$
-		$$\Phi(\vb{r}) = \iint_{S_\text{pis}} 2g(\vb{r};\vb{r}_0) u\uta (\vb{r}_0) \dd{S_0} \xlongequal{u\uta =\text{const}} u\uta\iint_{S_\text{pis}} \frac{\me^{-\mj kh}}{2\uppi h}\dd{S_0}$$
+		$$\Phi(\vb{r}) = \iint_{S_\text{pis}} 2g(\vb{r};\vb{r}_0) u\st{a}
+		(\vb{r}_0) \dd{S_0} \xlongequal{u\st{a} =\text{const}} u\st{a}\iint_{S_\text{pis}} \frac{\me^{-\mj kh}}{2\uppi h}\dd{S_0}$$
 	\end{outline}
 
 \end{frame}
@@ -793,7 +804,9 @@
 	\begin{exampleblock}{Sound Field at Far Field (Radiation from a Baffled Circular Plane Piston) }
 		$$\Phi(\vb{r},t)\approx 2Q(t)g(r)D(\theta) $$
 		\begin{flalign*}
-			\text{where}&& Q(t) = Q\uta\me^{\mj \omega t},\quad  Q\uta = u\uta\qty( \uppi a^2),\quad g(r) \equiv \frac{\me^{-\mj kr}}{4\uppi r},\quad D(\theta) \equiv \frac{2\upJ_1(ka\sin\theta)}{ka\sin\theta}  & &
+			\text{where}&& Q(t) = Q\st{a}\me^{\mj \omega t},\quad  Q
+			\st{a} = u\st{a}\qty( \uppi a^2),\quad g(r) \equiv
+			\frac{\me^{-\mj kr}}{4\uppi r},\quad D(\theta) \equiv \frac{2\upJ_1(ka\sin\theta)}{ka\sin\theta}  & &
 		\end{flalign*}
 	\end{exampleblock}
 \end{frame}
