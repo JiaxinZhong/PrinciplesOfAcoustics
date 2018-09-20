@@ -100,7 +100,7 @@
 
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\titlestring}{The Principles of Acoustics}
 \part{\titlestring}
 \title{\titlestring}
@@ -694,27 +694,71 @@
 			\Delta V_0)v^2\qc \qty(v = |\vb{v}|)$$
 		\1 \emph{potential energy}: the work done by sound pressure $p$
 		$$\Delta E\st{p} = -\int_{\Delta V_0}^{\Delta V} p \dd(\Delta V)\approx \Delta V_0 \beta_{s,0} \int_0^p p\dd{p} = \frac12 \beta_{s,0} p^2 \Delta V_0$$
-		$$\qty(\frac{\dd(\Delta V)}{\Delta V_0}   \approx - \frac{\dd{\rho'}}{\rho_0} \xrightarrow{p=c_0^2\rho'} \dd(\Delta V) \approx -\Delta V_0 \beta_{s,0}\dd{p})$$
+		$$\qty( \dd(\rho \Delta V) = 0 \to \frac{\dd(\Delta V)}{\Delta V_0}   \approx - \frac{\dd{\rho'}}{\rho_0} \xrightarrow{p=c_0^2\rho'} \dd(\Delta V) \approx -\Delta V_0 \beta_{s,0}\dd{p})$$
 		\1 \emph{total energy}: $$\Delta E = \Delta E\st{k}+\Delta E\st{p} = \frac12 \qty(\rho_0 v^2+\beta_{s,0}p^2)\Delta V_0$$
 	\end{outline}
 \end{frame}
 
+
 \begin{frame}{Sound Energy Density}
 	\begin{outline}
 		\1 the sound energy per volume (in Pascals)
-		$$\eps = \frac{\Delta E}{\Delta V_0}=\frac{\Delta E\st{k}}{
+		$$\eps = \frac{\Delta E}{\Delta V_0}=\frac{\Delta E\st{k}+
 			\Delta E\st{p}}{\Delta V_0} = \frac12 \qty(\rho_0 v^2+
 			\beta_{s,0}p^2)
 		$$
 		\1 plane wave: $\Delta E\st{k} = \Delta E\st{p}$
 		$$v = \frac{p}{\rho_0c_0} \to \eps = \beta_{s,0}p^2 = 
-		\frac{p^2}{\rho_cc_0^2}$$
+		\frac{p^2}{\rho_0c_0^2}$$
 		\1 \emph{average} of the sound energy density for plane harmonic
 		waves
 		$$\bar{\eps} = \frac{\overline{p^2}}{\rho_0c_0^2} = \frac{p\st{a}^2}
 		{2\rho_0c_0^2} = \frac{p\st{e}^2}{\rho_0c_0^2}\qc
 		\qty(\overline{p^2}=\frac12 \qty|p|^2 = p\st{e}^2 = \frac12 p\st{a}^2)
 		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Sound Power, Sound Intensity}
+	\begin{outline}
+		\1 \emph{sound power} of arbitrary curved surface $\vb{S}$
+		($\si{W}$)
+		$$W = \iint_S \vb{v}\vdot \qty(p \dd{\vb{S}}) = \iint_S p \vb{v}
+		\vdot \dd{\vb{S}} = \iint_S \vb{I} \vdot \dd{\vb{S}}\qc $$
+		\1 \emph{sound energy flux (density)}: the rate of energy transfer per unit area 
+		($\si{W \cdot m^{-2}}= \si{W \cdot m^{-2}\cdot s^{-1}}$)
+		$$\vb{I}
+		\equiv p\vb{v}$$
+		\1 \emph{sound intensity}: time average of sound energy flux
+		$$ \bar{\vb{I}} = \overline{p\vb{v}}$$
+		\1 plane sound waves:
+		$$\bar{\vb{I}} = \frac{1}{\rho_0c_0} \overline{p^2} \vb{n} = 
+		\bar{\eps}c_0 \vb{n}$$
+		\1 harmonic plane sound waves:
+		$$\bar{\vb{I}} = \frac12 \Re(p^* \vb{v}) =
+		\frac{1}{\rho_0c_0} |p|^2 \vb{n} = (p\st{e}v\st{e})\vb{n}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Sound Pressure Level, Sound Intensity Level}
+	\begin{outline}
+	\1 \emph{Sound Pressure Level (SPL)}: a logarithmic measure of the 
+	\emph{effective pressure} of a sound relative to a reference value
+	$$\mathrm{SPL} \equiv \ln \qty(\frac{p\st{e}}{p\st{ref}} )\si{Np} 
+	\equiv 2 \lg \qty(\frac{p\st{e}}{p\st{ref}}) \si{B} 
+	\equiv 20 \lg \qty(\frac{p\st{e}}{p\st{ref}}) \si{dB}
+	$$
+		\2 $p\st{e}$: the \emph{effective sound pressure} or 
+		root mean square sound pressure
+	\1 $p\st{ref} = 20\mu \si{Pa}$ in air, which is often considered
+	as the \emph{threshold of human hearing at $1 \si{kHz}$} 
+	(roughly the sound of a 
+	mosquito flying 3 m away
+	\1 \emph{sound intensity level}
+	$$\mathrm{SIL} = 10 \lg \qty(\frac{I}{I\st{ref}} )\si{dB}\qc I\st{ref}
+	=\num{10e-12}\si{W\cdot m^2}$$
+	\1 relation between the SPL and SIL:
+	$$\mathrm{SIL} = \mathrm{SPL} + 10\lg \frac{400}{\rho_0c_0}$$
 	\end{outline}
 \end{frame}
 
