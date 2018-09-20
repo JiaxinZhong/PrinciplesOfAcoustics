@@ -555,14 +555,22 @@
 \begin{frame}{A Special Wave Equation}
 	\begin{outline}
 		\1 \emph{continuity equation:}
-		$$\rho \dv{v}{t} = -\pdv{P}{r} \quad \rightarrow \quad \rho_0 \pdv{v}{t} \approx -\pdv{p}{r}$$
-		\1 \emph{Eulerian equation:}
 		$$\pdv{t} (\rho S \dd{r}) = (\rho vS)_r - (\rho v S)_{r+\dd{r}} = -\pdv{(\rho vS)}{r} \dd{r} 
-		\quad \rightarrow \quad S\pdv{\rho}{t} \approx -\rho_0 \pdv{(vS)}{r}$$
+		\quad \to \quad 
+		\tikz[baseline]{\node[fill=green!20,anchor=base]{$\displaystyle
+			S\pdv{\rho}{t} \approx -\rho_0 \pdv{(vS)}{r}$}}$$
+		\1 \emph{Eulerian equation:}
+			$$\rho \dv{v}{t} = -\pdv{P}{r} \quad \to \quad 
+			\tikz[baseline]{\node[fill=green!20,anchor=base]{$\displaystyle
+				\rho_0 \pdv{v}{t} \approx -\pdv{p}{r}$}}$$
 		\1 \emph{equation of state:}
-		$$P = P(\rho) \quad \rightarrow\quad  p \approx c_0^2 \rho'$$
+		$$P = P(\rho) \quad \to \quad  
+		\tikz[baseline]{\node[fill=green!20, anchor=base]{$
+		p \approx c_0^2 \rho'$}}$$
 		\1 \emph{linear wave equation:}
-		$$\qty[\pdv[2]{p}{r}+\pdv{p}{r} \dv{(\ln S)}{r} ]- \frac{1}{c_0^2} \pdv[2]{p}{t}\approx 0$$
+		$$\tikz[baseline]{\node[fill=red!20,anchor=base]{$\displaystyle
+			\qty[\pdv[2]{p}{r}+\pdv{p}{r} \dv{(\ln S)}{r} ]- 
+			\frac{1}{c_0^2} \pdv[2]{p}{t}\approx 0$}}$$
 	\end{outline}
 \end{frame}
 
@@ -576,19 +584,22 @@
 		\1 (3D wave equation) propagating wave in \emph{unit vector} $\vb{n} = (n_x,n_y,n_z)$ direction 
 			$$p=p(c_0t-\vb{n}\vdot \vb{r})$$
 		\1 \emph{wave front}: a curved surface where the physical quantites are the same
-			$$\zeta = c_0t \mp \vb{n}\vdot \vb{r} = \text{const.}$$
+			$$\zeta = c_0t - \vb{n}\vdot \vb{r} = \text{const.}$$
 			$$\dd \zeta = 0 \imp c_0 = \pdv{t} (\vb{n} \vdot \vb{r})$$
 		\1 velocity 
-		$$\vb{v} = -\frac{1}{\rho_0} \int \grad p \dd{t} =\frac{p}{\rho_0c_0}\vb{n}, \quad \qty(\grad p(\zeta) = \vb{n} \dv{p}{\zeta}, \int p(\zeta) \dd{t} = \frac{1}{c_0} \int p(\zeta)\dd{\zeta})$$
+		$$\vb{v} = -\frac{1}{\rho_0} \int \grad p \dd{t} =\frac{p}
+		{\rho_0c_0}\vb{n}, \quad \qty(\grad p(\zeta) =- \vb{n} 
+		\dv{p}{\zeta}, \int p(\zeta) \dd{t} = \frac{1}{c_0} 
+		\int p(\zeta)\dd{\zeta})$$
 		\end{outline}
 \end{frame}
 
 \begin{frame}{Harmonic Plane Wave}
 	\begin{outline}
 		\1 the \emph{angular frequency}: $\omega$
-		$$p(\vb{r},t) = p(\vb{r})\me^{\mj \omega t}$$
+		$$p(\vb{r},t) = p(\vb{r})\me^{\mj \omega t}\qc(\mj^2 = -1)$$
 	\end{outline}
-	\begin{alertblock}{Linear Harmonic Plane Wave (Helmholtz) Equation}
+	\begin{alertblock}{Linear Harmonic Wave  Equation (Helmholtz Equation)}
 		$$\qty(\laplacian +k^2) p(\vb{r}) = 0$$
 		the \emph{wave number}: $k = \omega/c_0$
 	\end{alertblock}
