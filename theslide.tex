@@ -239,7 +239,8 @@
 
 \begin{frame}{Eulerian Method}{The Equation of Continuity}
 	\begin{outline}
-		\1 \emph{mass flux} is the rate of mass flow per unit area: 
+		\1 \emph{mass flux (density)} is the rate of mass 
+		flow per unit area: 
 		$\vb{j}\st{m} = \rho \vb{v}$
 		\1 The \emph{velocity} at $\vb{r}$ and time $t$: $\vb{v} = \vb{v}(\vb{r},t) = (v_x,v_y,v_z), v = ||\vb{v}||$
 		\1 The \emph{volume} of a bulk of fluid: $V$, \emph{surface} of $V$: $\vb{S} = S\vb{n}$
@@ -725,7 +726,8 @@
 		($\si{W}$)
 		$$W = \iint_S \vb{v}\vdot \qty(p \dd{\vb{S}}) = \iint_S p \vb{v}
 		\vdot \dd{\vb{S}} = \iint_S \vb{I} \vdot \dd{\vb{S}}\qc $$
-		\1 \emph{sound energy flux (density)}: the rate of energy transfer per unit area 
+		\1 \emph{sound energy flux (density)}:
+		the rate of energy transfer per unit area 
 		($\si{W \cdot m^{-2}}= \si{W \cdot m^{-2}\cdot s^{-1}}$)
 		$$\vb{I}
 		\equiv p\vb{v}$$
@@ -737,6 +739,38 @@
 		\1 harmonic plane sound waves:
 		$$\bar{\vb{I}} = \frac12 \Re(p^* \vb{v}) =
 		\frac{1}{\rho_0c_0} |p|^2 \vb{n} = (p\st{e}v\st{e})\vb{n}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Flux*}
+	\begin{outline}
+		\1 \emph{Flux}: describes the quantity which passes through
+		a surface
+	\end{outline}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.6\textheight]{img/idealfluid/General_flux_diagram1.png}
+		\includegraphics[height=0.4\textheight]{img/idealfluid/General_flux_diagram2.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Flux*}
+	\begin{outline}
+		\1 \emph{Flux}: describes the quantity which passes through
+		a surface
+		\1 \emph{Flux as flow rate per unit area}: $\vb{j}$
+			\2 transport phenomena: heat transfer, mass transfer, and
+		fluid dynamics
+		\2 dimensions: [quantity]$\cdot$[time]$^{-1}\cdot$[area]$^{-1}$
+		\2 vector
+		\2 also called \emph{flux density}
+		\2 $q$: physical quantity that flows
+		$$\dv{q}{t} = \iint_S \vb{j} \vdot \dd{\vb{S}}$$
+		\1 \emph{Flux as a surface integral}: $\Phi_F$
+			\2 electromagnetism, calculus
+			\2 dimensions: [quantity]$\cdot$[time]$^{-1}$
+			\2 scalar
+			$$\Phi_F = \iint_S\vb{F}\vdot \dd{\vb{S}}$$
 	\end{outline}
 \end{frame}
 
