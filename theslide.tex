@@ -582,7 +582,38 @@
 		\1 1D wave equation
 		$$\qty(\pdv[2]{x} - \frac{1}{c_0^2} \pdv[2]{t}) p =0$$
 		$$\pdv{p}{\xi}{\eta} = 0, \qty(\xi = c_0t-x, \eta=c_0t+x)$$
-		$$\imp p = f(\xi)+g(\eta) = f(c_0t-x) +g(c_0t+x)$$
+		$$\imp\tikz[baseline]{\node[fill=red!20,anchor=base]{$p$}}
+		= f(\xi)+g(\eta) \tikz[baseline]{\node[fill=red!20,anchor=base]
+			{$= f(c_0t-x) +g(c_0t+x)$}}$$
+		\1 Proof
+		$$
+			\xi = \xi(x,t)\qc \eta = \eta(x,t)
+		$$
+		$$
+			\pdv{\xi} = \qty(\pdv{\xi}{t})^{-1} \pdv{t} + 
+			\qty(\pdv{\xi}{x})^{-1} \pdv{x} 
+			= \frac{1}{c_0} \pdv{t}-\pdv{x}
+		$$
+		$$
+			\pdv{\eta} = \qty(\pdv{\eta}{t})^{-1} \pdv{t} + 
+			\qty(\pdv{\eta}{x})^{-1} \pdv{x} 
+			= \frac{1}{c_0} \pdv{t}+\pdv{x}
+		$$
+		\begin{align*}
+			\pdv[2]{}{\xi}{\eta} &= \pdv{\xi}\qty(\pdv{\eta})
+			=\pdv{\xi}\qty(\frac{1}{c_0} \pdv{t} + \pdv{x})\\
+			&=\qty(\frac{1}{c_0} \pdv{t} - \pdv{x})
+			\qty(\frac{1}{c_0} \pdv{t} + \pdv{x})
+			=\qty(\pdv[2]{x} - \frac{1}{c_0^2} \pdv[2]{t}) 
+		\end{align*}
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Planar Wave}
+	\begin{outline}
+		\1 1D wave equation
+		$$\qty(\pdv[2]{x} - \frac{1}{c_0^2} \pdv[2]{t}) p =0$$
+		$$\imp p = f(c_0t-x) +g(c_0t+x)$$
 		\1 \emph{propagating wave} in $x$ direction: \colorbox{red!20}{$p=p(c_0t-x)$}
 		\1 (3D wave equation) propagating wave in \emph{unit vector} $\vb{n} = (n_x,n_y,n_z)$ direction 
 			$$p=p(c_0t-\vb{n}\vdot \vb{r})$$
@@ -596,7 +627,6 @@
 		\int p(\zeta)\dd{\zeta})$$
 		\end{outline}
 \end{frame}
-
 \begin{frame}{Harmonic Plane Wave}
 	\begin{outline}
 		\1 the \emph{angular frequency}: $\omega$
@@ -728,7 +758,7 @@
 		\vdot \dd{\vb{S}} = \iint_S \vb{I} \vdot \dd{\vb{S}}\qc $$
 		\1 \emph{sound energy flux (density)}:
 		the rate of energy transfer per unit area 
-		($\si{W \cdot m^{-2}}= \si{W \cdot m^{-2}\cdot s^{-1}}$)
+		($\si{W \cdot m^{-2}}= \si{J \cdot m^{-2}\cdot s^{-1}}$)
 		$$\vb{I}
 		\equiv p\vb{v}$$
 		\1 \emph{sound intensity}: time average of sound energy flux
