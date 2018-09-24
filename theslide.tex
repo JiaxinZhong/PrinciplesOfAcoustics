@@ -62,7 +62,7 @@
 % \DeclareTextFontCommand{\emph}{\bfseries}
 \DeclareTextFontCommand{\emph}{\bfseries\sffamily}
 
-\author{Jiaxin Zhong}
+\author{\textsc{Jiaxin Zhong}}
 \institute[NJU]{Nanjing University, China}
 \date{\today}
 
@@ -359,8 +359,8 @@
 	\end{defi}
 \end{frame}
 
+\section{Equation of State}
 \begin{frame}{Equation of State}
-
 	\begin{block}{Equation of State}
 		For fluid media, the equation of state must relate \emph{3 physical quantities} descrbing the thermodynamic behavior of the fuid: such as $\{\rho, P, T\}$, $\{\rho,P,s\}$ or $\{\rho, P, V\}$.
 		$$f(\rho,P,T)=0, \quad f(\rho,P,s)=0 \qor f(\rho,P,V)=0$$
@@ -392,14 +392,15 @@
 \end{frame}
 
 \begin{frame}{Equation of State}
-
 	\begin{exampleblock}{General Fluids Adiabat}
-		% $$P = P_0 + \frac{1}{1!} \rho_0\qty(\pdv{P}{\rho})_{s,0} \delta + \frac{1}{2!} \rho_0^2 \qty(\pdv[2]{P}{\rho})_{s,0} \delta^2+\cdots$$
 		\begin{align*}
 			P &= P(\rho) = P(\delta) = P_0 + \sum_{n=1}^\infty \frac{1}{n!} \rho_0^n \qty(\pdv[n]{P}{\rho} )_{s,0} \delta^n\\
-			&=P_0 + \frac{1}{1!} A\rho_0 \delta + \frac{1}{2!} \rho_0^2 B \delta^2+\frac{1}{3!}\rho_0^3 C \delta^3+\cdots
+			&=P_0 + \frac{1}{1!} A\delta + \frac{1}{2!} B \delta^2+\frac{1}
+			{3!} C \delta^3+\cdots
 		\end{align*}
-		where $\delta = (\rho-\rho_0)/\rho_0$, $A=\qty(\pdv{P}{\rho})_{s,0}$, $B=\qty(\pdv[2]{P}{\rho})_{s,0}$, $C=\qty(\pdv[3]{P}{\rho})_{s,0}$.
+		where $\delta = (\rho-\rho_0)/\rho_0$, $A=\rho_0\qty(\pdv{P}
+		{\rho})_{s,0}$, $B=\rho_0^2\qty(\pdv[2]{P}{\rho})_{s,0}$,
+		$C=\rho_0^3\qty(\pdv[3]{P}{\rho})_{s,0}$.
 	\end{exampleblock}
 
 	\begin{exampleblock}{Perfect Gas Adiabat}
@@ -415,10 +416,10 @@
 \begin{frame}{Disturbance Quantities}
 	\begin{outline}
 		\1 Under mechanical disturbances, the quantities are changed as: $$P_0\to P, \quad T_0\to T,\quad  \rho_0 \to \rho$$
-			\2 \emph{pressure disturbance}: $p=\Delta{P} (=\dd{P}) = P-P_0$
-			\2 \emph{density disturbance}: $\rho' = \Delta\rho (=\dd{\rho})= \rho-\rho_0 $
-			\2 \emph{temperature disturbance}: $\tau=\Delta T (=\dd{T})=T-T_0$
-			\2 \emph{velocity disturbance}: $\vb{v}'=\Delta \vb{v} (=\dd{\vb{v} }) = \vb{v} - \vb{v}_0$
+			\2 \emph{pressure disturbance (excess pressure)}: $p=\Delta{P} (=\dd{P}) = P-P_0$
+			\2 \emph{density disturbance (excess density)}: $\rho' = \Delta\rho (=\dd{\rho})= \rho-\rho_0 $
+			\2 \emph{temperature disturbance (excess density)}: $\tau=\Delta T (=\dd{T})=T-T_0$
+			\2 \emph{velocity disturbance (excess density)}: $\vb{v}'=\Delta \vb{v} (=\dd{\vb{v} }) = \vb{v} - \vb{v}_0$
 				\3 $\vb{v}'=\vb{v}$ if $\vb{v}_0=0$
 		\1 \emph{(scalar) pressure field}: $p(\vb{r},t)$
 		\1 \emph{(vector) velocity field}: $\vb{v}(\vb{r},t)$
@@ -751,6 +752,7 @@
 	\end{outline}
 \end{frame}
 
+\section{Sound Power, Sound Intensity}
 \begin{frame}{Sound Power, Sound Intensity}
 	\begin{outline}
 		\1 \emph{sound power} of arbitrary curved surface $\vb{S}$
@@ -760,15 +762,16 @@
 		\1 \emph{sound energy flux (density)}:
 		the rate of energy transfer per unit area 
 		($\si{W \cdot m^{-2}}= \si{J \cdot m^{-2}\cdot s^{-1}}$)
-		$$\vb{I}
-		\equiv p\vb{v}$$
-		\1 \emph{sound intensity}: time average of sound energy flux
-		$$ \bar{\vb{I}} = \overline{p\vb{v}}$$
+		$$\vb{I}\equiv p\vb{v}\qc \bar{\vb{I}} = \overline{p\vb{v}}$$
+		\1 \emph{sound intensity}: Real part of the 
+		time average of sound energy flux
+		$$ \Re(\bar{\vb{I}}) = \Re (\overline{p\vb{v}}) = \frac12\Re
+		(\overline{p^*\vb{v} +p\vb{v}})$$
 		\1 plane sound waves:
-		$$\bar{\vb{I}} = \frac{1}{\rho_0c_0} \overline{p^2} \vb{n} = 
+		$$\Re(\bar{\vb{I}}) = \frac{1}{\rho_0c_0} \overline{p^2} \vb{n} = 
 		\bar{\eps}c_0 \vb{n}$$
 		\1 harmonic plane sound waves:
-		$$\bar{\vb{I}} = \frac12 \Re(p^* \vb{v}) =
+		$$\Re(\bar{\vb{I}} )= \frac12 \Re(p^* \vb{v}) =
 		\frac{1}{\rho_0c_0} |p|^2 \vb{n} = (p\st{e}v\st{e})\vb{n}$$
 	\end{outline}
 \end{frame}
