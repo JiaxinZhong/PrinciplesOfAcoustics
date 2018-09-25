@@ -1,0 +1,18 @@
+# Vim:
+*.swp
+
+# LaTeX:
+*.aux
+*.bbl
+*.blg
+*.log
+*.nav
+*.snm
+*.toc
+*.out
+
+# Others:
+*.pdf
+
+# Finder:
+.DS_Store
