@@ -319,14 +319,15 @@
 		\imp && \left. \dv{\vb{v}}{t} \right|_{(x,y,z,t)} &= \left.\pdv{\vb{v}}{t}\right|_{(x,y,z,t)} + \left.(\vb{v}\vdot \grad) \vb{v}\right|_{(x,y,z,t)} &&\\
 		\text{where}&& \vb{v} (x,y,z,t) &= (v_x (x,y,z,t), v_y(x,y,z,t), v_z(x,y,z,t))&&
 	\end{flalign*}
-	\1 or more concise
+	\1 or more general, for an \emph{arbitrary physical quantity} $f(\vb{r},t)$ 
+	(density, pressure, velocity, entropy, temperature, displacement, etc.)
 	\begin{align*}
-	\vb{a} \equiv \dv{\vb{v}}{t} &=\lim_{\Delta t\to0} 
-	\frac{\vb{v} (\vb{r}+\Delta\vb{r},t+\Delta t) - \vb{v}(\vb{r},t)}{
+	\dv{f}{t} &=\lim_{\Delta t\to0} 
+	\frac{f (\vb{r}+\Delta\vb{r},t+\Delta t) - f(\vb{r},t)}{
 	\Delta t} \\
-	&= \pdv{\vb{v}}{t}+ \qty(\lim_{\Delta t\to 0} \frac{\Delta \vb{r}}{
-	\Delta t}\vdot \grad  )\vb{v}\\
-	&= \pdv{\vb{v}}{t}+ \qty( \vb{v} \vdot \grad  )\vb{v}
+	&= \pdv{f}{t}+ \qty(\lim_{\Delta t\to 0} \frac{\Delta \vb{r}}{
+	\Delta t}\vdot \grad  )f\\
+	&= \pdv{f}{t}+ \qty( \vb{v} \vdot \grad  )f
 	\end{align*}
 \end{outline}
 \end{frame}
