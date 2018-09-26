@@ -237,7 +237,9 @@
 \end{frame}
 
 
-\begin{frame}{Eulerian Method}{The Equation of Continuity}
+\section{Eulerian Method}
+\subsection{Equation of Continuity}
+\begin{frame}{Eulerian Method}{Equation of Continuity}
 	\begin{outline}
 		\1 \emph{mass flux (density)} is the rate of mass 
 		flow per unit area: 
@@ -272,7 +274,8 @@
 
 \end{frame}
 
-\begin{frame}{Eulerian Method}
+\subsection{Total Derivative and Partial Derivative}
+\begin{frame}{Eulerian Method}{Total Derivative and Partial Derivative}
 	\begin{outline}
 		\1 The \emph{velocity field} at loction $\vb{r}$ and time $t$: $\vb{v}(x,y,z,t)$
 		\1 The particle at $\vb{r}$ at time $t$ travels to $\vb{r}+\Delta\vb{r}$ at time $t+\Delta t$, and the veloctiy of this particle is: $\vb{v}(\vb{r}+\Delta\vb{r},t+\Delta t)$
@@ -291,7 +294,7 @@
 	\end{outline}
 \end{frame}
 
-\begin{frame}{xx}
+\begin{frame}{Eulerian Method}{Total Derivative and Partial Derivative}
 	\begin{outline}
 		\1 A particle travels from $\vb{r}=(x,y,z)$ at time $t$ to $\vb{r}+\Delta \vb{r} = (x+\Delta x,y+\Delta y, z+\Delta z)$ at time $t+\Delta t$. According to Taylor expansion, we have 
 		\begin{align*}
@@ -309,13 +312,22 @@
 	\end{outline}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Eulerian Method}{Total Derivative and Partial Derivative}
 	\begin{outline}
 	\begin{flalign*}
 		\imp && \left. \dv{\vb{v}}{t} \right|_{(x,y,z,t)} &= \left.\pdv{\vb{v}}{t}\right|_{(x,y,z,t)} + \left. \qty[(v_x,v_y,v_z)\vdot \qty(\pdv{x},\pdv{y},\pdv{z})] \vb{v}\right|_{(x,y,z,t)} &&\\
 		\imp && \left. \dv{\vb{v}}{t} \right|_{(x,y,z,t)} &= \left.\pdv{\vb{v}}{t}\right|_{(x,y,z,t)} + \left.(\vb{v}\vdot \grad) \vb{v}\right|_{(x,y,z,t)} &&\\
 		\text{where}&& \vb{v} (x,y,z,t) &= (v_x (x,y,z,t), v_y(x,y,z,t), v_z(x,y,z,t))&&
 	\end{flalign*}
+	\1 or more concise
+	\begin{align*}
+	\vb{a} \equiv \dv{\vb{v}}{t} &=\lim_{\Delta t\to0} 
+	\frac{\vb{v} (\vb{r}+\Delta\vb{r},t+\Delta t) - \vb{v}(\vb{r},t)}{
+	\Delta t} \\
+	&= \pdv{\vb{v}}{t}+ \qty(\lim_{\Delta t\to 0} \frac{\Delta \vb{r}}{
+	\Delta t}\vdot \grad  )\vb{v}\\
+	&= \pdv{\vb{v}}{t}+ \qty( \vb{v} \vdot \grad  )\vb{v}
+	\end{align*}
 \end{outline}
 \end{frame}
 
