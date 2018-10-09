@@ -830,6 +830,7 @@
 	\end{outline}
 \end{frame}
 
+\section{Sound Pressure Level}
 \begin{frame}{Sound Pressure Level, Sound Intensity Level}
 	\begin{outline}
 	\1 \emph{Sound Pressure Level (SPL)}: a logarithmic measure of the 
@@ -850,6 +851,128 @@
 	\1 relation between the SPL and SIL:
 	$$\mathrm{SIL} = \mathrm{SPL} + 10\lg \frac{400}{\rho_0c_0}$$
 	\end{outline}
+\end{frame}
+
+\begin{frame}{Sound Pressure Level}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.9\textheight]{img/idealfluid/spl_table.png}
+	\end{figure}
+\end{frame}
+
+\subsection{Phon}
+\begin{frame}{Phon}
+
+	\begin{block}{Phon}
+		The number of phon of a sound is the dB SPL of a sound at a 
+		frequency of 1 kHz that sounds just as loud.
+	\end{block}
+
+	\begin{outline}
+		\1 \emph{loudness}: the subjective perception of sound pressure
+			\2 the human hearing sensitivity varies with frequency
+		\1 The \emph{phon} is a unit of \emph{loudness} level for \emph{
+		pure tones}.
+		\1 Its purpose is to compensate for the effect of frequency on the 
+		perceived loudness of tones.
+		\1 Standards: DIN 45631, ISO 532
+	\end{outline}
+
+	\begin{alertblock}{Example}
+		60 phons means ``as loud as a 60 dB, 1000 Hz tone''
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}{Equal Loudness Curve}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.85\textheight]{img/idealfluid/eqlou.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Equal Loudness Curve}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.85\textheight]{img/idealfluid/eqlou2.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Equal Loudness Curve}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.85\textheight]{img/idealfluid/eqlou_ex.jpg}
+	\end{figure}
+\end{frame}
+
+
+\section{Plane Waves and Interfaces}
+\begin{frame}{Plane Waves and Interfaces}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.45\textwidth]{img/idealfluid/plane_vert_inc.pdf}
+	\end{figure}
+
+	\begin{outline}
+		\1 \emph{Acoustic interfaces}: the characteristic specific acoustic 
+		impedance is different in both sides, $\rho_1c_1$ and $\rho_2c_2$
+		\1 \emph{reflection, transmission, and refraction}
+		\1 \emph{normal specific acoustic impedance of the interface}
+		$$ z\st{n}= \frac{p}{\vb{v}\vdot \vb{n}}$$
+		\1 continuous boundary conditions 
+			\2 sound pressure: $p_1 =p_2$
+			\2 normal velocity: $\vb{v}_1\vdot \vb{n} = \vb{v}_2 \vb{n}$
+			\2 normal specific acoustic impedance: $z\st{n1} = z\st{n2}$
+	\end{outline}
+\end{frame}
+
+\section{Normal Incidence}
+\subsection{Reflection and Transmission Coefficients}
+\begin{frame}{Normal Incidence: Reflection and Transmission Coefficients}
+	\begin{outline}
+		\1 Incident field
+		$$
+		\begin{cases}
+			p\st{i} = p\st{ia}\me^{\mj(\omega t-k_1 x)}\\
+			v\st{i} = v\st{ia} \me^{\mj (\omega t - k_1 x)}
+		\end{cases}
+		\qc \qty(v\st{ia} = \frac{p\st{ia}}{z_1}\qc z_1 = \rho_1 c_1)
+		$$
+		\1 Reflective field
+		$$
+		\begin{cases}
+			p\st{r} = p\st{ra}\me^{\mj(\omega t+k_1 x)}\\
+			v\st{r} = v\st{ra} \me^{\mj (\omega t + k_1 x)}
+		\end{cases}
+		\qc \qty(v\st{ra} = -\frac{p\st{ra}}{z_1})
+		$$
+		\1 Transmissive field
+		$$
+		\begin{cases}
+			p\st{t} = p\st{ta}\me^{\mj(\omega t-k_2 x)}\\
+			v\st{t} = v\st{ta} \me^{\mj (\omega t - k_2 x)}
+		\end{cases}
+		\qc \qty(v\st{ta} = -\frac{p\st{ta}}{z_2}\qc z_2 = \rho_2c_2)
+		$$
+		\1 Boundary conditions at $x=0$:
+		$
+		\begin{cases}
+			p\st{i} +p\st{r} = p\st{t}\\
+			v\st{i} +v\st{r} = v\st{t}
+		\end{cases}
+		\qc \qty(z_{12} = \dfrac{z_2}{z_1})
+		$
+		$$
+		\imp
+		\begin{cases}
+		r_p = \dfrac{p\st{ra}}{p\st{ia}} =\dfrac{z_2-z_1}{z_2+z_1} = 
+		\dfrac{z_{12}-1}{z_{12}+1}\qc r_v = \dfrac{v\st{ra}}{v\st{ia}} = -r_p\\
+		t_p = \dfrac{p\st{ta}}{p\st{ia}} =\dfrac{2z_2}{z_1+z_2} = \dfrac{2z_{12}
+	}{1+z_{12}}\qc t_v = \dfrac{v\st{ta}}{v\st{ia}} = \dfrac{2z_1}{z_1+z_2}
+	=\dfrac{2}{1+z_{12}}
+		\end{cases}
+		$$
+	\end{outline}
+
 \end{frame}
 
 \begin{frame}{Oblique Incidence}{reflection and transmission coefficients}
@@ -890,7 +1013,6 @@
 		$$
 	\end{outline}
 \end{frame}
-
 \setcounter{framenumber}{0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\titlestring}{Sound Waves in Ducts Filled with Fluids}
