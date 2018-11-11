@@ -854,7 +854,9 @@
 	\1 $p\st{ref} = 20\mu \si{Pa}$ in air, which is often considered
 	as the \emph{threshold of human hearing at $1 \si{kHz}$} 
 	(roughly the sound of a 
-	mosquito flying 3 m away
+	mosquito flying 3 m away)
+	\1 Examples: $p\st{e} = 1\si{Pa} \imp \mathrm{SPL}=94 \si{dB}\qc 
+	p\st{e}\to 2p\st{e} \imp \Delta \mathrm{SPL} = 6 \si{dB}$
 	\1 \emph{sound intensity level}
 	$$\mathrm{SIL} = 10 \lg \qty(\frac{I}{I\st{ref}} )\si{dB}\qc I\st{ref}
 	=\num{10e-12}\si{W\cdot m^2}$$
@@ -1002,9 +1004,61 @@
 		\end{cases}
 		$$
 	\end{outline}
-
 \end{frame}
 
+\subsection{Sound Hard and Sound Soft Boundaries}
+
+\begin{frame}{Sound Hard and Sound Soft Boundaries}
+	\begin{outline}
+		\1 \emph{Impedance Matching}: $z_2=z_1$
+			$$r_p = r_v = 0\qc t_p = t_v = 1$$
+		\1 \emph{Sound Hard Boundary}: $z_2>z_1$
+		$$0<r_p<1\qc -1<r_v<0\qc 1<t_p<2\qc 0<t_v<1$$
+			\2 \emph{very hard}: $z_2>>z_1$
+			$$r_p \approx 1\qc r_v \approx -1\qc t_p \approx 2\qc t_v\approx 0$$
+		\1 \emph{Sound Soft Boundary}: $z_2<z_1$
+		$$-1<r_p<0\qc 0<r_v<1\qc 0<t_p<1\qc 1<t_v<2$$
+			\2 \emph{very soft}: $z_2<<z_1$
+			$$r_p\approx -1\qc r_v \approx 1\qc t_p \approx0\qc t_v\approx 2$$
+	\end{outline}
+\end{frame}
+
+\subsection{Sound Intensity}
+\begin{frame}{Reflection and Transmission Coefficients of Sound Intensity}
+	\begin{outline}
+		\1 conditions: \emph{plane wave} and \emph{harmonic}
+		\1 reflection coefficient
+		$$r_I = \qty|\frac{I\st{r}}{I\st{i}} | = \frac{p\st{ra}^2}{2z_1}
+		\bigg/ \frac{p\st{ia}^2}{2z_1} = r_p^2 
+		= \qty(\frac{z_1-z_2}{z_1+z_2})^2 $$
+		\1 transmission coefficient
+		$$t_I = \qty|\frac{I\st{t}}{I\st{i}} | = \frac{p\st{ta}^2}{2z_1}
+		\bigg/ \frac{p\st{ia}^2}{2z_1} = z_{21} t_p^2 
+		= \qty(\frac{4z_1z_2}{(z_1+z_2)^2})$$
+		\1 Conservation of sound energy
+		$$r_I+t_I = 1$$
+	\end{outline}
+\end{frame}
+
+\subsection{Normal Specific Acoustic Impedance of the Interface}
+\begin{frame}{Application of $z\st{n}$}
+	\begin{outline}
+		\1 \emph{Normal specific acoustic impedance of the interface} at
+		$x$: $z\st{n}(x)$
+		$$z\st{n}(x=0) = \left. \frac{p\st{i}+p\st{r}}{v\st{i} +v\st{r}}\right|
+		_{x=0} = z_1 \frac{1+r_p}{1-r_p}$$
+		$$\imp \quad r_p = \frac{z\st{n}(0) - z_1}{z\st{n}(0)+z_1}$$
+		\1 at the transmission side: $z\st{n}(x=0) = z_2$
+		$$\imp \quad r_p = \frac{z_2-z_1}{z_2+z_1}$$
+		\1 \emph{OR} at the transmission side: $$z\st{n}(x=0) = 
+		z_2\dfrac{z_1+\mj z_2 \tan k_2d}{z_2+\mj z_1\tan k_2 d}$$
+		$$\imp \quad r_p = \mj \frac{(z_2^2-z_1^2)\tan k_2d}{2
+		z_1z_2 + \mj (z_1^2+z_2^2)\tan k_2 d}$$
+			\2 the reflection coefficient when the interlayer is presented
+	\end{outline}
+\end{frame}
+
+\subsection{Homework}
 \begin{frame}{Normal Incidence}{Homework}
 	\begin{outline}[enumerate]
 			\1 Textbook B: 4-15
