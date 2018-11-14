@@ -952,7 +952,7 @@
 		$$ z\st{n}= \frac{p}{\vb{v}\vdot \vb{n}}$$
 		\1 continuous boundary conditions 
 			\2 sound pressure: $p_1 =p_2$
-			\2 normal velocity: $\vb{v}_1\vdot \vb{n} = \vb{v}_2 \vb{n}$
+			\2 normal velocity: $\vb{v}_1\vdot \vb{n} = \vb{v}_2 \vdot \vb{n}$
 			\2 normal specific acoustic impedance: $z\st{n1} = z\st{n2}$
 	\end{outline}
 \end{frame}
@@ -983,7 +983,7 @@
 			p\st{t} = p\st{ta}\me^{\mj(\omega t-k_2 x)}\\
 			v\st{t} = v\st{ta} \me^{\mj (\omega t - k_2 x)}
 		\end{cases}
-		\qc \qty(v\st{ta} = -\frac{p\st{ta}}{z_2}\qc z_2 = \rho_2c_2)
+		\qc \qty(v\st{ta} = \frac{p\st{ta}}{z_2}\qc z_2 = \rho_2c_2)
 		$$
 		\1 Boundary conditions at $x=0$:
 		$
@@ -996,10 +996,12 @@
 		$$
 		\imp
 		\begin{cases}
-		r_p = \dfrac{p\st{ra}}{p\st{ia}} =\dfrac{z_2-z_1}{z_2+z_1} = 
-		\dfrac{z_{12}-1}{z_{12}+1}\qc r_v = \dfrac{v\st{ra}}{v\st{ia}} = -r_p\\
-		t_p = \dfrac{p\st{ta}}{p\st{ia}} =\dfrac{2z_2}{z_1+z_2} = \dfrac{2z_{12}
-	}{1+z_{12}}\qc t_v = \dfrac{v\st{ta}}{v\st{ia}} = \dfrac{2z_1}{z_1+z_2}
+		r_p \equiv \dfrac{p\st{ra}}{p\st{ia}} =\dfrac{z_2-z_1}{z_2+z_1} = 
+		\dfrac{z_{12}-1}{z_{12}+1}
+		\qc r_v \equiv \dfrac{v\st{ra}}{v\st{ia}} = -r_p\\
+		t_p \equiv \dfrac{p\st{ta}}{p\st{ia}} =\dfrac{2z_2}{z_1+z_2} = \dfrac{2z_{12}
+	}{1+z_{12}}
+	\qc t_v \equiv \dfrac{v\st{ta}}{v\st{ia}} = \dfrac{2z_1}{z_1+z_2}
 	=\dfrac{2}{1+z_{12}}
 		\end{cases}
 		$$
@@ -1028,13 +1030,13 @@
 	\begin{outline}
 		\1 conditions: \emph{plane wave} and \emph{harmonic}
 		\1 reflection coefficient
-		$$r_I = \qty|\frac{I\st{r}}{I\st{i}} | = \frac{p\st{ra}^2}{2z_1}
+		$$r_I = \frac{|\vb{I}\st{r}|}{|\vb{I}\st{i}|} = \frac{p\st{ra}^2}{2z_1}
 		\bigg/ \frac{p\st{ia}^2}{2z_1} = r_p^2 
 		= \qty(\frac{z_1-z_2}{z_1+z_2})^2 $$
 		\1 transmission coefficient
-		$$t_I = \qty|\frac{I\st{t}}{I\st{i}} | = \frac{p\st{ta}^2}{2z_1}
+		$$t_I = \frac{|\vb{I}\st{t}|}{|\vb{I}\st{i}|}  = \frac{p\st{ta}^2}{2z_1}
 		\bigg/ \frac{p\st{ia}^2}{2z_1} = z_{21} t_p^2 
-		= \qty(\frac{4z_1z_2}{(z_1+z_2)^2})$$
+		= \frac{4z_1z_2}{(z_1+z_2)^2}$$
 		\1 Conservation of sound energy
 		$$r_I+t_I = 1$$
 	\end{outline}
@@ -1063,6 +1065,92 @@
 	\begin{outline}[enumerate]
 			\1 Textbook B: 4-15
 			\1 Textbook B: 4-16
+			\1 Textbook B: 4-18
+	\end{outline}
+\end{frame}
+
+\section{Oblique Incidence}
+
+\begin{frame}{Oblique Incidence}{reflection and transmission coefficients}
+	\begin{columns}
+		\column{0.6\textwidth}
+		\begin{outline}
+			\1 sound field
+			$$\begin{cases}p\st{i} = p\st{ia} \me^{\mj (\omega t-\vb{k}\st{i}
+				\vdot \vb{r})} \\ \vb{v}\st{i} = \dfrac{p\st{i}}{z_1}\vb{n}\st{i}\end{cases}
+			, \qty[\begin{split}\vb{k}\st{i} &= k_1\vb{n}\st{i}\\ \vb{n} &=
+				(\cos \theta\st{i}, \sin\theta\st{i})\end{split}]$$
+			$$\begin{cases}p\st{r} = p\st{ra} \me^{\mj (\omega t-\vb{k}\st{r}
+				\vdot \vb{r})} \\ \vb{v}\st{r} = \dfrac{p\st{r}}{z_1}\vb{n}\st{r}\end{cases}
+			, \qty[\begin{split}\vb{k}\st{r} &= k_1\vb{n}\st{r}\\ \vb{n} &=
+				(-\cos \theta\st{r}, \sin\theta\st{r})\end{split}]$$
+			$$\begin{cases}p\st{t} = p\st{ta} \me^{\mj (\omega t-\vb{k}\st{t}
+				\vdot \vb{t})} \\ \vb{v}\st{t} = \dfrac{p\st{t}}{z_2}\vb{n}\st{t}\end{cases}
+			, \qty[\begin{split}\vb{k}\st{t} &= k_2\vb{n}\st{t}\\ \vb{n} &=
+				(\cos \theta\st{t}, \sin\theta\st{t})\end{split}]$$
+		\end{outline}
+		\column{0.4\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{img/idealfluid/planeObliqueIncidence.pdf}
+		\end{figure}
+	\end{columns}
+
+	\begin{outline}
+		\1 boundary conditions at $x=0$:
+		$$\begin{cases} p\st{i} +p\st{r} = p\st{t} \\
+			\vb{v}\st{i} +\vb{v} \st{r} =\vb{v}\st{t} \Leftrightarrow
+			v_{\text{i}, x} + v_{\text{r}, x} = v_{\text{t}, x} \qand
+			v_{\text{i}, y} + v_{\text{r}, y} = v_{\text{t}, y}
+		\end{cases}
+			$$
+		% \1 in region 1
+		% $$p_1 \equiv p\st{i} +p\st{r} = p\st{ia} \me^{\mj (\omega t
+			% -\vb{k}\st{i}\vdot \vb{r})} + p\st{ra} \me^{\mj (\omega t
+			% -\vb{k}\st{r}\vdot \vb{r})} $$
+			% $$\vb{v}_{1,x} \equiv \vb{v}_1 \vdot \vb{e}_s = 
+			% (\vb{v}\st{i} +\vb{v}\st{r})\vdot \vb{e}_x
+			% = \dfrac{p\st{i}}{z\st{ni}} + \frac{p\st{r}}{z\st{nr}}
+			% $$
+			% $$\qty(z\st{ni} = \frac{z_1}{\cos \theta\st{i}}
+			% \qc z\st{nr} = -\frac{z_1}{\cos \theta\st{r}})$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Oblique Incidence}{Snell's Law}
+	\begin{outline}
+		\1 boundary conditions at $x=0$
+		$$
+		\begin{cases}
+			\displaystyle
+			p\st{ia} \me^{-\mj k_1 \sin \theta\st{i} y} +
+			p\st{ra} \me^{-\mj k_1 \sin \theta\st{r} y} =
+			p\st{ta} \me^{-\mj k_2 \sin \theta\st{t} y}\\
+			\displaystyle
+			\frac{p\st{ia}}{z\st{ni}} \me^{-\mj k_1 \sin \theta\st{i} y} +
+			\frac{p\st{ra}}{z\st{nr}} \me^{-\mj k_1 \sin \theta\st{r} y} =
+			\frac{p\st{ta}}{z\st{nt}} \me^{-\mj k_2 \sin \theta\st{t} y}
+		\end{cases}
+		$$
+		$$
+			\qty(z\st{ni} = \frac{z_1}{\cos \theta\st{i}}
+			\qc z\st{nr} = -\frac{z_1}{\cos \theta\st{r}}
+			\qc z\st{nt} = \frac{z_2}{\cos \theta\st{t}})
+		$$
+		\1 to satisfy the equations, we have (\emph{Snell's Law})
+		$$
+		k_1 \sin \theta\st{i} = k_1\sin\theta\st{r} = k_2\sin\theta\st{t}
+		\imp
+		\begin{cases}
+			\displaystyle
+			\theta\st{i} = \theta\st{r}\\
+			\displaystyle
+			n = \frac{\sin \theta\st{i}}{\sin \theta\st{t}} = 
+			\frac{k_2}{k_1} = \frac{c_1}{c_2}
+		\end{cases}
+		$$
+		\2 incident angle = reflection angle
+		\1 $n$: \emph{refraction index}
 	\end{outline}
 \end{frame}
 
@@ -1072,36 +1160,57 @@
 		$$ 
 		\begin{cases}
 			p_\text{ia}+p_\text{ra}=p_\text{ta}\\
-			\displaystyle \frac{p_\text{ia} - p\st{r}a}{z_\text{n1}} = 
-			\frac{p\st{t}a}{z_\text{n2}}
+			\displaystyle \frac{p_\text{ia} - p\st{ra}}{z_\text{n1}} = 
+			\frac{p\st{ta}}{z_\text{n2}}
 		\end{cases}	
 		\imp 
 		\begin{cases}
 			1+r\st{p}=t\st{p}\\
 			\displaystyle \frac{1-r\st{p}}{z_\text{n1}} = \frac{t\st{p}}{z_\text{n2}}
 		\end{cases}	
-		,
+		\qc
 		\qty(
 		\begin{matrix}
-			z_\text{n1}\equiv z\st{n}i=-z\st{n}r\\
-			z_\text{n2}\equiv z\st{n}t
+			z_\text{n1}\equiv z\st{ni}=-z\st{nr}\\
+			z_\text{n2}\equiv z\st{nt}
 		\end{matrix}	
 		)
 		$$
 		\1 the ratio of density: $m\equiv \rho_2/\rho_1$, refractive index: $n=k_2/k_1=c_1/c_2$
 		\1 reflection and transmission coeff.:
 		$$
-		r\st{p}\equiv\frac{p\st{r}a}{p\st{i}a} = \frac{z_\text{n2}-z_\text{n1}}{z_\text{n2}-z_\text{n1}} = \frac{R_2\cos\theta\st{i}-R_1\cos\theta\st{t}}{R_2\cos\theta\st{i}+R_1\cos\theta\st{t}}=\frac{m\cos\theta\st{i}-
+		r_p\equiv\frac{p\st{ra}}{p\st{ia}} = \frac{z_\text{n2}-z_\text{n1}}{z_\text{n2}-z_\text{n1}} = \frac{R_2\cos\theta\st{i}-R_1\cos\theta\st{t}}{R_2\cos\theta\st{i}+R_1\cos\theta\st{t}}=\frac{m\cos\theta\st{i}-
 		\sqrt{n^2-\sin^2\theta\st{i}}}{m\cos\theta\st{i}
 		+\sqrt{n^2-\sin^2\theta\st{i}}}
 		$$
 		$$
-		t\st{p}\equiv\frac{p\st{t}a}{p\st{i}a} = 
+		t_p\equiv\frac{p\st{ta}}{p\st{ia}} = 
 		\frac{2z_\text{n2}}{z_\text{n2}-z_\text{n1}} = 
 		\frac{2R_2\cos\theta\st{i}}{R_2\cos\theta\st{i}+
 		R_1\cos\theta\st{t}}=\frac{2m\cos\theta\st{i}}{m\cos\theta\st{i}+
 		\sqrt{n^2-\sin^2\theta\st{i}}}
 		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Oblique Incidence}{Application of $z\st{n}$}
+	\begin{outline}
+		\1 \emph{Normal specific acoustic impedance of the interface} at
+		$x$: $z\st{n}(x)$
+		$$z\st{n}(x=0) = \left. \frac{p\st{i}+p\st{r}}{(\vb{v}\st{i} +\vb{v}\st{r})\vdot\vb{n}}\right|
+		_{x=0} = z\st{n1} \frac{1+r_p}{1-r_p}
+		\qc \qty(z\st{n1} = \dfrac{z_1}{\cos\theta\st{i}})$$
+		$$\imp \quad r_p = \frac{z\st{n}(0) - z\st{n1}}{z\st{n}(0)+z\st{n1}}$$
+		\1 at the transmission side: $z\st{n}(x=0) = z\st{n2} = \dfrac{
+		z_1}{\cos\theta\st{t}}$
+		$$\imp \quad r_p = \frac{z\st{n2}-z\st{n1}}{z\st{n2}+z\st{n1}}$$
+	\end{outline}
+\end{frame}
+
+\subsection{Homework}
+\begin{frame}{Oblique Incidence}
+	\begin{outline}[enumerate]
+		\1 Textbook B: 4-17
 	\end{outline}
 \end{frame}
 \setcounter{framenumber}{0}
