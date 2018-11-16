@@ -1028,14 +1028,31 @@
 \subsection{Sound Intensity}
 \begin{frame}{Reflection and Transmission Coefficients of Sound Intensity}
 	\begin{outline}
+		\1 sound intensity: 
+		$
+		\vb{I}\st{i} = I\st{i} \vb{n}\st{i}\qc
+		\vb{I}\st{r} = I\st{r} \vb{n}\st{r}\qc
+		\vb{I}\st{t} = I\st{t} \vb{n}\st{t}
+		$
 		\1 conditions: \emph{plane wave} and \emph{harmonic}
+		$$\vb{I}\st{i} = \frac12 \Re (p^* \vb{v}\st{i}) 
+		=\frac{|p\st{i}|^2}{2z_1}\vb{n}\st{i}
+		$$
 		\1 reflection coefficient
-		$$r_I = \frac{|\vb{I}\st{r}|}{|\vb{I}\st{i}|} = \frac{p\st{ra}^2}{2z_1}
-		\bigg/ \frac{p\st{ia}^2}{2z_1} = r_p^2 
+		$$r_I \equiv \frac{||\vb{I}\st{r}||}{||\vb{I}\st{i}||} 
+		= \frac{I\st{r}}{I\st{i}}
+		= \frac{|p\st{r}|^2}{2z_1}
+		\bigg/ \frac{|p\st{i}|^2}{2z_1} 
+		=\frac{|p\st{ra}|^2}{|p\st{ia}|^2}
+		= |r_p|^2 
 		= \qty(\frac{z_1-z_2}{z_1+z_2})^2 $$
 		\1 transmission coefficient
-		$$t_I = \frac{|\vb{I}\st{t}|}{|\vb{I}\st{i}|}  = \frac{p\st{ta}^2}{2z_1}
-		\bigg/ \frac{p\st{ia}^2}{2z_1} = z_{21} t_p^2 
+		$$t_I \equiv \frac{||\vb{I}\st{t}||}{||\vb{I}\st{i}||}
+		= \frac{I\st{t}}{I\st{i}}
+		= \frac{|p\st{t}|^2}{2z_2}
+		\bigg/ \frac{|p\st{i}|^2}{2z_1} 
+		= z_{21} \frac{|p\st{ra}|^2}{|p\st{ia}|^2}
+		= z_{21} |t_p|^2 
 		= \frac{4z_1z_2}{(z_1+z_2)^2}$$
 		\1 Conservation of sound energy
 		$$r_I+t_I = 1$$
@@ -1179,17 +1196,56 @@
 		\1 the ratio of density: $m\equiv \rho_2/\rho_1$, refractive index: $n=k_2/k_1=c_1/c_2$
 		\1 reflection and transmission coeff.:
 		$$
-		r_p\equiv\frac{p\st{ra}}{p\st{ia}} = \frac{z_\text{n2}-z_\text{n1}}{z_\text{n2}-z_\text{n1}} = \frac{R_2\cos\theta\st{i}-R_1\cos\theta\st{t}}{R_2\cos\theta\st{i}+R_1\cos\theta\st{t}}=\frac{m\cos\theta\st{i}-
+		r_p\equiv\frac{p\st{ra}}{p\st{ia}} = \frac{z_\text{n2}-z_\text{n1}}{z_\text{n2}+z_\text{n1}} = \frac{R_2\cos\theta\st{i}-R_1\cos\theta\st{t}}{R_2\cos\theta\st{i}+R_1\cos\theta\st{t}}=\frac{m\cos\theta\st{i}-
 		\sqrt{n^2-\sin^2\theta\st{i}}}{m\cos\theta\st{i}
 		+\sqrt{n^2-\sin^2\theta\st{i}}}
 		$$
 		$$
 		t_p\equiv\frac{p\st{ta}}{p\st{ia}} = 
-		\frac{2z_\text{n2}}{z_\text{n2}-z_\text{n1}} = 
+		\frac{2z_\text{n2}}{z_\text{n2}+z_\text{n1}} = 
 		\frac{2R_2\cos\theta\st{i}}{R_2\cos\theta\st{i}+
 		R_1\cos\theta\st{t}}=\frac{2m\cos\theta\st{i}}{m\cos\theta\st{i}+
 		\sqrt{n^2-\sin^2\theta\st{i}}}
 		$$
+	\end{outline}
+\end{frame}
+
+\subsection{Sound Intensity}
+\begin{frame}{Oblique Incidenc}{Sound Intensity and Conservation of Energy}
+	\begin{outline}
+		\1 sound intensity: 
+		$
+		\vb{I}\st{i} = I\st{i} \vb{n}\st{i}\qc
+		\vb{I}\st{r} = I\st{r} \vb{n}\st{r}\qc
+		\vb{I}\st{t} = I\st{t} \vb{n}\st{t}
+		$
+		$$
+		I\st{i} = \frac{|p\st{i}|^2}{2z_1}\qc
+		I\st{r} = \frac{|p\st{r}|^2}{2z_1}= I\st{i} |r_p|^2\qc
+		I\st{t} = \frac{|p\st{t}|^2}{2z_2} = z_{21} I\st{i} |t_p|^2
+		$$
+		\1 in the surface direction (normal): $I\st{n} = \vb{I}\vdot \vb{n}$
+		$$
+		I\st{i,n} = I\st{i} \cos \theta\st{i} \qc
+		I\st{r,n} = -I\st{i} |r_p|^2 \cos \theta\st{i} \qc
+		I\st{t,n} = z_{21} I\st{i}|t_p|^2 \cos \theta\st{t}
+		$$
+		\1 conservation of energy
+		$$
+		I\st{i,n} = I\st{r,n} + I\st{t,n}
+		\Leftrightarrow
+		\vb{I}\st{i} \vdot \vb{S} =(\vb{I}\st{r}+
+		\vb{I}\st{t}) \vdot \vb{S}\qc (\vb{S} = \vb{n} S)
+		$$
+		\1 \emph{normal} reflection and transmission coefficients
+		$$
+		r_{I, \mathrm{n}} = \frac{I\st{r,n}}{I\st{i,n}} = 
+		-|r_p|^2 = - \qty|\frac{z\st{n2}-z\st{n1}}{z\st{n2}+z\st{n1}}|^2$$
+		$$
+		t_{I, \mathrm{n}} = \frac{I\st{t,n}}{I\st{i,n}} =
+		\frac{4z\st{n1}z\st{n2}}{|z\st{n1}+z\st{n2}|^2}
+		$$
+		$$\qty(r_{I,\mathrm{n}} + t_{I,\mathrm{n}}=1)$$
 	\end{outline}
 \end{frame}
 
@@ -1207,12 +1263,242 @@
 	\end{outline}
 \end{frame}
 
+\subsection{Toatal Transmission}
+\begin{frame}{Total Transmission}
+	\begin{outline}
+		\1 the $z\st{n}$ is \emph{matching}: $z\st{n1}=z\st{n2}$, we have
+		$$m\cos \theta\st{i} = \sqrt{n^2-\sin^2\theta\st{i}}
+		\imp
+		\sin\theta\st{i0} = \sqrt{\frac{m^2-n^2}{m^2-1}}$$
+			\2 $\theta\st{i0}$: \emph{Angle of Intromission}
+			\2 $r_p=0\qc t_p=1$
+		\1 conditions
+		$$0\leq \frac{m^2-n^2}{m^2-1}\leq 1\imp
+		\begin{cases}
+			m>n>1\to \rho_2c_2>\rho_1c_1\qc c_1>c_2\\
+			m<n<1\to \rho_2c_2<\rho_1c_1\qc c_1<c_2
+		\end{cases}
+		$$
+	\end{outline}
+\end{frame}
+
+\subsection{Toatal Reflection}
+\begin{frame}{Total Reflection}
+	\begin{outline}
+		\1 Snell's Law: $\sin \theta\st{t} = \dfrac{\sin \theta\st{i}}{n}\qc 
+		\qty(n=\dfrac{c_1}{c_2})$
+		\1 when $c_2>c_1$, $\theta\st{t}>\theta\st{i}$
+		\1 when $\theta\st{t} \to \uppi/2$, $\theta\st{i} < \uppi/2$
+		\1 \emph{critical angle of total reflection} ($\theta\st{t}=\uppi/2$)
+		$$\theta\st{ic} =\arcsin n$$
+		\1 reflection coefficient $r_p = 1$
+		\1 normal specific acoustic impedance $z\st{n2} \to \infty$
+		\1 \emph{EG} air $\to$ water: 
+		$$n=0.23\qc \theta\st{ic} = 13^\circ$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Total Reflection: $\theta\st{i} \geq \theta\st{ic}$}
+	\begin{outline}
+		\1 using the transform
+		$$\theta\st{t} \equiv  \frac{\uppi}{2} +\mj \psi 
+		\imp
+		\begin{cases}
+			\sin\theta \st{t} = \cosh \psi\\
+			\cos \theta\st{t} = -\mj \sinh \psi
+		\end{cases}
+		$$
+		\1 Snell's Law (still holds)
+		$$
+		\sin \theta\st{t} = \frac{\sin\theta\st{i}}{n} \imp
+		\cosh \psi = \frac{\sin \theta \st{i}}{n}$$
+		\1 Incident \& Reflection wave
+		$$\vb{k}\st{i} = k_1(\cos\theta\st{i}, \sin\theta\st{i})
+		\qc \vb{k}\st{r} = k_1(-\cos\theta\st{i}, \sin\theta\st{i})
+		$$
+		$$
+		p\st{i} = p\st{ia} \me^{\mj(\omega t-k_1x\cos\theta\st{i}-k_1y\sin\theta\st{i} )}
+		\qc
+		p\st{r} = p\st{ra} \me^{\mj(\omega t+k_1x\cos\theta\st{i}-k_1y\sin\theta\st{i} )}
+		$$
+		\1 Transmission wave
+		$$\vb{k}\st{t} = k_2 (\cos\theta\st{t},\sin\theta\st{t})
+		=k_2(-\mj \sinh \psi, \cosh \psi)$$
+		$$ p\st{t} = p\st{ta} \me^{-k_2x\sinh \psi +\mj(\omega t-k_2y\cosh\psi )}
+		\qc \vb{v}\st{t} = -\frac{1}{\mj k_2z_2} \grad p\st{t}
+		= \frac{p\st{t}}{z_2}(-\mj \sinh \psi, \cosh \psi)$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Total Reflection: $\theta\st{i} \geq \theta\st{ic}$}
+	\begin{outline}
+		\1 reflection and transmission coefficients 
+		$$
+			\begin{cases}
+				r_p & = \dfrac{p\st{ra}}{p\st{ia}} = \dfrac{m\cos \theta \st{i} +
+			\mj n \sinh \psi }{m\cos \theta\st{i} - \mj n \sinh \psi} = 
+			\me^{2\mj \phi}\\
+			t_p&=\dfrac{p\st{ta}}{p\st{ia}} = \dfrac{2m\cos \theta \st{i}}{m\cos 
+				\theta\st{i} - \mj n \sinh \psi} = 2\cos\phi \me^{\mj \phi}
+			\end{cases}
+			\qc \qty(m = \frac{\rho_2}{\rho_1})		
+		$$
+		$$
+		\tan \phi = \frac{n\sinh \psi}{m \cos \theta\st{i}} = 
+		\frac{\rho_1c_1}{\rho_2c_2} \frac{\sinh \psi}{\cos \theta\st{i}}
+		\qc \qty(0<\phi<\frac{\uppi}{2})$$
+		\1 incident and refletive fields
+		$$
+	\begin{cases}
+		p_1&= p\st{i}+p\st{r} = 2p\st{ia}\cos(k_1x\cos\theta\st{i}+\phi)
+		\me^{-\mj (k_1y\sin\theta\st{i}-\phi)}\\
+		v_{1,x}&= v_{\mi x} + v_{\mathrm{r}x} = 2v\st{ia}\sin
+		(k_1x\cos\theta\st{i}+\phi)\cos\theta\st{i}
+		\me^{-\mj \qty(k_1y\sin\theta\st{i}-\phi+ \uppi/2)}\\
+		v_{1,y}&= v_{\mi y} + v_{\mathrm{r}y} = 2v\st{ia}\cos
+		(k_1x\cos\theta\st{i}+\phi)\sin\theta\st{i}
+		\me^{-\mj \qty(k_1y\sin\theta\st{i}-\phi)}
+	\end{cases}
+	\qc \qty(v\st{ia} = \frac{p\st{ia}}{z_1})
+$$
+	\1 transmissive fields
+$$
+	\begin{cases}
+		p\st{t} = 2p\st{ia} \cos \phi \me^{-k_2x\sinh \psi - \mj (k_2 y
+		\cosh \psi -\phi)}\\
+		v_{\mathrm{t,}x} = z_{21} 2v\st{ia} \cos\phi
+		\sinh \psi \me^{k_2x\sinh \psi - \mj\qty(k_2y\cosh \psi -\phi
+		+\uppi/2)}\\
+		v_{\mathrm{t,}y} = z_{21} 2v\st{ia} \cos\phi
+		\cosh \psi \me^{k_2x\sinh \psi - \mj\qty(k_2y\cosh \psi -\phi
+		)}
+	\end{cases}
+	$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Grazing Incidence}
+	\begin{outline}
+		\1 \emph{grazing angle}: $\alpha\st{i} = \uppi/2 - \theta\st{i} \to 0$
+		\1 reflection coefficient
+		$$
+		r_p = \frac{m\sin \alpha\st{i}-\sqrt{n^2-\cos^2\alpha\st{i}}}{
+		m\sin \alpha\st{i}+\sqrt{n^2-\cos^2\alpha\st{i}}}
+		\approx
+		\frac{m\alpha\st{i}-\sqrt{n^2-1}}{m\alpha\st{i}+\sqrt{n^2-1}}
+		\approx -1 +\frac{2m}{\sqrt{n^2-1}} \alpha\st{i}\approx -1
+		$$
+		\1 transmission coefficient
+		$$
+		t_p = \frac{2m\sin \alpha\st{i}}{
+		m\sin \alpha\st{i}+\sqrt{n^2-\cos^2\alpha\st{i}}}
+		\approx
+		\frac{2m\alpha\st{i}}{m\alpha\st{i}+\sqrt{n^2-1}}
+		\approx \frac{2m}{\sqrt{n^2-1}} \alpha\st{i}\approx 0
+		$$
+	\end{outline}
+\end{frame}
+
 \subsection{Homework}
-\begin{frame}{Oblique Incidence}
+\begin{frame}{Homework}
 	\begin{outline}[enumerate]
 		\1 Textbook B: 4-17
 	\end{outline}
 \end{frame}
+
+
+\begin{frame}{Transmission Through a Partition}
+	\begin{outline}
+		\1 a \emph{partition} is placed along $(0,D)$
+	\end{outline}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/idealfluid/planeVertIncPartition.pdf}
+	\end{figure}
+	$$
+	v\st{ia} = \frac{p\st{ia}}{z_1}\qc
+	v\st{ra}=-r_pv\st{ia}\qc
+	v\st{2ta} = \frac{p\st{2ta}}{z_2}\qc
+	v\st{2ra} = -\frac{p\st{2ra}}{z_2}\qc
+	v\st{ta} = \frac{p\st{ta}}{z_1} 
+	=v\st{ia}t_p$$
+\end{frame}
+
+\begin{frame}{Transmission through a Partition}
+	\begin{outline}
+		\1 boundary conditions
+		$$x = 0: \quad 
+		\begin{cases}
+			1+r_p &= A+B\\
+			z_{12}(1-r_p) &= A-B	
+		\end{cases}
+		\qc
+		x= D:\quad 
+		\begin{cases}
+			A\me^{-\mj k_2 D} +B\me^{\mj k_2D}&=t_p\\
+			A\me^{-\mj k_2 D} -B\me^{\mj k_2D}&=z_{12}t_p
+		\end{cases}
+		$$
+		$$\qty(
+		A = \frac{p\st{2ta}}{p\st{ia}}
+		\qc 
+		B = \frac{p\st{2ra}}{p\st{ia}}
+		)
+		$$
+		\1 reflection and transmission coefficients
+		$$ r_p = \frac{z\st{s}(x=0) - z_1}{z\st{s}(x=0)+z_1}
+		= \frac{z_{12}-z_{21}}{z_{12}+z_{21} -2\mj \cot k_2 D}$$
+		$$ t_p = \frac{-1}{\cos k_2 D + \mj \dfrac{z_{12}+z_{21}}{2}
+	\sin k_2 D}$$
+		\1 sound intensity
+		$$t_I = \frac{I\st{t}}{I\st{i}}\qc r_I = \frac{I\st{r}}{I\st{i}}
+		 = |r_p|^2\imp r_I+t_I = 1 $$
+		$$t_I = \frac{1}{1+\dfrac{1}{4} (z_{12}-z_{21})^2 \sin^2 k_2 D}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Transfer Impedance Method}
+	\begin{outline}
+		\1 the specific acoustic impedance at $x$: $z\st{s} (x)$
+		$$z\st{s}(x\to 0^-) = z_1 \frac{p\st{ia}+p\st{ra}}{p\st{ia}-p\st{ra}}
+		\qc 
+		z\st{s}(x\to 0^+) = z_2 \frac{p\st{2ta}+p\st{2ra}}{p\st{2ta}-p
+		\st{2ra}}
+		$$
+		$$
+		z\st{s}(x\to D^-) = z_2 \frac{p\st{2ta}\me^{-\mj k_2 D}+p\st{2ra}
+		\me^{\mj k_2D}}{p\st{2ta}\me^{-\mj k_2D}-p\st{2ra}\me^{\mj k_2D}}
+		\qc
+		z\st{s}(x\to D^+) = z_1 
+		$$
+		\1 at surface $x=D$
+		$$z\st{s}(x \to D^-) = z\st{s}(x \to D^+) \imp
+		r_{p,D} \equiv \frac{p\st{2ra}\me^{\mj k_2D}}{p\st{2ta}\me^{
+		-\mj k_2D}} = \frac{z\st{s}(x\to D^+) - z_2}{z\st{s}(x\to D^-)+z_2}
+		$$
+		$$\imp \frac{p\st{2ra}}{p\st{2ta}} = \me^{-2\mj k_2 D}
+		\frac{z\st{s}(x\to D^+) - z_2}{z\st{s}(x\to D^-)+z_2}
+		$$
+		\1 the \emph{Transfer Impedance Formula}
+		$$
+		z\st{s} (x=0) = z_2 \frac{z\st{s}(x=D) +\mj z_2 \tan k_2 D}{
+			z_2+\mj z\st{s}(x=D)\tan k_2D}
+			$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Transmission through a Partition}
+	\begin{outline}
+		$$z\st{s}(x\to D^+) = z\st{s1} = z_1$$
+		\1 according to the transfer impedance formula, we have 
+		$$z\st{s}(x=0) = z_2 \frac{z_1+\mj z_2 \tan k_2D}{z_2 +\mj z_1 
+		\tan k_2D}$$
+		\1 reflection coefficient
+		$$ r_p = \frac{z\st{s}(x=0) - z_1}{z\st{s}(x=0)+z_1}
+		= \frac{z_{12}-z_{21}}{z_{12}+z_{21} -2\mj \cot k_2 D}$$
+	\end{outline}
+\end{frame}
+
 \setcounter{framenumber}{0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\titlestring}{Sound Waves in Ducts Filled with Fluids}
