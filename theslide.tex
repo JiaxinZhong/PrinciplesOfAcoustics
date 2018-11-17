@@ -1457,6 +1457,30 @@ $$
 	\end{outline}
 \end{frame}
 
+\begin{frame}{Partition: $t_I$}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\textwidth]{img/idealfluid/planeVertIncPartitionTi.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Thin Partition; Resonant Transmission; Insulation}
+	\begin{outline}
+		\1 thin partition
+		$$k_2D\ll 1 \Leftrightarrow \lambda_2 \gg 2\uppi
+		D\Leftrightarrow f\ll \frac{c_2}{2\uppi D}$$
+		$$\imp t_I = 1-frac14 (z_{12}-z_{21})^2 (k_2D)^2 +O(k_2D)^4\approx 1$$
+		\1 resonant transmission at half wavelengths
+		$$k_2D=n\uppi\qc D = n \frac{\lambda_2}{2} \qc (n=1,2,\cdots)
+		\imp t_p = \frac{p\st{ta}}{p\st{ia}}=(-1)^n\qc t_I = 1$$
+		\1 insulation at quater wavelengths
+		$$k_2 D = (2n-1)\frac{\uppi}{2} \Leftrightarrow
+		D=(2n-1)\frac{\lambda_2}{4}\qc (n=1,2,\cdots)$$
+		$$\imp t_I = \frac{4}{(z_{12}+z_{21})^2}
+		\xrightarrow{z_{12}\to \infty \qor z_{12} \to 0} 0$$
+	\end{outline}
+\end{frame}
+
 \begin{frame}{Transfer Impedance Method}
 	\begin{outline}
 		\1 the specific acoustic impedance at $x$: $z\st{s} (x)$
@@ -1498,6 +1522,124 @@ $$
 		= \frac{z_{12}-z_{21}}{z_{12}+z_{21} -2\mj \cot k_2 D}$$
 	\end{outline}
 \end{frame}
+
+
+\begin{frame}{Transmission Through a Partition}
+	\begin{outline}
+		\1 a \emph{partition} is placed along $(0,D)$
+	\end{outline}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/idealfluid/planeVertIncPartition3.pdf}
+	\end{figure}
+	$$
+	v\st{ia} = \frac{p\st{ia}}{z_1}\qc
+	v\st{ra}=-r_pv\st{ia}\qc
+	v\st{2ta} = \frac{p\st{2ta}}{z_2}\qc
+	v\st{2ra} = -\frac{p\st{2ra}}{z_2}\qc
+	v\st{ta} = \frac{p\st{ta}}{z_3} 
+	=v\st{ia}t_p$$
+\end{frame}
+
+
+\begin{frame}{Partition}
+	\begin{outline}
+		\1 transfer impedance and sound pressure reflection coefficient
+		$$
+		z\st{s}(x\to 0^+) = z_2 \frac{z_3+\mj z_2\tan k_2D}{z_2+\mj z_3 \tan
+		k_2 D}		\imp 
+		r_p = \frac{z_2(z_3-z_1)+\mj (z_2^2-z_1 z_3)\tan k_2D}{z_2(z_3+z_1)
+		+\mj (z_2^2+z_1z_3)\tan k_2D}
+		$$
+		\1 sound intensity transmission coefficients
+		$$t_I = 1-|r_p|^2 = \frac{4z_1z_3}{(z_1+z_3)^2 \cos^2 k_2 D +(z_2+z_1z_3/z_2)^2
+		\sin^2 k_2D}$$
+		\1 when $k_2D=(1/2+n)\uppi$
+		$$t_I = \frac{4x}{(1+x)^2}\qc \qty(x=z_{21}z_{23})$$
+		$$\pdv{t_I}{x} = 0\imp x= 1\imp z_2 = \sqrt{z_1 z_3} \qc t_I(x=1) = 1$$
+		\1 impedance matching (\emph{Anti-reflective coat})
+		$$
+		z\st{s}(x\to 0^+) = z_2 \frac{z_3+\mj z_2\tan k_2D}{z_2+\mj z_3 \tan
+		k_2 D} \xrightarrow{k_2D=\uppi/2} \frac{z_2^2}{z_3} 
+		\xleftrightarrow{\text{match}} z_1 \imp z_2 = \sqrt{z_1 z_3}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{An example}
+	\begin{outline}
+		\1 air: $z_1 = 415 \mathrm{Raly}$; water: $z_3 = 1.48 \mathrm{M Rayl}$
+		\1 Anti-reflective coat: $z_2$
+	\end{outline}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/idealfluid/PlaneVertIncARC.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Transmission Loss, TL}
+	\begin{outline}
+		\1 \emph{Transmission Loss} or \emph{Sound Redution}
+		$$\mathrm{TL} = -10\lg t_I \qc (\si{dB})$$
+		\1 a partition
+		$$\mathrm{TL} = 10 \lg \qty[1+\dfrac14\qty(z_{12}-z_{21})^2 \sin^2 k_2D]
+		$$
+		\1 if (1) $z_{21}\ll 1 \Leftrightarrow z_1\ll z_2$ (\emph{Hard Wall}) 
+		and (2) $k_2D<0.5$ (\emph{Low Frequency})
+		$$ \mathrm{TL} \approx 10\lg \qty[1+\dfrac14 (z_{12}k_2D)^2] 
+		= 10\lg \qty[1+\qty(\dfrac{\omega M_2}{2z_1})^2]
+		\qc (M_2 = \rho_2 D)$$
+		\1 if (3) $\omega M_2 \gg z_1$ (\emph{Heavy}) 
+		$$ \mathrm{TL} \approx 20 \lg \qty(\dfrac{\omega M_2}{2z_1})$$
+		\1 \emph{The Mass Law}
+		$$ \mathrm{TL} = -42 + 20\lg f + 20 \lg M_2 \qc (\si{dB})$$
+		\1 conclusion: $D\to 2D$ or $f\to 2f$ $\imp \Delta \mathrm{TL} 
+		=6 \mathrm{dB}$
+	\end{outline}
+\end{frame}
+
+\section{Standing Waves}
+\begin{frame}{Standing Waves}
+	\begin{outline}
+		\1 suppose 2 propagating waves in inverse directions
+		$$p_\pm = A\pm \me^{\mj (\omega t \mp kx }$$
+		\1 the resultant field
+		$$ p\st{tot} = p_+ + p_- = 2A_- \cos kx \me^{mj \omega t}
+		+(A_+ - A_- ) \me^{\mj (\omega t - kx)}$$
+		\1 if $A_+=A_- \imp$ standing waves
+		$$p\st{tot} = 2A_+ \cos kx \me^{mj \omega t}$$
+		\1 node
+		$$kx_m = \qty(m-\frac12)\uppi \qc x_m = \frac14(2m-1)\lambda\qc m\in \Z$$
+		\1 antinode
+		$$kx_n = n\uppi\qc x_n=\frac12 n\lambda\qc n\in \Z$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Standing Waves}
+	\begin{outline}
+		\1 sound field
+		$$\begin{cases}
+			p\st{tot} & = p\st{a} \cos kx\ \me^{\mj \omega t}\\
+			v\st{tot} & = -\dfrac{1}{\mj k z_0}\displaystyle\pdv{p}{x} 
+			= -\mj \frac{p\st{a}}{z_0}\sin
+			kx\ \me^{\mj \omega t}
+		\end{cases}
+		$$
+		\1 specific acoustic impedance
+		$$z\st{s} = \frac{p\st{tot}}{v\st{tot}}
+		=\mj z_0 \cot kx$$
+		\1 time average of energy density
+		$$\overline{\eps}\st{tot} = \frac12 \rho_0 \overline{v^2\st{tot}}
+		+\frac12\beta_{\mathrm{s},0} \overline{p^2\st{tot}}
+		=\frac14 \rho_0 p\st{a}^2 \dfrac{\sin^2 kx}{z_0^2} +
+		\frac14 \beta_{\mathrm{s},0} p\st{a}^2 \cos^2 kx = \frac14
+		\beta\st{s,0} p\st{a}^2$$
+		\1 sound intensity
+		$$I = \frac12 \Re(p^*\st{tot} v\st{tot}) = \frac12 \Re\qty[p\st{a}^*
+		\cos kx \qty(-\mj p\frac{\st{a}}{z_0} \sin kx)]=0$$
+
+	\end{outline}
+\end{frame}
+
 
 \setcounter{framenumber}{0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
