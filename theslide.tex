@@ -1451,7 +1451,7 @@ $$
 		$$ t_p = \frac{-1}{\cos k_2 D + \mj \dfrac{z_{12}+z_{21}}{2}
 	\sin k_2 D}$$
 		\1 sound intensity
-		$$t_I = \frac{I\st{t}}{I\st{i}}\qc r_I = \frac{I\st{r}}{I\st{i}}
+		$$t_I = \frac{I\st{t}}{I\st{i}} = |t_p|^2\qc r_I = \frac{I\st{r}}{I\st{i}}
 		 = |r_p|^2\imp r_I+t_I = 1 $$
 		$$t_I = \frac{1}{1+\dfrac{1}{4} (z_{12}-z_{21})^2 \sin^2 k_2 D}$$
 	\end{outline}
@@ -1469,7 +1469,7 @@ $$
 		\1 thin partition
 		$$k_2D\ll 1 \Leftrightarrow \lambda_2 \gg 2\uppi
 		D\Leftrightarrow f\ll \frac{c_2}{2\uppi D}$$
-		$$\imp t_I = 1-frac14 (z_{12}-z_{21})^2 (k_2D)^2 +O(k_2D)^4\approx 1$$
+		$$\imp t_I = 1-\frac14 (z_{12}-z_{21})^2 (k_2D)^2 +O(k_2D)^4\approx 1$$
 		\1 resonant transmission at half wavelengths
 		$$k_2D=n\uppi\qc D = n \frac{\lambda_2}{2} \qc (n=1,2,\cdots)
 		\imp t_p = \frac{p\st{ta}}{p\st{ia}}=(-1)^n\qc t_I = 1$$
@@ -1567,7 +1567,11 @@ $$
 
 \begin{frame}{An example}
 	\begin{outline}
-		\1 air: $z_1 = 415 \mathrm{Raly}$; water: $z_3 = 1.48 \mathrm{M Rayl}$
+		\1 air: $z_1 = 415 \mathrm{Rayl}$; water: $z_3 = 1.48 \mathrm{M Rayl}$
+		$$
+		1 \si{Raly} = 1 \si{\Pa \cdot \s \cdot \m^{-1}}
+		 = 1 \si{\kg\cdot \m^{-2} \cdot \s^{-1}} = 
+		 1 \si{\N \cdot \s \cdot \m^{-3}}$$
 		\1 Anti-reflective coat: $z_2$
 	\end{outline}
 	\begin{figure}
@@ -1639,6 +1643,78 @@ $$
 
 	\end{outline}
 \end{frame}
+
+\begin{frame}{Sound Interference}
+	\begin{outline}
+		\1 two waves ($n = 1,2$): same \emph{frequency} and fixed \emph{phase difference}
+		$$p_n = p_{\mathrm{a},n} \me^{\mj \omega t} = 
+		|p_{\mathrm{a},n} | \me^{\mj (\omega t-\phi_n)}\qc
+		(\Delta \phi = \phi_2 - \phi_1 = \mathrm{const.})$$
+		\1 According to the superposition theory, the \emph{total field} is
+		$$p = \sum_{n=1}^2 p_n = p\st{a} \me^{\mj \omega t} = |p\st{a}|
+		\me^{\mj(\omega t-\phi)}|$$
+		$$p\st{a} = \sum_{n=1}^2 p_{\mathrm{a},n}$$
+		$$|p\st{a}| \me^{-\mj \phi} = \sum_{n=1}^2 |p_{\mathrm{a,}n}| \me^{
+		-\mj \phi_n}$$
+		$$
+		\begin{cases}
+			|p\st{a}|^2 & = |p\st{a1}|^2 + |p\st{a2}|^2 + 2
+			|p\st{a1}||p\st{a2}| \cos \Delta \phi \\
+			\tan \phi & = \dfrac{ |p\st{a1}|\sin \phi_1 + |p\st{a2}|\sin \phi_2
+		}{|p\st{a}|\cos\phi_1 + |p\st{a2}|\cos\phi_2}
+		\end{cases}
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Constructive and Destructive Interference}
+	\begin{outline}
+		\1 if the total field is propagating
+		$$\overline{\eps} = \frac12 \beta{s,0} |p\st{a}|^2 =
+		\overline{\eps_1} + \overline{\eps_2} + \beta_{s,0}
+		|p\st{a1}||p\st{a2}| \cos\Delta \phi \qc \qty(\overline{
+		\eps_n} = \frac12 \beta_{s,0} |p_{\mathrm{a},n}|^2)
+		$$
+		\1 enhancement
+		$$
+		\Delta \phi = 2m\uppi \qc(m \in \Z) \imp
+		\begin{cases}
+			|p\st{a}| & = |p\st{a1}| + |p\st{a2}|\\
+			\overline{\eps} & = \overline{\eps_1}+\overline{\eps_2}
+			+\beta_{s,0}|p\st{a1}||p\st{a2}|
+		\end{cases}
+		$$
+		\1 cancellation
+		$$
+		\Delta \phi = (2m-1)\uppi \qc(m \in \Z) \imp
+		\begin{cases}
+			|p\st{a}| & = |p\st{a1}| - |p\st{a2}|\\
+			\overline{\eps} & = \overline{\eps_1}-\overline{\eps_2}
+			+\beta_{s,0}|p\st{a1}||p\st{a2}|
+		\end{cases}
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Incoherent Waves}
+	\begin{outline}
+		\1 if $\omega_1 \neq \omega_2$
+		$$p_n = |p_{\mathrm{a},n}| \me^{\mj(\omega_n t - \phi_n)}
+	\qc (n=1,2, \omega_1\neq \omega_2)$$
+		\1 the total field
+		$$ p = \sum_{n=1}^2 |p_{\mathrm{a},n} | \me^{\mj (\omega_n t-\phi_n)}
+		=|p\st{a}|\me^{\mj \phi}$$
+		\begin{align*}
+		|p\st{a}|^2 &= \qty[\Re(p_1+p_2)]^2 + \qty[\Im (p_1+p_2)]^2\\
+		& = |p\st{a1}|^2 +|p\st{a2}|^2 +2|p\st{a1}||p\st{a2}| \cos\qty[
+		(\omega_1-\omega_2) t+\Delta \phi]
+		\end{align*}
+		\1 as long as the eplapsed time is long enough
+		$$\overline{|p\st{a}|^2} = |p\st{a1}|^2+ |p\st{a2}|^2$$
+		$$\imp \overline{\eps} = \overline{\eps_1} + \overline{\eps_2}$$
+	\end{outline}
+\end{frame}
+
 
 
 \setcounter{framenumber}{0}
