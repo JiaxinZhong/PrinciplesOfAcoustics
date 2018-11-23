@@ -1523,6 +1523,26 @@ $$
 	\end{outline}
 \end{frame}
 
+\begin{frame}{Transmission Loss, TL}
+	\begin{outline}
+		\1 \emph{Transmission Loss} or \emph{Sound Redution}
+		$$\mathrm{TL} = -10\lg t_I \qc (\si{dB})$$
+		\1 a partition
+		$$\mathrm{TL} = 10 \lg \qty[1+\dfrac14\qty(z_{12}-z_{21})^2 \sin^2 k_2D]
+		$$
+		\1 if (1) $z_{21}\ll 1 \Leftrightarrow z_1\ll z_2$ (\emph{Hard Wall}) 
+		and (2) $k_2D<0.5$ (\emph{Low Frequency})
+		$$ \mathrm{TL} \approx 10\lg \qty[1+\dfrac14 (z_{12}k_2D)^2] 
+		= 10\lg \qty[1+\qty(\dfrac{\omega M_2}{2z_1})^2]
+		\qc (M_2 = \rho_2 D)$$
+		\1 if (3) $\omega M_2 \gg z_1$ (\emph{Heavy}) 
+		$$ \mathrm{TL} \approx 20 \lg \qty(\dfrac{\omega M_2}{2z_1})$$
+		\1 \emph{The Mass Law}
+		$$ \mathrm{TL} = -42 + 20\lg f + 20 \lg M_2 \qc (\si{dB})$$
+		\1 conclusion: $D\to 2D$ or $f\to 2f$ $\imp \Delta \mathrm{TL} 
+		=6 \mathrm{dB}$
+	\end{outline}
+\end{frame}
 
 \begin{frame}{Transmission Through a Partition}
 	\begin{outline}
@@ -1580,30 +1600,11 @@ $$
 	\end{figure}
 \end{frame}
 
-\begin{frame}{Transmission Loss, TL}
-	\begin{outline}
-		\1 \emph{Transmission Loss} or \emph{Sound Redution}
-		$$\mathrm{TL} = -10\lg t_I \qc (\si{dB})$$
-		\1 a partition
-		$$\mathrm{TL} = 10 \lg \qty[1+\dfrac14\qty(z_{12}-z_{21})^2 \sin^2 k_2D]
-		$$
-		\1 if (1) $z_{21}\ll 1 \Leftrightarrow z_1\ll z_2$ (\emph{Hard Wall}) 
-		and (2) $k_2D<0.5$ (\emph{Low Frequency})
-		$$ \mathrm{TL} \approx 10\lg \qty[1+\dfrac14 (z_{12}k_2D)^2] 
-		= 10\lg \qty[1+\qty(\dfrac{\omega M_2}{2z_1})^2]
-		\qc (M_2 = \rho_2 D)$$
-		\1 if (3) $\omega M_2 \gg z_1$ (\emph{Heavy}) 
-		$$ \mathrm{TL} \approx 20 \lg \qty(\dfrac{\omega M_2}{2z_1})$$
-		\1 \emph{The Mass Law}
-		$$ \mathrm{TL} = -42 + 20\lg f + 20 \lg M_2 \qc (\si{dB})$$
-		\1 conclusion: $D\to 2D$ or $f\to 2f$ $\imp \Delta \mathrm{TL} 
-		=6 \mathrm{dB}$
-	\end{outline}
-\end{frame}
 
 \section{Standing Waves}
 \begin{frame}{Standing Waves}
 	\begin{outline}
+		\1 animation: \url{www.walter-fendt.de/html5/phen/standingwavereflection_en.htm}
 		\1 suppose 2 propagating waves in inverse directions
 		$$p_\pm = A\pm \me^{\mj (\omega t \mp kx }$$
 		\1 the resultant field
