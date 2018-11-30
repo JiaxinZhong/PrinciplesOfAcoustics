@@ -33,7 +33,7 @@
 {
   \leavevmode%
   \hbox{%
-  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
 	\usebeamerfont{author in head/foot}\insertshortauthor (\insertshortinstitute)
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
@@ -43,8 +43,12 @@
 	% \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
 	% \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
   % \end{beamercolorbox}}%
-  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-	\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} Page
+  % \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+	% \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} Page
+	% \insertframenumber{} \hspace*{2ex} 
+  % \end{beamercolorbox}}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+	\usebeamerfont{title in head/foot}\insertshortdate{}\hspace*{1em} Page
 	\insertframenumber{} \hspace*{2ex} 
   \end{beamercolorbox}}%
   \vskip0pt%
@@ -1082,7 +1086,6 @@
 	\begin{outline}[enumerate]
 			\1 Textbook B: 4-15
 			\1 Textbook B: 4-16
-			\1 Textbook B: 4-18
 	\end{outline}
 \end{frame}
 
@@ -1537,7 +1540,7 @@ $$
 		\qc (M_2 = \rho_2 D)$$
 		\1 if (3) $\omega M_2 \gg z_1$ (\emph{Heavy}) 
 		$$ \mathrm{TL} \approx 20 \lg \qty(\dfrac{\omega M_2}{2z_1})$$
-		\1 \emph{The Mass Law}
+		\1 \emph{The Mass-Frequency Law}
 		$$ \mathrm{TL} = -42 + 20\lg f + 20 \lg M_2 \qc (\si{dB})$$
 		\1 conclusion: $D\to 2D$ or $f\to 2f$ $\imp \Delta \mathrm{TL} 
 		=6 \mathrm{dB}$
@@ -1601,12 +1604,22 @@ $$
 \end{frame}
 
 
+\subsection{Homework}
+\begin{frame}{Homework}
+	\begin{outline}[enumerate]
+		\1 Textbook B: 4-18
+		\1 Textbook B: 4-19
+		\1 Textbook B: 4-21
+		\1 Textbook B: 4-23
+	\end{outline}
+\end{frame}
+
 \section{Standing Waves}
 \begin{frame}{Standing Waves}
 	\begin{outline}
 		\1 animation: \url{www.walter-fendt.de/html5/phen/standingwavereflection_en.htm}
 		\1 suppose 2 propagating waves in inverse directions
-		$$p_\pm = A\pm \me^{\mj (\omega t \mp kx }$$
+		$$p_\pm = A_\pm \me^{\mj (\omega t \mp kx )}$$
 		\1 the resultant field
 		$$ p\st{tot} = p_+ + p_- = 2A_- \cos kx \me^{mj \omega t}
 		+(A_+ - A_- ) \me^{\mj (\omega t - kx)}$$
@@ -1653,7 +1666,7 @@ $$
 		(\Delta \phi = \phi_2 - \phi_1 = \mathrm{const.})$$
 		\1 According to the superposition theory, the \emph{total field} is
 		$$p = \sum_{n=1}^2 p_n = p\st{a} \me^{\mj \omega t} = |p\st{a}|
-		\me^{\mj(\omega t-\phi)}|$$
+		\me^{\mj(\omega t-\phi)}$$
 		$$p\st{a} = \sum_{n=1}^2 p_{\mathrm{a},n}$$
 		$$|p\st{a}| \me^{-\mj \phi} = \sum_{n=1}^2 |p_{\mathrm{a,}n}| \me^{
 		-\mj \phi_n}$$
@@ -1716,6 +1729,15 @@ $$
 	\end{outline}
 \end{frame}
 
+\subsection{Homework}
+\begin{frame}{Homework}
+	\begin{outline}[enumerate]
+		\1 Textbook B: 4-25
+		\1 Textbook B: 4-26
+		\1 Textbook B: 4-28
+		\1 Textbook B: 4-29
+	\end{outline}
+\end{frame}
 
 
 \setcounter{framenumber}{0}
@@ -1726,13 +1748,538 @@ $$
 \lecture{\titlestring}{duct}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
+\section{Plane Waves}
+\begin{frame}{Plane Waves in Ducts}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/duct/planeWavesInDucts.jpg}
+	\end{figure}
+	\begin{outline}
+		\1 sound field
+		$$\begin{cases}
+			p\st{i} = p\st{ia} \me^{\mj(\omega t-kx)} \\
+			p\st{r} = p\st{ra} \me^{\mj(\omega t+kx)}
+		\end{cases}\qc
+		\qty(p\st{ra} = r_p p\st{ia}\qc r_p = |r_p| \me^{\mj \sigma \uppi})
+		$$
+		\1 total field
+		$$
+			p(x,t) = p\st{i} + p\st{r} = p\st{a}(x) \me^{\mj \omega t}
+		$$
+		$$
+		p\st{a}(x) = p\st{ia}\qty[\me^{-\mj kx} + |r_p|\me^{\mj (kx+\sigma \uppi)}
+		] = |p\st{a}(x)| \me^{\mj \phi(x)}$$
+		$$
+		|p\st{a}(x)| = p\st{ia}\sqrt{1+|r_p|^2 +2|r_p|\cos \qty[2k\qty(
+		x+\sigma \dfrac{\lambda}{4})]}
+		$$
+	\end{outline}
+\end{frame}
 
+\begin{frame}{Standing Waves Ratio}
+	\begin{outline}
+		\1 $p\st{max} = \max{|p\st{a}(x)|}$
+		$$x = \pm n\frac{\lambda}{2} - \sigma \frac{\lambda}{4}\qc n\in \N$$
+		\1 $p\st{min} = \min{|p\st{a}(x)|}$
+		$$x = \pm (2n+1)\frac{\lambda}{2} - \sigma \frac{\lambda}{4}\qc n\in \N$$
+		\1 \emph{SWR} (Standing Waves Ratio): (1) to obtain the \emph{amplitude}
+		of reflection coefficient
+		$$G\equiv \frac{|p\st{a}|\st{max}}{|p\st{a}|\st{min}} =
+		\frac{1+|r_p|}{1-|r_p|} \Leftrightarrow 
+		|r_p| = \frac{G-1}{G+1}$$
+		\1 (2) to obtain the \emph{phase} of reflection coefficient
+		$$
+		(-x\st{min}) = \frac{\lambda}{4}\qty[(2n+1)+\sigma]\qc n \in \N
+		$$
+		$$
+		(-x\st{min})\st{first} = (1+\sigma)\frac{\lambda}{4}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Impedance in Ducts}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.25\textwidth]{img/duct/acousticImpedanceInDucts.jpg}
+	\end{figure}
+	\begin{outline}
+		\1 cross section is $S$
+		\1 the \emph{spatial} average pressure and volumetric flow rate
+		$$\overline{p} = \frac1S \iint_S p\dd{S}
+		\qc U = \iint_S \vb{v}\cdot \dd{\vb{S}}$$
+		\1 the acoustic impedance of the cross section is defined as
+		$$Z\st{a} \equiv \frac{\overline{p}}{U} = R\st{a} +\mj X\st{a}$$
+		\1 the acoustic impedance is continuous in the both sides of the 
+		cross section
+		\1 for plane waves: $\vb{v} = v\vb{n}$
+		$$\overline{p} = p\qc U = vS\qc Z\st{a} = \frac{z\st{s}}{S}
+		\qc \qty(z\st{s}=\frac{p}{v})$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Reflection Coefficient in Ducts}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.25\textwidth]{img/duct/reflectionCoefInDucts.jpg}
+	\end{figure}
+	\begin{outline}
+		\1 acoustic impedance of incident and reflective waves
+		$$
+		Z\st{ai} = \frac{p\st{i}}{Sv\st{i}} = \frac{z\st{si}}{S} = Z_0
+		$$
+		$$
+		Z\st{ar} = \frac{p\st{r}}{Sv\st{r}} = \frac{z\st{sr}}{S} = -Z_0
+		$$
+		$$
+		\qty(Z_0 = \frac{\rho_0c_0}{S}=z_0)
+		$$
+		\1 total acoustic impedance and reflection coefficient
+		$$
+		Z\st{a} = \frac{p}{Sv} = \frac{p\st{i}+p\st{r}}{S(v\st{i}+v\st{r})}
+		=Z_0 \frac{1+r_p}{1-r_p}
+		\Leftrightarrow
+		r_p = 
+		\frac{Z\st{a}-Z_0}{Z\st{a}+Z_0}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Specific Acoustic Impedance Ratio and Reflection Coefficient}
+	\begin{outline}
+		\1 specific acoustic impedance ratio of the load
+		$$\zeta\st{s} = \frac{z\st{s}}{z_0} = x\st{s} +\mj y\st{s}\qc(z_0 = \rho_0
+		c_0)$$
+		\1 acoustic impedance ratio of the load
+		$$\zeta\st{a} = \frac{Z\st{a}}{Z_0} = x\st{a} +\mj y\st{a}\qc
+		\qty(Z_0 = \frac{z_0}{S})$$
+		\1 plane waves: $\zeta\st{s}=\zeta\st{a}=\zeta$
+		\1 reflection coefficient 
+		$$r_p = |r_p| \me^{\mj \sigma \uppi} =
+		\frac{\zeta\st{a}-1}{\zeta\st{a}+1} = \frac{x\st{a}-1+\mj y\st{a}}
+		{x\st{a}+1+\mj y\st{a}}$$
+		\1 sound intensity reflection coefficient
+		$$r_I = |r_p|^2 = \frac{(x\st{a}-1)^2 +y\st{a}^2}{(x\st{a}+1)^2+y\st{a}^2}
+		=\frac{(R\st{a}-Z_0)^2+X\st{a}^2}{(R\st{a}+Z_0)^2+X\st{a}^2}
+		$$
+		\1 sound absorption coefficient
+		$$\alpha = 1-r_I = \frac{4x\st{a}}{(x\st{a}+1)^2+y\st{a}^2}
+		=\frac{\alpha\st{r}}{1+\qty(\dfrac{y\st{a}}{1+x\st{a}})^2}
+		\qc \alpha\st{r} = \alpha|_{y\st{a}=0} = \frac{4x\st{a}}{(1+x\st{a})^2}
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Impedance Equation}
+	\begin{outline}
+		\1 magnitude and phase of the reflection coefficient 
+		$$|r_p|^2 = \frac{(x\st{a}-1)^2 +y\st{a}^2 }{(x\st{a}+1)^2+y\st{a}^2}
+		\qc 
+		\tan (\sigma\uppi) = \frac{2 y\st{a}}{x\st{a}^2+y\st{a}^2-1}
+		$$
+		\1 impedance equation
+		$$
+		\begin{cases}
+			\displaystyle
+			\qty(x\st{a}-\frac{1+|r_p|^2}{1-|r_p|^2})^2+y\st{a}^2
+			&=\qty(\dfrac{2|r_p|}{1-|r_p|^2})^2\\
+			x\st{a}^2 + (y\st{a}-\cot \sigma \uppi)^2 &= \dfrac{1}{\sin^2 \sigma
+			\uppi}
+		\end{cases}
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Impedance Diagram}
+	\begin{figure}
+		\centering
+		\includegraphics[width = 0.8\textwidth]{img/duct/impedanceDiagram.jpg}
+	\end{figure}
+\end{frame}
+
+\section{Helmholtz Resonator}
+\begin{frame}{Helmholtz Resonator}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/duct/helmholtzResonatorArray.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Helmholtz Resonator}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.3\textwidth]{img/duct/hemlholtzResonatorModel.jpg}
+	\end{figure}
+	\begin{outline}
+		\1 \emph{short pipe}: cross section is $S$; radius is $a$; length is $l_0$
+		\1 \emph{cavity}: volume is $V_0$; \emph{Assumption (1)}: boundary is very hard
+		\1 \emph{fluid}: density is $\rho_0$; sound speed is $c_0$
+		\1 \emph{Assumption (2)}: lumped system $\Leftrightarrow$
+		$$
+			\lambda \gg a, l_0, \sqrt[3]{V_0}
+		$$
+		\1 \emph{Assumption (3)}: big cavity $\Leftrightarrow$
+		$$V_0\gg Sl_0$$
+		\1 the short pipe moves like a piston $\imp$ mass is
+		$$M\st{m} = \rho_0 Sl_0$$
+		\1 considering the sound radiation effect at the orifice $\imp$
+		the effective pipe length is
+		$$l_0 \to l = l_0+\Delta l = l_0 +0.7a$$
+		\1 the short pipe suffers friction from the wall $\imp$ mechanical
+		resistance $R\st{m}$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Helmholtz Resonator}
+	\begin{outline}
+		\1 the pressure changes as the air column in the short pipe moves
+		$$p_1: P_0 \to P_0+p_1$$
+		\1 adiabatic process: equation of state
+		$$(P_0+p_1)(V_0-S\xi)^\gamma = P_0V_0^\gamma$$
+		$$p_1 = \qty[\qty(1-\frac{S\xi}{V_0})^{-\gamma} -1]P_0
+		\approx \gamma \frac{P_0S}{V_0}\xi 
+		=\rho_0 c_0^2 \frac{S}{V_0}\xi = \kappa{s,0} \frac{S}{V_0}\xi
+		$$
+		\1 the force
+		$$F = -p_1 S = -K\st{m} \xi\qc \qty(K\st{m} = \frac{1}{C\st{m}} = 
+		\kappa_{s,0} \frac{S^2}{V_0})$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Dynamic Equation}
+	\begin{outline}
+		\1  dynamic equation for mechanics
+		$$M\st{m}\dv{v}{t} +R\st{m} v + \frac{1}{C\st{m}}
+		\int v\dd{t} = pS\qc(v=\dv{\xi}{t})$$
+		\1 dynamic equation for acoustics
+		$$M\st{a}\dv{U}{t} +R\st{a} U +\frac{1}{C\st{a}} \int U\dd{t}=p$$
+		\1 provided that
+			\2 volume velocity $U=vS$
+			\2 acoustic mass $M\st{a}=M\st{m}/S^2$
+			\2 acoustic resistance $R\st{a}=R\st{m}/S^2$
+			\2 acoustic capacitance $C\st{a}=C\st{m}S^2$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Resonance Sound Absroption Structure}
+	\begin{outline}
+		\1 acoustic mass $M\st{a} = \rho_0 l /S_0$, acoustic capacitance
+		$C\st{a} =  \beta\st{s,0} V$, acoustic resistance $R\st{a}$
+		\1 acoustic impedance ratio
+		$$\zeta\st{a}=x\st{a}+\mj y\st{a} = \frac{Z\st{a}}{Z_0}$$
+	\end{outline}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/duct/resonanceAbsorptionStructure.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Resonance Sound Absorption Structure: Sound Absorption Coefficient}
+	\begin{outline}
+		\1 the correlation between SAC and frequency
+		$$
+		\alpha = \frac{\alpha\st{r}}{1+\qty(\dfrac{y\st{a}}{1+x\st{a}})^2}
+		=\frac{\alpha\st{r}}{1+\qty[\dfrac{\omega M\st{a} - 1/(\omega C\st{a})}{
+		R\st{a}'}]^2} = \frac{\alpha\st{r}}{1+Q\st{r}^2\qty(z-z^{-1})^2}
+		$$
+		$$
+		\omega\st{r}\equiv \frac{1}{\sqrt{M\st{a}C\st{a}}}\qc
+		\qty(z\equiv \frac{\omega}{\omega\st{r}}
+		\qc 
+		Q\st{r}\equiv \frac{\omega\st{r}M\st{a}}{R\st{a}'}
+		\qc 
+		R\st{a}'\equiv \frac{\rho_0c_0}{S}(1+x\st{a})
+		=R\st{a} +\frac{\rho_0c_0}{S})
+		$$
+		\1 resonating conditions
+		$$y\st{a}=0 \Leftrightarrow \omega M\st{a}-1/(\omega C\st{a}) = 0
+		\Leftrightarrow \omega = \omega\st{r}\Leftrightarrow
+		z=1$$
+		\1 sound absorption coefficient
+		$$\alpha\st{r} = \alpha|_{f=f\st{r}} = \frac{4x\st{a}}{(1+x\st{a})^2}
+		=\frac{4\dfrac{\rho_0c_0}{S}R\st{a}}{\qty(\dfrac{\rho_0c_0}{S}+R\st{a})^2}
+		$$
+	\end{outline}
+\end{frame}
+
+
+\begin{frame}{Abrupt Interface}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/duct/abruptInterface.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Reflection and Transmission Coefficients}
+	\begin{outline}
+		\1 continuous quantity at $x=0$: pressure and \emph{volume flow rate (volume
+		velocity)}
+		$$\begin{cases}
+			(p\st{i}+p\st{r})|_{x=0} &= p\st{t}|_{x=0}\\
+			S_1 (v\st{i}+v\st{r})|_{x=0} &= S_2 v\st{t}|_{x=0}
+		\end{cases}
+		\imp
+		\begin{cases}
+			1+r_p&=t_p\\
+			S_1(1-r_p)&=S_2t_p
+		\end{cases}
+		$$
+		\1 reflection coefficient of pressure
+		$$
+		r_p \equiv \frac{p\st{ra}}{p\st{ia}} = 
+		\frac{S_1-S_2}{S_1+S_2} =
+		\frac{1/S_2-1/S_1}{1/S_2+1/S_1}=	
+		\frac{Z\st{a2}-Z\st{a1}}{Z\st{a2}+Z\st{a1}}
+		\qc \qty(Z_{\mathrm{a}i} = \frac{\rho_0c_0}{S_i}\qc i=1,2)
+		$$
+		\1 transmission coefficient of pressure
+		$$
+		t_p = 		\frac{2S_1}{S_1+S_2}=
+		\frac{2/S_2}{1/S_2+1/S_1} = 
+		\frac{2Z\st{a2}}{Z\st{a1}+Z\st{a2}}
+		$$
+		\1 reflection and transmission coefficients of intensity
+		$$ r_I = \frac{I\st{r}}{I\st{i}} = \frac{|p\st{ra}|^2}{2\rho_0c_0}
+		\Big/ \frac{|p\st{ia}|^2}{2\rho_0c_0} = |r_p|^2\qc
+		 t_I = \frac{I\st{t}}{I\st{i}} = \frac{|p\st{ta}|^2}{2\rho_0c_0}
+		\Big/ \frac{|p\st{ia}|^2}{2\rho_0c_0} = |t_p|^2$$
+		\1 reflection and transmission coefficients of power
+		$$r_W = \frac{I\st{r}S_1}{I\st{i}S_1} = r_I
+		\qc t_W = \frac{I\st{t}S_2}{I\st{i}S_1} = \frac{4S_1S_2}{S_1+S_2}
+		\qc r_W+t_W=1$$
+	\end{outline}
+\end{frame}
+
+
+\begin{frame}{Acoustic Impedance Method}
+	\begin{outline}
+		\1 Acoustic impedance: $Z\st{a}(x)\equiv \dfrac{\overline{p}(x)}{U(x)}
+		= \dfrac{p(x)}{v(x)S(x)}$
+		$$
+			Z\st{a}(x\to 0^-) = \left. \frac{p\st{i}+p\st{r}}{S_1(v\st{i}
+			+v\st{r})} \right|_{x=0}
+			=
+			Z\st{a1} \frac{1+r_p}{1-r_p} 
+			\qc \qty(
+			Z\st{a1} = \frac{\rho_0c_0}{S_1})
+		$$
+		$$
+		Z\st{a}(x\to 0^+) = \left.
+		\frac{p\st{t}}{S_2v\st{t}}\right|_{x=0}
+		=
+		Z\st{a2}\qc \qty(Z\st{a2}=\frac{\rho_0c_0}{S_2})$$
+		\1 continous conditions
+		$$Z\st{a}(x\to 0^-) = Z\st{a}(x\to 0^+)$$
+		$$\imp Z\st{a1} \frac{1+r_p}{1-r_p} = Z\st{a2}$$
+		\1 reflection coefficient
+		$$
+		\imp r_p = \frac{Z\st{a2}-Z\st{a1}}{Z\st{a2}-Z\st{a1}}
+		\imp r_p = \frac{1/S_2-1/S_1}{1/S_2+1/S_1} = \frac{S_1-S_2}{
+		S_1+S_2}
+		$$
+	\end{outline}
+\end{frame}
+
+\section{Perforated Pipes}
+
+\begin{frame}{Perforated Pipe}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{img/duct/perforatedPipeMod.jpg}
+	\end{figure}
+	\begin{outline}
+		\1 \emph{Assumption}: the size of the perforated pipe is much smaller 
+		than the wavelength
+		\1 acoustic impedance
+		$$Z\st{b} = \frac{p\st{b}}{S\st{b}v\st{b}} = R\st{b}+\mj X\st{b}$$
+		\1 boundary conditions at $x=0$
+		$$
+		\begin{cases}
+			p\st{i}+p\st{r} = p\st{t} = p\st{b}\\
+			U\st{i}+U\st{r} = U\st{t} + U\st{b}
+		\end{cases}
+		\qc 
+		\qty(U\st{b} = \frac{p\st{b}}{Z\st{b}})
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Perforated Pipe}
+	\begin{outline}
+		\1 reflection and transmission coefficients of sound pressure
+		$$ r_p = \frac{p\st{ra}}{p\st{ia}} = -\frac{Z\st{a0}/2}{Z\st{b}+
+			Z\st{a0}/2}
+			\qc 
+			t_p = \frac{p\st{ta}}{p\st{ia}} = \frac{Z\st{b}}{Z\st{b}+
+			Z\st{a0}/2}
+			\qc 
+			\qty(Z\st{a0}= \frac{\rho_0c_0}{S})
+		$$
+		\1 transmission coefficient of sound intensity
+		$$t_I = |t_p|^2 = \frac{|Z\st{b}|^2}{|Z\st{b}+Z\st{a0}/2|^2}$$
+		\1 acoustic impedance method
+		$$Z\st{a}(x\to 0^-) = Z\st{a0} \frac{1+r_p}{1-r_p}$$
+		$$Z\st{a}(x\to 0^+) = Z\st{a0} \parabins Z\st{b}
+		=\frac{1}{1/Z\st{a0}+1/Z\st{b}}$$
+		\1 reflection and transmission coefficients
+		$$
+		r_p = \frac{Z\st{a0}\parabins Z\st{b}-Z\st{a0}}{Z\st{a0}\parabins
+		Z\st{b} + Z\st{a0}} = -\frac{Z\st{a0}/2}{Z\st{b}+Z\st{a0}/2}
+		\qc
+		t_p = 1+r_p = \frac{Z\st{b}}{Z\st{b}+Z\st{a0}/2}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Perforated Helmholtz Resonator}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\textwidth]{img/duct/perforatedHelmholtz.jpg}
+	\end{figure}
+	\begin{outline}
+		\1 acoustic impedance of perforated Helmholtz resonator
+		$$Z\st{b} = R\st{b} + \mj \qty(\omega M\st{b} - \frac{1}{\omega
+			C\st{b}})\qc Z\st{a0} = R\st{a0} = \frac{\rho_0c_0}{S}$$
+		\1 transmission coefficient of sound intensity
+		$$
+		t_I = \frac{R\st{b}^2 + \qty(\omega M\st{b} - \dfrac{1}{\omega C\st{b}})
+	^2}{\qty(R\st{b}+R\st{a0}/2)^2+\qty(\omega M\st{b} - \dfrac{1}{\omega C\st{
+	b}})^2}
+	\xrightarrow{R\st{b}\to 0} \frac{1}{1+ \dfrac{\qty(R\st{a0}/2)^2}{\qty(
+		\omega M\st{b} - \dfrac{1}{\omega C\st{b}})^2}}
+		\xRightarrow{\omega = \omega\st{r}} t_I \approx 0
+	$$
+	\end{outline}
+\end{frame}
+
+\section{Acoustic Impedance Transfer Formula}
+\begin{frame}{Acoustic Impedance Transfer Formula}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/duct/impedTrans.jpg}
+	\end{figure}
+	\begin{outline}
+		\1 the acoustic impedance at $x=0$: $Z_0$; at $x=l$: $Z_l$
+		\1 sound field inside the duct
+		$$\begin{cases}
+			p = p\st{i}+p\st{r}\\
+			U = U\st{i} + U\st{r}
+		\end{cases}
+		$$
+		$$\begin{cases}
+			p\st{i} & = p\st{ia} \me^{\mj (\omega t-kx)}\qc 
+			U\st{i}  = \dfrac{p\st{ia}}{R\st{a0}} \me^{\mj (\omega t-
+			 kx)}\\
+			p\st{r} & = p\st{ra} \me^{\mj (\omega t+kx)}\qc 
+			U\st{r}  = -\dfrac{p\st{ra}}{R\st{a0}} \me^{\mj (\omega t+
+			kx)}
+		\end{cases}
+		\qc \qty(R\st{a0}=\frac{\rho_0c_0}{S})$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Acoustic Impedance Transfer Formula}
+	\begin{outline}
+		\1 acoustic impedance at $x$
+		$$
+			Z\st{a}(x) = \frac{p(x)}{Sv(x)} 
+			= R\st{a0}\frac{
+			\me^{-\mj kx}+r_p \me^{\mj kx}}{\me^{-\mj kx}-r_p\me^{\mj kx}}
+			= R\st{a0}\frac{
+			1+r_p \me^{2\mj kx}}{1-r_p\me^{2\mj kx}}
+		$$
+		\1 when the $Z\st{a}(l) = Z_l$ is given $\imp$ reflection coeff. is 
+		obtained
+		$$ r_p \me^{2\mj kx} = \frac{Z\st{a}(l)-R\st{a0}}{Z\st{a}(l)+R\st{a0}}
+		\imp
+		Z\st{a}(x) = R\st{a0} \frac{Z\st{a}(l)-\mj R\st{a0}\tan k(x-l)}{
+			R\st{a0}-\mj Z\st{a}(l)\tan k(x-l)}
+		$$
+		\1 specifically at $x=0$
+		$$Z\st{a}(0) = R\st{a0}\frac{Z\st{a}(l)+\mj R\st{a0}\tan kl}{
+			R\st{a0}+\mj Z\st{a}(l)\tan kl}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Inserted Pipe}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{img/duct/insertedPipe.jpg}
+	\end{figure}
+	\begin{outline}
+		\1 review the transmission coefficient of sound intensity with a 
+		inserted partition
+		$$t_I = \frac{1}{1+\dfrac14 (z_{12}-z_{21})^2\sin^2 k_2D}$$
+		\1 analogy: $z_{12}\leftrightarrow S_{21}$
+		$$t_I = \frac{1}{1+\dfrac14 (S_{12}-S_{21})^2\sin^2 k_2D}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{$t_I$}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\textwidth]{img/idealfluid/planeVertIncPartitionTi.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Sound Hard at End}
+	\begin{outline}
+		\1 sound hard at $x=l$ $\imp$ $v(l) =0$ $\imp$ $Z_l =\infty$
+		$$
+		Z\st{a}(0) = -\mj R\st{a0}\cot kl\qc \qty(R\st{a0}=\frac{\rho_0c_0}{
+		S})$$
+		\1 when $kl<1$
+		\begin{align*}
+			Z\st{a}(0) &= -\mj \frac{\rho_0c_0}{Skl} \qty[1-
+			\frac13 (kl)^2+o((kl)^2)]\\
+			&\approx -\mj \frac{\rho_0c_0}{Skl} \qty[1-\frac13
+			(kl)^2]\qc (kl\ll 1)\\
+			&= \frac{1}{\mj \omega C\st{a}}+\mj \omega\qty(\frac13 M\st{a})
+			\qc \qty(C\st{a} = \beta_{s,0} V\qc M\st{a}=\frac{\rho_0 l}{S})
+		\end{align*}
+		\1 where
+		$$
+		\cot x = \frac1x - \frac{x}{3} + o(x)
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Open End}
+	\begin{outline}
+		\1 open end at $x=l$
+		\1 assume (1): $ka<0.5$, where $a$ is the radius of
+		the pipe
+		$$Z\st{a}(l) \approx \mj X_{\mathrm{a}l}\qc
+		\qty(X_{\mathrm{a}l} \approx \frac{8}{3\uppi} \frac{\rho_0c_0}{S}
+		kz)$$
+		\1 assume (2): $kl<0.5 \imp \tan kl \approx kl$
+		\begin{align*}
+		Z\st{a}(0) &\approx \frac{\rho_0c_0}{S} \frac{
+			\mj X_{\mathrm{a}l}+\mj \dfrac{\rho_0c_0}{S} (kl)}{
+				\dfrac{\rho_0c_0}{S}-X_{\mathrm{a}l} (kl)}\\
+				&\approx \mj  \qty[X_{\mathrm{a}l} + \dfrac{\rho_0
+				c_0}{S} (kl)]\\
+				& = \mj \omega M\st{a} \qc \qty(
+				M\st{a} = \frac{\rho_0(l+\Delta l)}{S}\qc
+				\Delta l=\frac{8}{3\uppi}a \approx 0.85 a)
+		\end{align*}
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Homework}
+	\begin{outline}[enumerate]
+		\1 Textbook B: 5-1
+		\1 Textbook B: 5-3
+		\1 Textbook B: 5-4
+		\1 Textbook B: 5-7
+		\1 Textbook B: 5-8
+		\1 Textbook B: 5-9
+		\1 Textbook B: 5-10
+		\1 Textbook B: 5-13
+		\1 Textbook B: 5-15
+	\end{outline}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{framenumber}{0}
 \renewcommand{\titlestring}{Radiation of Sound}
+
 \part{\titlestring}
 \title{\titlestring}
 \lecture{\titlestring}{radiation}
