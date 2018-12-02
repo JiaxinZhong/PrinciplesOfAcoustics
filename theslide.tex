@@ -1770,7 +1770,7 @@ $$
 		p\st{a}(x) = p\st{ia}\qty[\me^{-\mj kx} + |r_p|\me^{\mj (kx+\sigma \uppi)}
 		] = |p\st{a}(x)| \me^{\mj \phi(x)}$$
 		$$
-		|p\st{a}(x)| = p\st{ia}\sqrt{1+|r_p|^2 +2|r_p|\cos \qty[2k\qty(
+		|p\st{a}(x)| = |p\st{ia}|\sqrt{1+|r_p|^2 +2|r_p|\cos \qty[2k\qty(
 		x+\sigma \dfrac{\lambda}{4})]}
 		$$
 	\end{outline}
@@ -2276,6 +2276,12 @@ $$
 	\end{outline}
 \end{frame}
 
+\begin{frame}{Slowly Varying Pipe}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/duct/slowlyVaryingPipe.jpg}
+	\end{figure}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{framenumber}{0}
 \renewcommand{\titlestring}{Radiation of Sound}
@@ -2284,6 +2290,95 @@ $$
 \title{\titlestring}
 \lecture{\titlestring}{radiation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Pulsating Sphere}
+	\begin{outline}
+		\1 \emph{Pulsating Sphere}: acoustic radiation with spherical symmetry
+		about a point
+		\1 wave equations
+		$$\frac{1}{r^2} \pdv{r}\qty(r^2 \pdv{p}{r}) - 
+		\frac{1}{c_0^2}\pdv[2]{p}{t} = 0 \qor \qty[\pdv[2]{r} - \frac{1}{c_0^2}
+	] (rp)=0 \qc (r>a)
+		$$
+			\2 $a$: the radius of the sphere
+		$$p(r,t) = \frac{1}{r} f(r,t)$$
+		\1 we have
+		$$
+		\imp \pdv[2]{f}{r} -\frac{1}{c_0^2} \pdv[2]{f}{t}=0
+		$$
+		\1 the general solution is 
+		$$
+		f(r,t) = A\me^{\mj(\omega t -kr)} + B\me^{\mj(\omega t+kr)}
+		$$
+		$$
+		\imp p(r,t) = p\st{a} \me^{\mj (\omega t-kr)}
+		\qc \qty(p\st{a} = \frac{A
+		}{r})
+		$$
+		$$
+		v_r(r,t)  = -\frac{1}{\mj k \rho_0 c_0} \pdv{p}{r}
+		=v\st{a} \me^{\mj(\omega t-kr)} 
+		\qc
+		\qty[v\st{a} =\frac{p\st{a}}{\rho_0c_0}\qty(1+\frac{1}{\mj kr})]
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Pulsating Sphere}
+	\begin{outline}
+		\1 boundary conditions
+		$$v_r(r,t)|_{r=a} = u(t) = u\st{a} \me^{\mj(\omega t-ka)}$$
+		\1 we have
+		$$A = \frac{\rho_0c_0a u\st{a}}{1+(\mj ka)^{-1}}
+		=\frac{\mj k}{4\uppi} \frac{\rho_0c_0Q\st{a}}{1+\mj ka}
+		\qc \qty(Q\st{a} \equiv 4\uppi a^2 u\st{a})
+		$$
+		\1 represent sound pressure, velocity and velocity potential with
+		\emph{volume velocity} $Q(t)$
+		$$
+			\begin{cases}
+				p& = \mj k \rho_0 c_0 \dfrac{Q(t)}{1+\mj ka} g(r) \\[0.5em]
+				v_r & = - \dfrac{Q(t)}{1+\mj ka} g'(r) = 
+				\dfrac{p}{\rho_0c_0} \qty(1+\dfrac{1}{\mj kr})
+				= \mj k \dfrac{Q(t)}{1+\mj ka}g(r) \qty(1+\dfrac{1}{
+				\mj kr})\\[0.5em]
+				\Phi & = \dfrac{1}{\mj k \rho_0c_0} =
+				\dfrac{Q(t)}{1+\mj ka} g(r)
+			\end{cases}
+		$$
+		$$\qty(Q(t)\equiv Q\st{a}\me^{\mj \omega t}\qc
+		g(r)\equiv \frac{\me^{-\mj kr}}{4\uppi r}
+		=-\frac{\mj k}{4\uppi} h_0^{(2)}(kr)\qc
+		h_0^{(2)}(z) = \frac{\me^{-\mj z}}{-\mj z})
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Small Sphere, Far-field, and Radiation Impedance}
+	\begin{outline}
+		\1 \emph{Assumption: Small Sphere}: $ka\ll 1$
+		$$
+		\imp \Phi \approx Q(t) g(r) \qc p \approx \mj k \rho_0 c_0 Q(t)g(r)
+		$$
+		\1 Far-field: $kr\gg 1$
+		$$
+			v_r \approx \frac{p}{\rho_0c_0}
+		$$
+			\2 like a plane wave!
+		\1 radial specific acoustic impendace
+		$$
+		z\st{s} = \frac{p}{v_r} = \frac{\rho_0c_0}{1+(\mj kr)^{-1}}
+		$$
+		\1 radiation mechanical impedance 
+		$$Z\st{r} = - \left. \frac{F\st{a}}{u}\right|_{r=a} 
+		=S_0 z\st{s}|_{r=a} = R\st{r} +\mj X\st{r}$$
+		$$R\st{r} = \rho_0 c_0 S_0 \frac{(ka)^2}{1+(ka)^2}
+		\qc 
+		X\st{r} = \rho_0 c_0 S_0 \frac{ka}{1+(ka)^2} >0
+		\qc (S_0 = 4\uppi a^2)
+		$$
+	\end{outline}
+\end{frame}
 
 \begin{frame}{Green Functions with Infinitely Large Rigid Boundary}
 	$$
