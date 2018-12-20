@@ -3,7 +3,7 @@
 \usepackage{scigeneral}
 \usepackage{scislide}
 
-% \includeonlylecture{viscosity,nonlinear,tensor}
+% \includeonlylecture{viscosity}
 
 % \includeonlylecture{intro}
 % \includeonlylecture{idealfluid}
@@ -2288,8 +2288,21 @@ $$
 
 \part{\titlestring}
 \title{\titlestring}
-\lecture{\titlestring}{radiation}
+\lecture{\titlestring}{radi}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Pulsating Sphere}
+	\begin{outline}
+		\1 a \emph{monopole} or \emph{point source}: a small \emph{pulsating
+		sphere}
+	\end{outline}
+	
+	\begin{figure}
+		\centering
+		\animategraphics[loop,controls,width=0.6\linewidth]{10}{gif/radi/monopoleFieldAni-}{0}{29}
+		\footnote{Available at: https://en.wikibooks.org/wiki/Aeroacoustics/Acoustic\_Sources}
+	\end{figure}
+\end{frame}
 
 \begin{frame}{Pulsating Sphere}
 	\begin{outline}
@@ -2380,6 +2393,201 @@ $$
 	\end{outline}
 \end{frame}
 
+\begin{frame}{Mechanical-Acoustical Coupled System}
+	\begin{outline}
+		\1 the \emph{reactive force} on the pulsating sphere caused by
+		the sound field: $F\st{r} = -Z\st{r}u$
+		\1 the \emph{harmonic exciting force}: $F=F\st{a} \exp[\mj(
+		\omega t -kz)]$
+		\1 dynamic equation on the surface of the sphere
+		$$
+		M\st{m} \dv{u}{t} = F+F\st{r} -R\st{m} u -K\st{m}\int u\dd{t}
+		\imp 
+		M\st{m} \dv{u}{t} +R\st{m} u +K\st{m}\int u\dd{t} +Z\st{r}u = F
+		$$
+		\1 because $u(t) \propto \exp(\mj\omega t)$
+		$$
+		\imp u = \frac{F}{Z\st{m}+Z\st{r}}
+		\qc \qty[Z\st{m}+Z\st{r}
+		=(R\st{m}+R\st{r})+\mj \qty(X\st{r}+\omega M\st{m} -
+	\frac{1}{\omega C\st{m}})]
+		$$
+		\1 the \emph{effective mass}: $M\st{m}+X\st{r}/\omega$
+		\1 the \emph{adnexed mass}: $M\st{r}= X\st{r}/\omega$
+		\1 the time averaged total power
+		$$\overline{W} = \frac12 (R\st{m}+R\st{r}) u\st{a}^2$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Radiation Properties}
+	\begin{outline}
+		\1 \emph{Case (1)}: small sphere, i.e. $ka\ll 1$
+		$$
+		\begin{cases}
+			R\st{r} &\approx \rho_0c_0S_0 (ka)^2\\
+			X\st{r} &\approx \rho_0 c_0 S_0 (ka)
+		\end{cases}
+		$$
+		\1 the adnexed mass
+		$$M\st{r} \approx \rho_0S_0 a = 3\qty(\frac{4}{3}\uppi a^3\rho_0)
+		=3M_0$$
+		\1 \emph{Case (2)}: big sphere, i.e. $ka \gg 1$
+		$$\begin{cases}
+			R\st{r} & \approx \rho_0c_0S_0\\
+			X\st{r} & \approx 0
+		\end{cases}
+			$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Radiation Impedance}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\textwidth]{img/radi/radiationImpedancePulsatingSphere.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Acoustical Radiation Power}
+	\begin{outline}
+		\1 acoustical radiation resistance
+		$$
+		\frac{R\st{r}}{\rho_0c_0S_0} =
+		\frac{(ka)^2}{1+(ka)^2}
+		\approx \begin{cases}
+			(ka)^2\qc & (ka\ll 1)\\
+			1\qc & (ka \gg 1)
+		\end{cases}
+		$$
+		\1 radial sound intensity 
+		$$
+		I_r = \frac{1}{2} \Re (p^* v_r)
+		=\frac{|p\st{a}|^2}{2\rho_0c_0} =
+		\frac12 R\st{r} \frac{|u\st{a}|^2}{4\uppi r^2}
+		$$
+		\1 sound radiation power
+		$$\overline{W\st{r}} = \frac12 \Re \qty[(-F\st{r})^* u]
+		=\frac12 R\st{r} |u\st{a}|^2$$
+		$$\imp \overline{W\st{r}} = 4\uppi r^2 I\st{r}$$
+		\1 the most often used equation to compute sound radiation power
+		$$\overline{W\st{r}} = \frac12 R\st{a} |Q\st{a}|^2  = 
+		\frac{\rho \omega k}{8\uppi} |Q|^2
+		\qty(R\st{a} = \frac{R\st{r}}{S_0^2}= \left. \frac{p}{v_r}\right|_{r=a})
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Dipole}
+	\begin{outline}
+		\1 a \emph{dipole} : two monopoles with opposite phase
+	\end{outline}
+	
+	\begin{figure}
+		\centering
+		\animategraphics[loop,controls,width=0.6\linewidth]{10}{gif/radi/dipoleFieldAni-}{0}{29}
+		\footnote{Available at: https://en.wikibooks.org/wiki/Aeroacoustics/Acoustic\_Sources}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Dipole}
+	\begin{outline}
+		\1 $Q_+(t) =- Q_-(t) = Q(t)$
+		\1 $\vb{d} = \vb{r_+}-\vb{r_-}$
+	\end{outline}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/radi/dipoleSketch.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Dipole}
+	\begin{outline}
+		\1 $Q_+(t) =- Q_-(t) = Q(t)$
+		\1 \emph{Assumption (1): small source} $ka\ll 1$
+		\1 Total field
+		$$\Phi(\vb{r},t) = Q_+(t)g(|\vb{r_+}|) + Q_-(t)g(|\vb{r_-}|)$$
+		\1 \emph{Assumption (2): far field} $kr\gg 1$
+		$$|\vb{r}_+ | = |\vb{r}-\frac12 \vb{d}| \approx r-\frac{1}{2}d \cos \theta
+		\qc |\vb{r}_- | = |\vb{r}+\frac12 \vb{d}| \approx r+\frac{1}{2}d \cos \theta$$
+		$$ \imp \Phi(\vb{r},t) \approx Q(t) g(r) \qty[2\mj \sin(\frac{kd}{2}
+		\cos \theta)]$$
+		\1 \emph{Assumption (3): small separation} $kd <1$
+		$$\imp \Phi(\vb{r},t) \approx \mj kd \cos \theta Q(t)g(r)$$
+		\1 directivity
+		$$D(\theta) \equiv \frac{|\Phi(\theta)|}{|\Phi|\st{max}}
+		= |\cos\theta|$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Dipole}
+	\begin{outline}
+		\1 directivity
+	\end{outline}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/radi/dipoleDirectivity.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Dipole}
+	\begin{outline}
+		\1 pressure
+		$$p(\vb{r},t) = \mj k\rho_0 c_0 \Phi(\vb{r},t) = 
+		-k^2 d\rho_0c_0\cos\theta Q(t)g(r)$$
+		\1 velocity
+		$$v_r(\vb{r},t) = -\pdv{\Phi(\vb{r},t)}{r}
+		=
+		-k^2 d\cos\theta \qty(1+\frac{1}{\mj kr})Q(t)g(r)$$
+		\1 sound intensity
+		$$ I_r (\vb{r},t) = \frac12 \Re(p^* v_r)  
+		= \frac{k^4d^2 \rho_0 c_0 \cos^2 \theta |Q|^2}{32\uppi^2 r^2}$$
+		\1 sound power
+		$$ W = \iint_S I_r \dd S = \iint I_r r^2 \sin \theta \dd{\theta}
+		\dd{\phi} = \frac13 (kd)^2 \frac{\rho_0 \omega k}{8\uppi} |Q|^2$$
+	\end{outline}
+
+\end{frame}
+
+\begin{frame}{Calculation of Sound Power}
+	\begin{outline}
+		\1 calculation of sound power
+		$$W= \iint_S \vb{I} \vdot \dd {\vb{S}} = \frac12\Re \qty(
+		\iint_S p^* \vb{v}\vdot \dd \vb{S}) = \frac{1}{2} \Re(p^* Q)$$
+		\1 monopole (Assumption: $ka\ll 1$)
+		$$ p = \mj \rho_0 \omega Q(t) g(r)$$
+		$$\imp W\st{m} = \frac{\rho_0 \omega k}{8\uppi}$$
+		\1 $N$ monopoles (Assumption: $ka\ll 1$)
+		$$W = \sum_{n=1}^N \iint_{S_n} \vb{I}_n \vdot \dd{\vb{S}_n}
+		=\frac12 \Re\qty(\sum_{n=1}^N p_n^* Q_n)$$
+		\1 dipole (Assumption: $ka\ll 1$)
+		$$ p = \mj \rho_0 \omega Q(t)\qty[g(r_+)+g_(r_-)]$$
+		$$\imp W\st{d} = W_+ +W_- = 2[1-\sinc (kd)]W\st{m} \approx \frac{1}{3}
+		(kd)^2 W\st{m}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Quadrupole}
+	\begin{outline}
+		\1 quadrupole: two anti-phase dipole
+		$$W_{1,+}=W_{2,+} = W\st{m} \qty[1-\sinc(kd) - \sinc(kl) + 
+		\sinc(kl-kd)]$$
+		$$W_{1,-}=W_{2,-} = W\st{m} \qty[1-\sinc(kd) - \sinc(kl) + 
+		\sinc(kl+kd)]$$
+		\1 total sound power
+		$$W = \sum_{n=1}^2 (W_{n,+}+W_{n,-}) \approx \frac16 (kd)^4
+		W\st{m} \quad \qty(kd \ll 1, l = d)$$	
+	\end{outline}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.4\textwidth]{img/radi/quadrupole.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Two in-phase monopoles}
+
+\end{frame}
+
 \begin{frame}{Green Functions with Infinitely Large Rigid Boundary}
 	$$
 		G(\vb{r};\vb{r}_0) = g(|\vb{r}-\vb{r}_0|) + g(|\vb{r}-\vb{r}'_0|), \quad 
@@ -2433,7 +2641,7 @@ $$
 \begin{frame}
 	\begin{figure}
 		\centering
-		\animategraphics[loop,controls,width=0.5\linewidth]{20}{gif/viscosities-}{0}{65}
+		\animategraphics[loop,controls,width=0.5\linewidth]{10}{gif/viscosities-}{0}{65}
 		\footnote{Available at: https://www.wikiwand.com/en/Viscosity}
 	\end{figure}
 \end{frame}
