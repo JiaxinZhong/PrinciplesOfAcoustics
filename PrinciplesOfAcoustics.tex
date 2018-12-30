@@ -3,7 +3,7 @@
 \usepackage{scigeneral}
 \usepackage{scislide}
 
-% \includeonlylecture{viscosity}
+\includeonlylecture{radi}
 
 % \includeonlylecture{intro}
 % \includeonlylecture{idealfluid}
@@ -376,6 +376,26 @@
 	\end{defi}
 \end{frame}
 
+
+\section{Exercises*}
+\begin{frame}{Exercises*}
+	\begin{outline}
+		\1 \emph{1.} 简述流体运动的两种描述方法，即Lagrange方法和Euler方法。
+		\1 解答：
+		\1 Lagrange方法和Euler方法都是描述流体运动的物理模型。
+		\1 Lagrange方法的目标是跟踪流体中每个流体质点的运动状态，使用该流体
+		质点的初始时刻（$t=0$）的坐标（$(a,b,c)$）来标记质点，
+		记录这个质点任意时刻的所在位置（$\vb{R}=\vb{R}(a,b,c,t)$）及对应
+		的物理量$f\ut{\ L}(a,b,c,t)$，其中物理量$f$可以是质点位移、速度、压强、温度
+		等等。
+		\1 Euler 方法的目标是描述空间中固定几何点（$\vb{r}=(x,y,z)$）的流体
+		状态，记录任意时刻流经这个几何点的流体质点的物理量$f\ut{\ E}(x,y,z,t)$，所有
+		空间几何点的某物理量求解出来后，构成整个空间场的场分布。
+		\1 在$t$时刻流经Euler 方法中所述的位于$(x,y,z)$处的流点，可认为是初始时刻位于
+		$(a_0,b_0,c_0)$的流点，那么2种方法的物理量有对应关系：$f\ut{\ E}(x,
+		y,z,t) = f\ut{\ L}(a_0,b_0,c_0,t)$。
+	\end{outline}
+\end{frame}
 \section{Equation of State}
 \begin{frame}{Equation of State}
 	\begin{block}{Equation of State}
@@ -1213,8 +1233,9 @@
 	\end{outline}
 \end{frame}
 
+
 \subsection{Sound Intensity}
-\begin{frame}{Oblique Incidenc}{Sound Intensity and Conservation of Energy}
+\begin{frame}{Oblique Incidence}{Sound Intensity and Conservation of Energy}
 	\begin{outline}
 		\1 sound intensity: 
 		$
@@ -1265,6 +1286,7 @@
 		$$\imp \quad r_p = \frac{z\st{n2}-z\st{n1}}{z\st{n2}+z\st{n1}}$$
 	\end{outline}
 \end{frame}
+
 
 \subsection{Toatal Transmission}
 \begin{frame}{Total Transmission}
@@ -1377,6 +1399,78 @@ $$
 		)}
 	\end{cases}
 	$$
+	\end{outline}
+\end{frame}
+
+\section{Exercises*}
+\begin{frame}{Exercises*}
+	\begin{outline}
+		\1 \emph{2.} 试讨论当稳态平面波以大于临界角入射到流体分界面时
+		的透射波的基本特征。
+		\1 解答：
+		\1 假设入射角为$\theta\st{i}$，题目条件表明$\theta\st{i}>\theta\st{
+		ic}$，其中$\theta\st{ic}=\arcsin n$，$n$表示折射率，并使用了Snell
+		定律：
+		$$\sin\theta\st{i} = n\sin\theta\st{t}$$
+		\1 式中$\theta\st{t}$表示透射角度，在全反射时是$\uppi/2$。
+		\1 作变换：
+		$$\theta\st{t} \equiv  \frac{\uppi}{2} +\mj \psi 
+		\imp
+		\begin{cases}
+			\sin\theta \st{t} = \cosh \psi\\
+			\cos \theta\st{t} = -\mj \sinh \psi
+		\end{cases}
+		$$
+		\1 根据Snell定律有：
+		$$
+		\sin \theta\st{t} = \frac{\sin\theta\st{i}}{n} \imp
+		\cosh \psi = \frac{\sin \theta \st{i}}{n}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Exercises}
+	\begin{outline}
+		\1 设界面的法向并指向透射侧为$x$的正方向，则$x$处的法向声阻抗率记
+		为：$z\st{n}(x)$
+		\1 位于$x=0$负侧（$x\to 0^-$）的法向声阻抗率为：
+		$$z\st{n}(x=0) = \left. \frac{p\st{i}+p\st{r}}{(\vb{v}\st{i} +\vb{v}\st{r})\vdot\vb{n}}\right|
+		_{x=0} = z\st{n1} \frac{1+r_p}{1-r_p}
+		\qc \qty(z\st{n1} = \dfrac{\rho_1c_1}{\cos\theta\st{i}})$$
+		$$\imp \quad r_p = \frac{z\st{n}(0) - z\st{n1}}{z\st{n}(0)+z\st{n1}}$$
+		\1 其中$r\st{p}$表示声压反射系数；$p\st{i}$、$p\st{r}$、$\vb{v}\st{
+		i}$、$\vb{v}\st{r}$和$\vb{n}$分别表示入射声压、反射声压、入射波质点
+		速度、反射波质点速度和界面的法向单位向量，$\rho_1$和$c_1$分别表示
+		入射侧的流体密度和声速。
+		\1 在$x=0$处法向声阻抗率连续，即：$z\st{n}(x=0) = z\st{n2} = \dfrac{
+		\rho_1c_1}{\cos\theta\st{t}}$
+		$$\imp \quad r_p = \frac{z\st{n2}-z\st{n1}}{z\st{n2}+z\st{n1}}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Exercises}
+	\begin{outline}
+		\1 由$x=0$处的声压连续条件有：$1+r\st{p}=t\st{p}$，其中$t\st{p}$
+		表示声压透射系数。所以声压反射与透射系数为：
+		$$
+			\begin{cases}
+				r_p & = \dfrac{m\cos \theta \st{i} +
+			\mj n \sinh \psi }{m\cos \theta\st{i} - \mj n \sinh \psi} = 
+			\me^{2\mj \phi}\\
+			t_p& = \dfrac{2m\cos \theta \st{i}}{m\cos 
+				\theta\st{i} - \mj n \sinh \psi} = 2\cos\phi \me^{\mj \phi}
+			\end{cases}
+			\qc \qty(m = \frac{\rho_2}{\rho_1})		
+		$$
+		$$
+		\tan \phi = \frac{n\sinh \psi}{m \cos \theta\st{i}} = 
+		\frac{\rho_1c_1}{\rho_2c_2} \frac{\sinh \psi}{\cos \theta\st{i}}
+		\qc \qty(0<\phi<\frac{\uppi}{2})$$
+		\1 则透射侧的总声压$p\st{t}$为：
+		$$		p\st{t} = 2p\st{ia} \cos \phi \me^{-k_2x\sinh \psi - \mj (k_2 y
+		\cosh \psi -\phi)}$$
+		\1 式中$p\st{ia}$表示入射波的振幅。
+		上式表明透射波是沿$x$方向的倏逝波，衰减系数为$k_2 \sinh \psi$；
+		沿$y$方向是行波，等效波数为$k_2\cosh \psi$。
 	\end{outline}
 \end{frame}
 
@@ -2291,7 +2385,8 @@ $$
 \lecture{\titlestring}{radi}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Pulsating Sphere}
+\section{Monopole}
+\begin{frame}{Monopole}
 	\begin{outline}
 		\1 a \emph{monopole} or \emph{point source}: a small \emph{pulsating
 		sphere}
@@ -2566,15 +2661,30 @@ $$
 	\end{outline}
 \end{frame}
 
+
+\section{Quadrupole}
 \begin{frame}{Quadrupole}
 	\begin{outline}
-		\1 quadrupole: two anti-phase dipole
+		\1 \emph{quadrupole}: two identical dipoles with opposite phase and 
+		separated by a small distance
+	\end{outline}
+	
+	\begin{figure}
+		\centering
+		\animategraphics[loop,controls,width=0.6\linewidth]{10}{gif/radi/quadrupole-}{0}{29}
+		\footnote{Available at: https://en.wikibooks.org/wiki/Aeroacoustics/Acoustic\_Sources}
+	\end{figure}
+\end{frame}
+\begin{frame}{Quadrupole}
+	\begin{outline}
+		\1 quadrupole: two identical dipoles with opposite phase and 
+		separated by a small distance
 		$$W_{1,+}=W_{2,+} = W\st{m} \qty[1-\sinc(kd) - \sinc(kl) + 
 		\sinc(kl-kd)]$$
 		$$W_{1,-}=W_{2,-} = W\st{m} \qty[1-\sinc(kd) - \sinc(kl) + 
 		\sinc(kl+kd)]$$
 		\1 total sound power
-		$$W = \sum_{n=1}^2 (W_{n,+}+W_{n,-}) \approx \frac16 (kd)^4
+		$$W = \sum_{n=1}^2 (W_{n,+}+W_{n,-}) \approx \frac{1}{10} (kd)^4
 		W\st{m} \quad \qty(kd \ll 1, l = d)$$	
 	\end{outline}
 
@@ -2583,6 +2693,87 @@ $$
 		\includegraphics[width=0.4\textwidth]{img/radi/quadrupole.jpg}
 	\end{figure}
 \end{frame}
+
+\begin{frame}{Quadrupole --- Directivity}
+	\begin{outline}
+		\1 total field
+		$$
+		\Phi(r, \theta) = -Q(t)g(r_{1,-}) + Q(t)g(r_{1,+}) + Q(t)g(r_{2,+})
+		-Q(t)g(r_{2,-})
+		$$
+		$$r_{1,-} = r_{2,-} = r +\frac{l+d}{2} \cos \theta\qc 
+		r_{1,+} = r_{2,+} = r+\frac{l-d}{2}\cos\theta$$
+		$$\imp \frac{\Phi(r,\theta)}{\Phi\st{m}(r,\theta)}= 4\sin \qty(\frac{
+		kl}{2} \cos\theta) \sin \qty(\frac{kd}{2} \cos\theta)
+		\approx (kl)(kd) \cos^2\theta$$
+	\end{outline}
+\end{frame}
+
+\section{Exercises}
+\begin{frame}{Exercises*}
+	\begin{outline}
+		\1 \emph{3.} 简单讨论单极子、偶极子和四极子声源辐射声场的空间特性
+		、辐射功率与频率的关系，以具体例子说明。
+		\1 解答：
+		\1 单极子模型：源强为$Q(t)=Q\st{a}\me^{\mj \omega t}$
+		\1 偶极子模型：间距为$d$
+		\1 四极子模型：以线型四极子为例，其中偶极子间距为$d$，偶极子对的中心
+		距离为$l$
+		\1 空间特性：单极子为全指向性，即$D\st{m}(\theta)=1$；偶极子的指向性为$
+		D\st{d}(\theta) = |\cos\theta|$；四极子的指向性为$D\st{q}(\theta)=
+		\cos^2\theta$
+		\1 辐射声功率：单极子、偶极子、四极子分别为：
+		$$
+		\begin{dcases}
+			W\st{m} &= \frac{\rho_0 \omega k}{8\uppi} |Q|^2\\
+			W\st{d} &=2[1-\sinc(kd)]W\st{m} \approx \frac13 (kd)^2 W\st{m}\\
+			W\st{q} & = 2[2-2\sinc(kd) -2\sinc(kl)+\sinc(kl-kd)+
+			\sinc(kl+kd)]W\st{m} \approx \frac{1}{10} (kd)^4W\st{m}
+		\end{dcases}
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{ULA --- Uniform Linear Array of Monopoles}
+	\begin{outline}
+		\1 ULA --- the array of monopoles are deployed along a straight
+		line and spaced with equal distance
+		\1 $d$ --- the distance between the nearby monopoles;
+		$N$ --- the total number of the monopoles
+		\1 $D = (N-1)d$--- the length of the ULA;
+		$\Delta r = d \sin \theta$
+		\1 $r_i = r_1-(i-1)\Delta r, i = 1,2,\dots, N$ ---
+		the distance between the $i$-th monopole and the field 
+		point
+		\1 $r = r_1-D/(2d)\Delta r$ --- the distance between the middle
+		point of the ULA and the field point
+	\end{outline}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/radi/ULA.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{ULA}
+	\begin{outline}
+		\1 total field at \emph{far field}
+		$$
+			\Phi(r,\theta) = \sum_{i=1}^N Q_i(t) g(r_i)
+		$$
+		\1 if $Q_1(t) = Q_2(t) =\cdots =Q_N(t)=Q(t)$
+		\begin{align*}
+			\Phi(r,\theta) &\approx \Phi\st{m}(r) 
+			\sum_{i=1}^N \me^{-\mj k \Delta r\qty[D/(2d) - (i-1)]}\\
+			& ={\Phi\st{m} (r)}\frac{\sin \qty(\dfrac{N}{2}kd\sin \theta
+		)}{\sin \qty(\dfrac{1}{2} kd\sin \theta)}
+		\end{align*}
+		\1 directivity function $D(\theta)$
+		$$D(\theta) = \frac{1}{N}\qty| \frac{\sin \qty(\dfrac{N}{2}kd\sin \theta
+	)}{\sin \qty(\dfrac{1}{2} kd\sin \theta)}|
+		$$
+	\end{outline}
+\end{frame}
+
 
 \begin{frame}{Two in-phase monopoles}
 
@@ -2600,18 +2791,66 @@ $$
 
 \begin{frame}{Radiation from a Baffled Circular Plane Piston}
 	\begin{outline}
-		\1 only the sound field on the surface $xOz$ is needed to compute for symmetry
-		\1 location of the field point $P$: $\vb{r}=r(\sin\theta,0,\cos\theta)$
-		\1 volume velocity of an element on the piston: $\dd{Q_0}$
-		\1 location of a point on the piston $\dd{Q}_0$: $\vb{r}_0 = \rho(\cos\phi,\sin\phi,0)$
-		\1 distance between $P$ and $\dd{Q}_0$: $h=|\vb{r}-\vb{r}_0|\approx r-\rho\sin\theta \cos\phi, (r\gg a)$
-		$$\Phi(\vb{r}) = \iint_{S_\text{pis}} 2g(\vb{r};\vb{r}_0) u\st{a}
-		(\vb{r}_0) \dd{S_0} \xlongequal{u\st{a} =\text{const}} u\st{a}\iint_{S_\text{pis}} \frac{\me^{-\mj kh}}{2\uppi h}\dd{S_0}$$
+		\1 each point of the source can be treated as a pointlike source, 
+		emitting spherical waves as given by
+		$$p = \mj \rho\st{air} \omega Q(t)g(r)$$
+		\1 simplest situation --- \emph{circular piston source}: uniformly
+		excited across its circular face and to be enclosed in an infinite
+		baffle such that acoustic energy is only radiated in the forward 
+		direction
 	\end{outline}
-
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/radi/circularPistonSource.jpg}
+	\end{figure}
 \end{frame}
 
-\begin{frame}{Radiation from a Baffled Circular Plane Piston}
+\begin{frame}{Circular Piston Source}
+	\begin{outline}
+		\1 each infinitesimal source element $\vb{r}_0 = \rho(\cos
+		\phi, \sin \phi, 0)$ on the piston produces a
+		differential pressure $\dd p$ at a point of observation 
+		$\vb{r} = r(\sin \theta, 0, \cos\theta)$ at a 
+		distance of $h=|\vb{r}-\vb{r}_0|$
+		$$\dd \Phi(\vb{r}) = G(\vb{r};\vb{r}_0) \vb{u} \vdot \dd \vb{S}$$
+		\1 only the sound field on the surface $xOz$ is needed to compute for symmetry
+		\1 the normal velocity on the surface
+		$$ u\st{n} (x,y,t) = u\st{a}(x,y) \me^{\mj \omega t }
+		\qc (S:\rho < a\qc z=0)$$
+		\1 the total pressure $p$ at the point $(r,\theta)$ is the integral
+		of $\dd p$ over the full radiator surface --- \emph{Rayleigh Integral}
+		\begin{align*}
+			\Phi(\vb{r}) &= \iint_S G(\vb{r};\vb{r}_0) u\st{a}(\vb{r}_0)
+			\dd S = 2\iint_S g(\vb{r}; \vb{r}_0) u\st{a}(\vb{r}_0)\dd  S\\
+			&=\frac{1}{2\uppi} \iint_S \frac{\me^{-\mj k |\vb{r}-\vb{r}_0|
+		}}{|\vb{r}-\vb{r}_0|} u\st{a}(\vb{r}_0)\dd S
+		\end{align*}
+		\1 Piston source
+		$$\Phi(\vb{r}) = 
+		\frac{u\st{a}}{2\uppi} \iint_S \frac{\me^{-\mj k |\vb{r}-\vb{r}_0|
+		}}{|\vb{r}-\vb{r}_0|} \dd S
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Far Field}
+	\begin{outline}
+		\1 \emph{Far field} or \emph{Fraunhofer limit} --- $r\gg a$
+		\begin{align*}
+		h &= \sqrt{r^2 + \rho^2 - 2r \rho \cos(\vb{r_0}, \vb{r})}
+		 = r\sqrt{1-\frac{2\rho}{r}\cos (\vb{r_0},\vb{r})
+		+\frac{\rho^2}{r^2}}\\
+		&\approx r-\rho \cos(\vb{r_0},\vb{r}) = r-\rho \sin\theta \cos \phi
+	\end{align*}
+	$$\qty( \cos(\vb{r}_0,\vb{r}) = \frac{\vb{r}_0\vdot \vb{r}}{
+	r_0 r} = \sin\theta\cos\phi)$$
+	$$\imp \Phi(r,\theta) \approx 
+	2u\st{a}g(r) \int_0^a \rho \dd\rho \int_0^{2\uppi} \me^{\mj k \rho \sin
+	\theta \cos\phi }\dd\phi = 2Q\st{a} g(r) D(\theta)$$
+	$$\qty(\int_0^{2\uppi} \me^{\mj x \cos\phi}\dd\phi = 2\uppi J_0(x)
+	\qc 
+	\int xJ_0(x)\dd x = xJ_1(x))$$
+	\end{outline}
 	\begin{exampleblock}{Sound Field at Far Field (Radiation from a Baffled Circular Plane Piston) }
 		$$\Phi(\vb{r},t)\approx 2Q(t)g(r)D(\theta) $$
 		\begin{flalign*}
@@ -2622,11 +2861,160 @@ $$
 	\end{exampleblock}
 \end{frame}
 
+
+\begin{frame}{Radiation from a Baffled Circular Plane Piston}
+\end{frame}
+
 \begin{frame}{Radiation from a Baffled Circular Plane Piston}{Radiation Directivity (Pattern)}
 	\begin{outline}
 		\1 the property of Bessel functions: $\qty[\dfrac{2\upJ_1(x)}{x}]_{x=0} = 1$
 	\end{outline}
 
+\end{frame}
+
+\section{Exercises}
+\begin{frame}{Exercises*}
+	\begin{outline}
+		\1 \emph{4.} 简单分析无限大刚性障板上活塞振动的辐射场特性（以$z$轴
+	上的声场为例）。
+		\1 解答：见《声学基础》P228，教材讲得非常详细。
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Finite Beams}
+	\begin{outline}
+		\1 \emph{Assumption (1)}: axisymmetric radiation. polar coordinates $(
+		\rho, \theta, z)$
+		$$
+		\frac{1}{\rho}\pdv{\rho}\qty(\rho \pdv{p}{\rho}) + 
+		\pdv[2]{p}{z} -\frac{1}{c_0^2}\pdv[2]{p}{t} = 0
+		$$
+		\1 transformations of coordinates --- retarded time $\tau = 
+	\omega\qty(t-{z}/{c_0})$; $\xi = \rho /a$; $\sigma = z/R_0$
+		\1 Rayleigh distance $R_0 = {\uppi a^2}/{\lambda}=\frac12ka^2$
+		$$
+			\pdv{\rho} = \frac{1}{a}\pdv{\xi}\qc
+			\pdv{t} = \omega \pdv{\tau}\qc
+			\pdv{z} = -k \pdv{\tau}+\frac{1}{R_0} \pdv{\sigma}
+		$$
+		$$
+		4\pdv{p}{\sigma}{\tau} - \laplacian_\perp p - \frac{4}{(ka)^2}
+		\pdv[2]{p}{\sigma}=0\qc \qty[\laplacian_\perp = \frac{1}{\xi}
+		\pdv{\xi} \qty(\xi \pdv{\xi})]$$
+		\1 \emph{Assumption (2)}: $ka\gg 1$
+		$$
+		4\pdv{p}{\sigma}{\tau} - \laplacian_\perp p =0
+		$$
+		\1 propagating waves: 
+		$p(\tau, \sigma,\xi) = p(\sigma ,\xi) \me^{\mj \tau}$
+		$$
+		4\mj \pdv{p}{\sigma} - \laplacian_\perp p =0
+		$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Hankel Transformations}
+	\begin{outline}
+		\1 \emph{Fourier-Bessel Integral Transformation}
+		$$
+		\begin{dcases}
+			p(\sigma,\xi) & = \int_0^\infty q(\sigma,\eta)J_0(\xi \eta)
+			\eta \dd{\eta},\\
+			q(\sigma,\eta) & = \int_0^\infty p(\sigma, \xi)J_0(\xi,\eta)
+			\xi \dd{\xi}
+		\end{dcases}
+		\quad
+		\qty[\frac{1}{\xi} \pdv{\xi} \qty(\xi \pdv{\xi})J_0(\eta\xi)
+		=-\eta^2 J_0(\eta\xi)]
+		$$
+		\1 the equation becomes
+		$$4\mj \pdv{\sigma} q(\sigma, \eta)+\eta^2 q(\sigma,\eta)=0$$
+		\1 solution
+		$$q(\sigma,\eta) = q(0,\eta)\me^{\mj \eta^2\sigma/4}$$
+		$$\imp \quad p(\sigma,\xi) = \int_0^\infty q(0,\eta) \me^{
+		\mj \eta^2\sigma /4}J_0(\xi\eta)\eta \dd{\eta}$$
+		\1 $ka \gg 1$
+		$$p(\sigma,\xi) \approx \rho_0c_0 v(\sigma,\xi) 
+		\xleftrightarrow{\text{Hankel Transform}} q(\sigma,\eta)\approx
+	\rho_0c_0 w(\sigma,\eta)$$
+	$$w(0,\eta) = \int_0^\infty u\st{a}(\xi)J_0(\xi\eta)\xi\dd \xi$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Sound Field Solution}
+	\begin{outline}
+		\1 solution
+		$$p(\sigma,\xi) = \rho_0c_0 \int_0^\infty \zeta u\st{a} \dd\zeta
+	\int_0^\infty \me^{\mj\eta^2\sigma/4}J_0(\xi\eta)J_0(\zeta \eta)\dd
+\eta$$
+		\1 Bessel integral relation
+		$$\int_0^\infty \me^{-Q^2 x^2}J_0(\alpha x)J_0(\beta x)x \dd{x}
+		=\frac{1}{2Q^2} \exp\qty(-\frac{\alpha^2+\beta^2}{4Q^2})
+		J_0\qty(\mj \frac{\alpha\beta}{2Q^2})$$
+		$$\imp \quad p(\sigma,\xi) = \rho_0c_0
+		\int_0^\infty \frac{2\mj}{\sigma} u\st{a} (\zeta)\exp\qty(
+		-\mj \frac{\xi^2+\zeta^2}{\sigma})J_0\qty(\frac{2\xi\zeta}{\sigma})
+		\zeta \dd\zeta$$
+	\end{outline}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\renewcommand{\titlestring}{Scattering of Sound}
+\part{\titlestring}
+\title{\titlestring}
+\lecture{\titlestring}{scatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Scattering by a Rigid Sphere}
+
+\subsection{Point Sources}
+
+\begin{frame}{Point Sources Scattering by a Rigid Sphere}
+	\begin{outline}
+		\1 For a point source at $\vb{r}\st{s} = (r\st{s}, \theta\st{s},
+		\phi\st{s})$ such that
+		$$p\st{inc} = \mj \rho\st{air} \omega Q(t)g(R)$$
+		\1 the incident field is (Bownman1969 p.369)
+		\begin{align*}
+			p\st{tot} = p\st{inc} +p\st{scat} &= \frac{\rho\st{air}\omega Q(t)}{4\uppi}
+		\sum_{n=0}^\infty (2n+1)\qty[
+		j_n(kr_<)-a_n' h_n(kr_<)] h_n(kr_>)\\
+		&\times\sum_{m=0}^n \eps_m \frac{(n-m)!}{(n+m)!} P_n^m(\cos\theta\st{s})
+		P_n^m(\cos\theta)\cos[m(\phi-\phi\st{s})]
+	\end{align*}
+	\begin{flalign*}
+		\text{where}&& a_n' = \frac{j_n'(ka)}{h_n'(ka)}&&
+	\end{flalign*}
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Point Sources Scattering by a Rigid Sphere}
+	\begin{outline}
+		\1 In particular --- $\vb{r}\st{s} = (r\st{s},0,0)$
+		$$p\st{tot} = \frac{\rho\st{air}\omega Q(t)}{4\uppi}
+		\sum_{n=0}^\infty (2n+1)P_n(\cos\theta)h_n(kr_>)
+		\qty[j_n(kr_<)-a_n'h_n(kr_<)]$$
+		\1 In the farfield --- $(r\to \infty)$
+		\begin{align*}
+			p\st{tot} &= \mj \rho\st{air}\omega Q(t) g(r)
+		\sum_{n=0}^\infty (-\mj )^n (2n+1) P_n(\cos\theta)\qty[
+		j_n(kr\st{s})-a_n'h_n(kr\st{s})]\\
+		&= \frac{ \rho\st{air}\omega k}{4\uppi} Q(t) h_0(kr)
+		\sum_{n=0}^\infty (-\mj )^n (2n+1) P_n(\cos\theta)\qty[
+		j_n(kr\st{s})-a_n'h_n(kr\st{s})]
+	\end{align*}
+	\end{outline}
+\end{frame}
+
+
+\section{Exercises}
+\begin{frame}{Exercises}
+	\begin{outline}
+		\1 \emph{5.} 讨论水中气泡的共振散射条件以及散射功率，并且说明特点。
+		\1 解答：见《声学基础》P265，非常详细。但此题较复杂，个人认为短期内
+		难以掌握，或可舍去，专心把前面的复习好。
+	\end{outline}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2752,6 +3140,73 @@ $$
 \lecture{\titlestring}{nonlinear}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{1 Dimensional Nonlinear Waves}
+\begin{frame}{1 Dimensional Nonlinear Waves}
+	\begin{outline}
+		\1 Continuity equation and Eulerian equation in one dimension
+		$$\begin{dcases}
+			\rho \pdv{v}{t} +\rho v \pdv{v}{x} = -\pdv{P}{x}\\
+			\pdv{\rho}{t} + \pdv{(\rho v)}{x} = 0
+		\end{dcases}
+		$$
+		\1 \emph{assumption: simple waves} such that $\rho = \rho(v),
+		P = P(v)$
+		$$
+		\begin{dcases}
+			\pdv{v}{t}+\qty(v +\frac1\rho \dv{P}{v})\pdv{v}{x} & = 0\\
+			\pdv{\rho}{t} + \qty(v+\rho\dv{v}{\rho})\pdv{\rho}{x} &=0
+		\end{dcases}
+		\imp
+		\begin{dcases}
+			-\qty(\pdv{v}{t})\Big/ \qty(\pdv{v}{x}) & = 
+			v+\frac1\rho \qty(\dv{P}{v})\\
+			-\qty(\pdv{\rho}{t})\Big/ \qty(\pdv{\rho}{x}) & = 
+			v+\rho \qty(\dv{v}{\rho})
+		\end{dcases}
+		$$
+		$$
+		\qty(\pdv{x}{t})_v = \qty(\pdv{x}{t})_\rho 
+		\imp
+		\frac1\rho\qty(\dv{P}{v})=\rho\qty(\dv{v}{\rho})
+		\imp
+		\qty(\dv{v}{\rho})^2 = \frac{c^2}{\rho^2}
+		$$
+		$$
+		\imp v = \pm \int\frac{c}{\rho} \dd\rho = \pm \int\frac{\dd P}{
+		\rho c}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{1 Dimensional Nonlinear Waves}
+	\begin{outline}
+		$$\qty(\pdv{x}{t})_v = \qty(\pdv{x}{t})_\rho = v\pm c$$
+		\1 integrating the above equation --- \emph{Riemann Solution}
+		$$\imp x = (v\pm c)t +f(v)$$
+		$$ v = F\qty[x-(v\pm c)t]$$
+		\1 small amplitude
+		$$v = F\qty[x\pm ct]$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Relation Between $c$ and $v$}
+	\begin{outline}
+		\1 equation of state
+		$$\frac{c^2}{c_0^2} = \qty(\frac{\rho}{\rho_0})^{\gamma -1}
+		\imp c = c_0 \qty(\frac{\rho}{\rho_0})^{(\gamma-1)/2}$$
+		\begin{align*}
+			v & = \pm \int \frac{c}{\rho}\dd \rho = \pm c_0\int_{\rho_0}^
+			\rho \qty(\frac{\rho}{\rho_0})^{(\gamma -1)/2} \frac{\dd\rho}{
+			\rho}\\
+			&=\pm \frac{2c_0}{\gamma-1}\qty[\qty(\frac{\rho}{\rho_0})^{
+			(\gamma-1)/2}-1] = \pm\frac{2c_0}{\gamma-1}\qty(\frac{c}{
+			c_0}-1)
+		\end{align*}
+		\1 ideal gas
+		$$\imp c = c_0 \pm \frac{\gamma -1}{2} v$$
+		\1 general fluids
+		$$c = c_0 \pm \frac{B}{2A} v\qc \qty(\frac{B}{A} = \gamma-1)$$
+	\end{outline}
+\end{frame}
 
 \begin{frame}
 	\begin{thm}[Gauss Theorem in Tensor Fields]
