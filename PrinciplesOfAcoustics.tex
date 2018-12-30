@@ -3,7 +3,7 @@
 \usepackage{scigeneral}
 \usepackage{scislide}
 
-\includeonlylecture{radi}
+% \includeonlylecture{scatter}
 
 % \includeonlylecture{intro}
 % \includeonlylecture{idealfluid}
@@ -2861,15 +2861,120 @@ $$
 	\end{exampleblock}
 \end{frame}
 
-
-\begin{frame}{Radiation from a Baffled Circular Plane Piston}
+\begin{frame}{Jinc function}
+	\begin{outline}
+		\1 \emph{Jinc function} or \emph{Sombrero function}
+		$$\jinc x = \somb x \equiv \frac{2J_1(x)}{x} \qc \jinc 0 = 1$$
+	\end{outline}
+	\begin{figure}
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width = \textwidth]{img/radi/jincFunction2D.jpg}
+		\end{subfigure}
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width = \textwidth]{img/radi/sombreroFunction3D.png}
+		\end{subfigure}
+	\end{figure}
 \end{frame}
 
-\begin{frame}{Radiation from a Baffled Circular Plane Piston}{Radiation Directivity (Pattern)}
+\begin{frame}{Directivity}
 	\begin{outline}
-		\1 the property of Bessel functions: $\qty[\dfrac{2\upJ_1(x)}{x}]_{x=0} = 1$
+		$$|D(\theta)| = \qty|\frac{2J_1(ka\sin\theta)}{ka\sin\theta}|$$
+		\1 the first zero $\theta_1$ of $\jinc x $ occurs at $ka\sin\theta
+		=3.83$ --- a measure of the angular half width of the \emph{
+		principle lobe} of the acoustic pressure
+		$$\sin\theta_1 = \frac{3.83}{ka} = 0.61 \frac{\lambda}{a}$$
+		\1 the first \emph{sidelobe} is included between $\theta_1$ and 
+		$\theta_2$
+		$$\sin \theta_2 = \frac{7.02}{ka} = 1.12 \frac{\lambda}{a}$$
 	\end{outline}
+	\begin{figure}
+		\begin{subfigure}{0.4\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{img/radi/circularPistonSourceDirectivity1.jpg}
+		\end{subfigure}
+		\begin{subfigure}{0.4\textwidth}
+			\centering
+			\includegraphics[width=0.8\textwidth]{img/radi/circularPistonSourceDirectivity2.jpg}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
 
+\begin{frame}{Axial Pressure}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{outline}
+			\1 analytical solutions are only available on the axis
+			$$\dd S  =2\uppi \dd \rho = 2\uppi h \dd h$$
+			\1 radiation field along the $z$ axis
+			\begin{align*}
+				\dd \Phi(z) &= \frac{u\st{a}}{2\uppi h} \me^{-\mj k h}\dd{S}\\
+				&= \frac{u\st{a}}{2\uppi h} \me^{-\mj k h} (2\uppi h \dd h)
+				=u\st{a} \me^{-\mj kh} \dd h
+			\end{align*}
+		\end{outline}
+		\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{img/radi/circularPistonSourceAxis.jpg}
+		\end{figure}
+	\end{columns}
+	\begin{outline}
+		\1 total field
+		\begin{align*}
+			\Phi(z) &= u\st{a} \int_z^R \me^{-\mj kh}\dd h
+			=  u\st{a}\frac{\mj}{k} \qty(\me^{-\mj k R} -\me^{-\mj k z})\\
+			& = \frac{\mj}{k} \me^{-\mj k \frac{R+z}{2}}\qty(
+			\me^{-\mj k \frac{R-z}{2}} - \me^{\mj k \frac{R-z}{2}})
+			 = \frac{2u\st{a}}{k} 
+			\sin \qty[\frac{ka}{2}\qty(\sqrt{1+\frac{z^2}{a^2}}-\frac{z}{a})]
+			\me^{-\mj k \frac{R+z}{2}}
+		\end{align*}
+	\end{outline}
+\end{frame}
+\begin{frame}{Axial Pressure}
+	\begin{outline}
+		\1 total acoustic pressure field
+		\begin{align*}
+			p(z,t)
+			&= 2\rho_0c_0 u\st{a}
+			\sin \qty[\frac{ka}{2}\qty(\sqrt{1+\frac{z^2}{a^2}}-\frac{z}{a})]
+			\me^{\mj\qty(\omega t - k \frac{R+z}{2} + \frac{\uppi}{2})}\\
+			& = 2\rho_0 c_0 u\st{a}\sin\qty[\frac{ka}{2}
+			\qty(\sqrt{1+\sigma^2} - \sigma)]
+			\me^{\mj\qty[\omega t - \frac{ka}{2} (\sqrt{1+\sigma^2}+\sigma
+			+\frac{\uppi}{2}])}
+		\end{align*}
+		$$\qty(\sigma \equiv \frac{z}{z\st{F}} \frac{ka}{2\uppi}\qc 
+		z\st{F} \equiv \frac{a^2}{\lambda})$$
+	\end{outline}
+	\begin{figure}
+		\centering
+		\includegraphics[width =0.9\textwidth]{img/radi/PlotCircularPistonSourceAxialPressure.jpg}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Axial Pressure}
+	\begin{outline}
+		\1 zeros (minimum)
+		$$
+		\frac{ka}{2} \qty(\sqrt{1+\frac{z^2}{a^2}}-\frac{z}{a})
+		= n \uppi \qc (n \in \N^*)
+		$$
+		\1 maximum
+		$$
+		\frac{ka}{2} \qty(\sqrt{1+\frac{z^2}{a^2}}-\frac{z}{a})
+		= (n+\frac12) \uppi \qc (n \in \N)
+		$$
+		% \1 $z<a$ --- nearly planar 
+		\1 $ z>2a$
+		$$p(z,t)\approx  2\rho_0c_0 u\st{a} \sin\qty(\frac{\uppi}{2} \frac{
+			z\st{F}}{z}) \me^{\mj \qty[\omega t - k\frac{R+z}{2}+\frac{
+			\uppi}{2}]}
+			\qc \qty(z\st{F} \equiv \frac{a^2}{\lambda})
+			$$
+	\end{outline}
 \end{frame}
 
 \section{Exercises}
@@ -3007,6 +3112,44 @@ $$
 	\end{outline}
 \end{frame}
 
+\section{Scattering by Bubbles}
+\begin{frame}{Scattering by Bubbles}
+	\begin{outline}
+		\1 fluids outsize the bubble --- $z_0 = \rho_0 c_0\qc \kappa_0 = 
+		\rho_0c_0^2$
+		\1 fluids inside the bubble --- $z_1 = \rho_1 c_1\qc \kappa_1 = 
+		\rho_1c_1^2$
+		\1 specific acoustic impedance
+		$$z = z\st{r} + z\st{c}$$
+		\1 radiational part
+		$$z\st{r} = z_0[(ka)^2+\mj ka]$$
+		\1 capacitance part
+		$$z\st{c} = \frac{1}{\mj \omega C\st{a} S_1} = \frac{3\rho_1c_1^2}{
+		\mj \omega a}\qc \qty(C\st{a} = \frac{1}{\rho_1c_1^2} \frac{V_1}{
+		S_1})$$
+		\1 resonanting frequency
+		$$\rho_0c_0 k a = \frac{3\rho_1c_1^2}{\omega\st{r} a}
+		\imp
+		f\st{r} = \frac{c_0}{2\uppi a}\sqrt{\frac{3\kappa_1}{\kappa_0}}$$
+	\end{outline}
+\end{frame}
+
+\begin{frame}{Scattering Power}
+	\begin{outline}
+		$$
+		W = 
+		\begin{dcases}
+			W\st{p} \qty(3 \frac{\kappa_1}{\kappa_0})^{-2} (ka)^4\qc 
+			&f\ll f\st{r};\\
+			W\st{p} \qty(ka)^{-2}\qc & f=f\st{r};\\
+			W\st{p} \qc &f\gg f\st{r}.
+		\end{dcases}
+		\quad
+		\qty(W\st{p} = I\st{p} (4\uppi a^2)\qc 
+		I\st{p} = \frac{p\st{a}}{2\rho_0c_0})
+		$$
+	\end{outline}
+\end{frame}
 
 \section{Exercises}
 \begin{frame}{Exercises}
